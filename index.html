@@ -5,59 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>FindmyTutor Dhaka | Professional Tuition Media in Dhaka</title>
     
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-    
-    <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- Swiper JS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
     
     <style>
-        /* Additional styles for Latest Tuition Section */
-        .latest-tuition-section {
-            padding: 5rem 5%;
-            background: white;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .section-subtitle {
-            color: #F5A623;
-            font-weight: 600;
-            letter-spacing: 2px;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1A2A6C;
-        }
-        
-        .section-title span {
-            color: #F5A623;
-        }
-        
-        .latest-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
+        .latest-tuition-section { padding: 5rem 5%; background: white; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-subtitle { color: #F5A623; font-weight: 600; letter-spacing: 2px; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .section-title { font-size: 2.5rem; font-weight: 700; color: #1A2A6C; }
+        .section-title span { color: #F5A623; }
+        .latest-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
         .latest-card {
             background: white;
             border-radius: 20px;
@@ -68,111 +28,19 @@
             position: relative;
             overflow: hidden;
         }
-        
-        .latest-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(135deg, #F5A623, #1A2A6C);
-        }
-        
-        .latest-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.1);
-            border-color: #F5A623;
-        }
-        
-        .latest-badge {
-            display: inline-block;
-            background: rgba(245, 166, 35, 0.1);
-            color: #F5A623;
-            font-size: 0.7rem;
-            padding: 4px 12px;
-            border-radius: 50px;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-        
-        .latest-card h3 {
-            font-size: 1.3rem;
-            color: #1A2A6C;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .latest-card h3 i {
-            color: #F5A623;
-            font-size: 1.1rem;
-        }
-        
-        .latest-details {
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .latest-detail {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.85rem;
-            color: #64748B;
-        }
-        
-        .latest-detail i {
-            width: 18px;
-            color: #F5A623;
-            font-size: 0.8rem;
-        }
-        
-        .view-all-btn {
-            text-align: center;
-            margin-top: 1rem;
-        }
-        
-        .btn-view-all {
-            background: transparent;
-            border: 2px solid #F5A623;
-            color: #F5A623;
-            padding: 12px 32px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .btn-view-all:hover {
-            background: #F5A623;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(245, 166, 35, 0.3);
-        }
-        
-        .empty-tuition {
-            text-align: center;
-            padding: 3rem;
-            color: #64748B;
-            background: #F8F9FC;
-            border-radius: 20px;
-        }
-        
-        @media (max-width: 768px) {
-            .section-title {
-                font-size: 1.8rem;
-            }
-            .latest-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        .latest-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(135deg, #F5A623, #1A2A6C); }
+        .latest-card:hover { transform: translateY(-5px); box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.1); border-color: #F5A623; }
+        .latest-badge { display: inline-block; background: rgba(245, 166, 35, 0.1); color: #F5A623; font-size: 0.7rem; padding: 4px 12px; border-radius: 50px; margin-bottom: 1rem; font-weight: 600; }
+        .latest-card h3 { font-size: 1.3rem; color: #1A2A6C; margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; }
+        .latest-card h3 i { color: #F5A623; }
+        .latest-details { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.5rem; }
+        .latest-detail { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: #64748B; }
+        .latest-detail i { width: 18px; color: #F5A623; }
+        .view-all-btn { text-align: center; margin-top: 1rem; }
+        .btn-view-all { background: transparent; border: 2px solid #F5A623; color: #F5A623; padding: 12px 32px; border-radius: 50px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block; }
+        .btn-view-all:hover { background: #F5A623; color: white; transform: translateY(-2px); }
+        .empty-tuition { text-align: center; padding: 3rem; color: #64748B; background: #F8F9FC; border-radius: 20px; }
+        @media (max-width: 768px) { .section-title { font-size: 1.8rem; } .latest-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -192,51 +60,28 @@
     <div class="mobile-menu" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></div>
 </nav>
 
-<!-- Hero Section -->
 <section class="hero">
     <div class="hero-content" data-aos="fade-up">
-        <div class="hero-badge">
-            <i class="fas fa-star"></i> Bangladesh's Trusted Tuition Media
-        </div>
+        <div class="hero-badge"><i class="fas fa-star"></i> Bangladesh's Trusted Tuition Media</div>
         <h1>Find Your Perfect <span class="highlight">Tutor</span> or <span class="highlight">Tuition</span> in Dhaka</h1>
         <p>Connecting students and tutors across all areas of Dhaka city with our intelligent matching system.</p>
         <div class="hero-buttons">
-            <button class="btn-primary" onclick="openModal('tutor')">
-                <i class="fas fa-chalkboard-user"></i> Register as Tutor
-            </button>
-            <button class="btn-outline" onclick="openModal('student')">
-                <i class="fas fa-graduation-cap"></i> Find a Tutor
-            </button>
+            <button class="btn-primary" onclick="openModal('tutor')"><i class="fas fa-chalkboard-user"></i> Register as Tutor</button>
+            <button class="btn-outline" onclick="openModal('student')"><i class="fas fa-graduation-cap"></i> Find a Tutor</button>
         </div>
         <div class="hero-stats">
-            <div class="stat-item">
-                <div class="stat-number" id="totalTutors">1000+</div>
-                <div class="stat-label">Verified Tutors</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" id="totalPosts">500+</div>
-                <div class="stat-label">Active Tuitions</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">2000+</div>
-                <div class="stat-label">Happy Families</div>
-            </div>
+            <div class="stat-item"><div class="stat-number" id="totalTutors">1000+</div><div class="stat-label">Verified Tutors</div></div>
+            <div class="stat-item"><div class="stat-number" id="totalPosts">500+</div><div class="stat-label">Active Tuitions</div></div>
+            <div class="stat-item"><div class="stat-number">2000+</div><div class="stat-label">Happy Families</div></div>
         </div>
     </div>
     <div class="hero-image" data-aos="fade-left">
         <img src="https://placehold.co/500x450/1A2A6C/FFFFFF?text=FindmyTutor+Dhaka" alt="FindmyTutor Dhaka">
-        <div class="floating-card floating-card-1">
-            <i class="fas fa-check-circle" style="color: #F5A623;"></i>
-            <span>100% Verified Tutors</span>
-        </div>
-        <div class="floating-card floating-card-2">
-            <i class="fas fa-clock" style="color: #F5A623;"></i>
-            <span>Quick Matching</span>
-        </div>
+        <div class="floating-card floating-card-1"><i class="fas fa-check-circle" style="color: #F5A623;"></i><span>100% Verified Tutors</span></div>
+        <div class="floating-card floating-card-2"><i class="fas fa-clock" style="color: #F5A623;"></i><span>Quick Matching</span></div>
     </div>
 </section>
 
-<!-- Latest Tuition Posts Section (Dynamic from tuition page) -->
 <section class="latest-tuition-section" id="latestTuitionSection">
     <div class="container">
         <div class="section-header" data-aos="fade-up">
@@ -244,19 +89,14 @@
             <h2 class="section-title">Recent <span>Tuition Posts</span></h2>
         </div>
         <div class="latest-grid" id="latestTuitionsGrid">
-            <div class="empty-tuition">
-                <i class="fas fa-spinner fa-spin"></i> Loading latest tuitions...
-            </div>
+            <div class="empty-tuition"><i class="fas fa-spinner fa-spin"></i> Loading latest tuitions...</div>
         </div>
         <div class="view-all-btn" data-aos="fade-up">
-            <a href="tuition.html" class="btn-view-all">
-                <i class="fas fa-eye"></i> View All Tuitions
-            </a>
+            <a href="tuition.html" class="btn-view-all"><i class="fas fa-eye"></i> View All Tuitions</a>
         </div>
     </div>
 </section>
 
-<!-- Features Section -->
 <section>
     <div class="container">
         <div class="section-header" data-aos="fade-up">
@@ -264,53 +104,25 @@
             <h2 class="section-title">Why <span>FindmyTutor Dhaka</span>?</h2>
         </div>
         <div class="features-grid">
-            <div class="feature-card" data-aos="zoom-in">
-                <div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div>
-                <h3>Full Dhaka Coverage</h3>
-                <p>All 30+ areas including Motijheel, Gulshan, Banani, Dhanmondi, Uttara & more</p>
-            </div>
-            <div class="feature-card" data-aos="zoom-in" data-aos-delay="100">
-                <div class="feature-icon"><i class="fas fa-user-check"></i></div>
-                <h3>Verified Tutors</h3>
-                <p>Background checked professional tutors for your peace of mind</p>
-            </div>
-            <div class="feature-card" data-aos="zoom-in" data-aos-delay="200">
-                <div class="feature-icon"><i class="fas fa-bolt"></i></div>
-                <h3>Fast Response</h3>
-                <p>Get matched with the perfect tutor within 24 hours</p>
-            </div>
-            <div class="feature-card" data-aos="zoom-in" data-aos-delay="300">
-                <div class="feature-icon"><i class="fas fa-hand-holding-usd"></i></div>
-                <h3>Best Rates</h3>
-                <p>Affordable tuition rates with no hidden charges</p>
-            </div>
+            <div class="feature-card" data-aos="zoom-in"><div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div><h3>Full Dhaka Coverage</h3><p>All 30+ areas including Motijheel, Gulshan, Banani, Dhanmondi, Uttara & more</p></div>
+            <div class="feature-card" data-aos="zoom-in" data-aos-delay="100"><div class="feature-icon"><i class="fas fa-user-check"></i></div><h3>Verified Tutors</h3><p>Background checked professional tutors for your peace of mind</p></div>
+            <div class="feature-card" data-aos="zoom-in" data-aos-delay="200"><div class="feature-icon"><i class="fas fa-bolt"></i></div><h3>Fast Response</h3><p>Get matched with the perfect tutor within 24 hours</p></div>
+            <div class="feature-card" data-aos="zoom-in" data-aos-delay="300"><div class="feature-icon"><i class="fas fa-hand-holding-usd"></i></div><h3>Best Rates</h3><p>Affordable tuition rates with no hidden charges</p></div>
         </div>
     </div>
 </section>
 
-<!-- Registration Section -->
 <section class="register-section">
     <div class="section-header" data-aos="fade-up">
         <div class="section-subtitle">JOIN OUR COMMUNITY</div>
         <h2 class="section-title">Start Your Journey Today</h2>
     </div>
     <div class="register-grid">
-        <div class="register-card" data-aos="flip-left">
-            <div class="register-icon"><i class="fas fa-chalkboard-user"></i></div>
-            <h3>Are You a Tutor?</h3>
-            <p>Get unlimited tuition leads in your area. Build your teaching career with us.</p>
-            <button class="btn-secondary" onclick="openModal('tutor')">Register as Tutor</button>
-        </div>
-        <div class="register-card" data-aos="flip-right">
-            <div class="register-icon"><i class="fas fa-user-graduate"></i></div>
-            <h3>Looking for a Tutor?</h3>
-            <p>Find the best home tutor for your child from our verified network.</p>
-            <button class="btn-secondary" onclick="openModal('student')">Post Tuition Demand</button>
-        </div>
+        <div class="register-card" data-aos="flip-left"><div class="register-icon"><i class="fas fa-chalkboard-user"></i></div><h3>Are You a Tutor?</h3><p>Get unlimited tuition leads in your area. Build your teaching career with us.</p><button class="btn-secondary" onclick="openModal('tutor')">Register as Tutor</button></div>
+        <div class="register-card" data-aos="flip-right"><div class="register-icon"><i class="fas fa-user-graduate"></i></div><h3>Looking for a Tutor?</h3><p>Find the best home tutor for your child from our verified network.</p><button class="btn-secondary" onclick="openModal('student')">Post Tuition Demand</button></div>
     </div>
 </section>
 
-<!-- Service Areas Section -->
 <section class="areas-section">
     <div class="container">
         <div class="section-header" data-aos="fade-up">
@@ -333,7 +145,6 @@
     </div>
 </section>
 
-<!-- Reviews Section -->
 <section class="reviews-section">
     <div class="container">
         <div class="section-header" data-aos="fade-up">
@@ -351,28 +162,15 @@
     </div>
 </section>
 
-<!-- CTA Section -->
 <div class="cta-section" data-aos="zoom-in">
     <h2>Ready to Find Your Perfect Match?</h2>
     <p>Join thousands of successful tutors and students in Dhaka</p>
     <button class="btn-primary" onclick="openModal('tutor')">Get Started Now</button>
 </div>
 
-<!-- Footer -->
 <footer class="footer">
     <div class="footer-content">
-        <div class="footer-section">
-            <div class="logo" style="margin-bottom: 1rem;">
-                <div class="logo-icon">F</div>
-                <span class="logo-text" style="color: white;">FindmyTutor <span>Dhaka</span></span>
-            </div>
-            <p>Dhaka's leading tuition media platform connecting students and verified tutors.</p>
-            <div class="social-links">
-                <a href="https://facebook.com/findmytutordhaka" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://wa.me/8801991309741" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                <a href="mailto:dhakafindmytutor@gmail.com"><i class="fas fa-envelope"></i></a>
-            </div>
-        </div>
+        <div class="footer-section"><div class="logo" style="margin-bottom: 1rem;"><div class="logo-icon">F</div><span class="logo-text" style="color: white;">FindmyTutor <span>Dhaka</span></span></div><p>Dhaka's leading tuition media platform connecting students and verified tutors.</p><div class="social-links"><a href="https://facebook.com/findmytutordhaka"><i class="fab fa-facebook-f"></i></a><a href="https://wa.me/8801991309741"><i class="fab fa-whatsapp"></i></a><a href="mailto:dhakafindmytutor@gmail.com"><i class="fas fa-envelope"></i></a></div></div>
         <div class="footer-section"><h3>Quick Links</h3><p><a href="index.html">Home</a></p><p><a href="tuition.html">Tuition Posts</a></p><p><a href="blog.html">Blog</a></p><p><a href="about.html">About</a></p><p><a href="contact.html">Contact</a></p></div>
         <div class="footer-section"><h3>Contact</h3><p><i class="fab fa-whatsapp"></i> +8801991309741</p><p><i class="fas fa-envelope"></i> dhakafindmytutor@gmail.com</p></div>
         <div class="footer-section"><h3>Service Areas</h3><p>All 30+ areas of Dhaka city including Motijheel, Gulshan, Banani, Dhanmondi, Uttara, Mirpur & more</p></div>
@@ -380,44 +178,19 @@
     <div class="footer-bottom"><p>&copy; 2024 FindmyTutor Dhaka | Trusted Tuition Media in Bangladesh</p></div>
 </footer>
 
-<!-- Modals -->
-<div id="tutorModal" class="modal">
-    <div class="modal-content">
-        <div class="modal-header"><h2><i class="fas fa-chalkboard-user" style="color:#F5A623;"></i> Tutor Registration</h2><span class="close-modal" onclick="closeModal('tutorModal')">&times;</span></div>
-        <form id="tutorForm">
-            <div class="form-group"><label>Full Name</label><input type="text" id="tutorName" placeholder="e.g., Md. Rahim Uddin" required></div>
-            <div class="form-group"><label>WhatsApp Number</label><input type="tel" id="tutorPhone" placeholder="01XXXXXXXXX" required></div>
-            <div class="form-group"><label>High School</label><input type="text" id="tutorHighSchool" placeholder="School Name" required></div>
-            <div class="form-group"><label>College</label><input type="text" id="tutorCollege" placeholder="College Name" required></div>
-            <div class="form-group"><label>University (with ID)</label><input type="text" id="tutorUniversity" placeholder="University Name & ID" required></div>
-            <div class="form-group"><label>Your Area</label><select id="tutorArea" required><option value="">Select Area</option><option>Motijheel</option><option>Dilkusha</option><option>Paltan</option><option>Shahbagh</option><option>Ramna</option><option>Kakrail</option><option>Gulshan 1</option><option>Gulshan 2</option><option>Banani</option><option>Baridhara</option><option>Bashundhara R/A</option><option>Dhanmondi</option><option>Uttara</option><option>Lalbagh</option><option>Armanitola</option><option>Bangla Bazar</option><option>Chowk Bazar</option><option>Sadarghat</option><option>Hazaribagh</option><option>Wari</option><option>Banasree</option><option>Aftab Nagar</option><option>Mohammadpur</option><option>Mirpur</option><option>Agargaon</option><option>Malibagh</option><option>Moghbazar</option><option>Basabo</option><option>Kalabagan</option><option>Kamrangirchar</option><option>Kamalapur</option></select></div>
-            <button type="submit" class="btn-primary" style="width:100%;">Register Now</button>
-        </form>
-    </div>
-</div>
+<div id="tutorModal" class="modal"><div class="modal-content"><div class="modal-header"><h2><i class="fas fa-chalkboard-user" style="color:#F5A623;"></i> Tutor Registration</h2><span class="close-modal" onclick="closeModal('tutorModal')">&times;</span></div>
+<form id="tutorForm"><div class="form-group"><label>Full Name</label><input type="text" id="tutorName" required></div><div class="form-group"><label>WhatsApp Number</label><input type="tel" id="tutorPhone" required></div><div class="form-group"><label>High School</label><input type="text" id="tutorHighSchool" required></div><div class="form-group"><label>College</label><input type="text" id="tutorCollege" required></div><div class="form-group"><label>University (with ID)</label><input type="text" id="tutorUniversity" required></div><div class="form-group"><label>Your Area</label><select id="tutorArea" required><option value="">Select Area</option><option>Motijheel</option><option>Dilkusha</option><option>Paltan</option><option>Shahbagh</option><option>Ramna</option><option>Kakrail</option><option>Gulshan 1</option><option>Gulshan 2</option><option>Banani</option><option>Baridhara</option><option>Bashundhara R/A</option><option>Dhanmondi</option><option>Uttara</option><option>Lalbagh</option><option>Armanitola</option><option>Bangla Bazar</option><option>Chowk Bazar</option><option>Sadarghat</option><option>Hazaribagh</option><option>Wari</option><option>Banasree</option><option>Aftab Nagar</option><option>Mohammadpur</option><option>Mirpur</option><option>Agargaon</option><option>Malibagh</option><option>Moghbazar</option><option>Basabo</option><option>Kalabagan</option><option>Kamrangirchar</option><option>Kamalapur</option></select></div><button type="submit" class="btn-primary">Register Now</button></form></div></div>
 
-<div id="studentModal" class="modal">
-    <div class="modal-content">
-        <div class="modal-header"><h2><i class="fas fa-graduation-cap" style="color:#F5A623;"></i> Student Registration</h2><span class="close-modal" onclick="closeModal('studentModal')">&times;</span></div>
-        <form id="studentForm">
-            <div class="form-group"><label>Full Name</label><input type="text" id="studentName" placeholder="e.g., Md. Karim" required></div>
-            <div class="form-group"><label>WhatsApp Number</label><input type="tel" id="studentPhone" placeholder="01XXXXXXXXX" required></div>
-            <div class="form-group"><label>Your Area</label><select id="studentArea" required><option value="">Select Area</option><option>Motijheel</option><option>Dilkusha</option><option>Paltan</option><option>Shahbagh</option><option>Ramna</option><option>Kakrail</option><option>Gulshan</option><option>Banani</option><option>Baridhara</option><option>Bashundhara</option><option>Dhanmondi</option><option>Uttara</option><option>Lalbagh</option><option>Armanitola</option><option>Bangla Bazar</option><option>Chowk Bazar</option><option>Sadarghat</option><option>Hazaribagh</option><option>Wari</option><option>Banasree</option><option>Aftab Nagar</option><option>Mohammadpur</option><option>Mirpur</option><option>Agargaon</option><option>Malibagh</option><option>Moghbazar</option><option>Basabo</option><option>Kalabagan</option><option>Kamrangirchar</option><option>Kamalapur</option></select></div>
-            <div class="form-group"><label>Class</label><input type="text" id="studentClass" placeholder="e.g., Class 8, HSC 1st Year" required></div>
-            <div class="form-group"><label>Subject Needed</label><input type="text" id="studentSubject" placeholder="e.g., Mathematics, Physics, English" required></div>
-            <button type="submit" class="btn-primary" style="width:100%;">Submit Demand</button>
-        </form>
-    </div>
-</div>
+<div id="studentModal" class="modal"><div class="modal-content"><div class="modal-header"><h2><i class="fas fa-graduation-cap" style="color:#F5A623;"></i> Student Registration</h2><span class="close-modal" onclick="closeModal('studentModal')">&times;</span></div>
+<form id="studentForm"><div class="form-group"><label>Full Name</label><input type="text" id="studentName" required></div><div class="form-group"><label>WhatsApp Number</label><input type="tel" id="studentPhone" required></div><div class="form-group"><label>Your Area</label><select id="studentArea" required><option value="">Select Area</option><option>Motijheel</option><option>Dilkusha</option><option>Paltan</option><option>Shahbagh</option><option>Ramna</option><option>Kakrail</option><option>Gulshan</option><option>Banani</option><option>Baridhara</option><option>Bashundhara</option><option>Dhanmondi</option><option>Uttara</option><option>Lalbagh</option><option>Armanitola</option><option>Bangla Bazar</option><option>Chowk Bazar</option><option>Sadarghat</option><option>Hazaribagh</option><option>Wari</option><option>Banasree</option><option>Aftab Nagar</option><option>Mohammadpur</option><option>Mirpur</option><option>Agargaon</option><option>Malibagh</option><option>Moghbazar</option><option>Basabo</option><option>Kalabagan</option><option>Kamrangirchar</option><option>Kamalapur</option></select></div><div class="form-group"><label>Class</label><input type="text" id="studentClass" required></div><div class="form-group"><label>Subject Needed</label><input type="text" id="studentSubject" required></div><button type="submit" class="btn-primary">Submit Demand</button></form></div></div>
 
-<!-- Scripts -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="js/main.js"></script>
 
-<!-- Additional script for loading latest tuitions from localStorage (REAL POSTS ONLY) -->
 <script>
-    // Function to get time ago text
+    const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbx9_q35lVI_nK4j-Z_8A2X1f7dTGKKEVwab5N8UuPeCYpxVuFcNAdOGNxJsffhiFhSbmg/exec";
+    
     function getTimeAgo(timestamp) {
         const now = new Date();
         const postDate = new Date(timestamp);
@@ -425,7 +198,6 @@
         const diffMins = Math.floor(diffMs / 60000);
         const diffHours = Math.floor(diffMs / 3600000);
         const diffDays = Math.floor(diffMs / 86400000);
-        
         if (diffMins < 1) return "Just now";
         if (diffMins < 60) return `${diffMins} min ago`;
         if (diffHours < 24) return `${diffHours} hour${diffHours > 1 ? 's' : ''} ago`;
@@ -433,35 +205,26 @@
         return postDate.toLocaleDateString('en-BD');
     }
     
-    // Load latest tuition posts from localStorage (same source as tuition.html)
-    function loadLatestTuitions() {
-        const saved = localStorage.getItem('findmytutor_posts');
-        const grid = document.getElementById('latestTuitionsGrid');
-        const totalPostsSpan = document.getElementById('totalPosts');
-        
-        if (saved) {
-            const allPosts = JSON.parse(saved);
-            // Update total posts count in hero stats
-            if (totalPostsSpan) {
-                totalPostsSpan.innerText = allPosts.length + '+';
-            }
-            
-            // Get latest 4 posts (most recent by timestamp)
-            const sortedPosts = [...allPosts].sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+    async function loadLatestTuitions() {
+        try {
+            const response = await fetch(`${GOOGLE_SHEETS_URL}?action=getPosts`);
+            const posts = await response.json();
+            const sortedPosts = [...posts].sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
             const latestPosts = sortedPosts.slice(0, 4);
+            const grid = document.getElementById('latestTuitionsGrid');
+            const totalPostsSpan = document.getElementById('totalPosts');
+            
+            if (totalPostsSpan) totalPostsSpan.innerText = posts.length + '+';
             
             if (latestPosts.length > 0) {
                 grid.innerHTML = '';
                 latestPosts.forEach((post, index) => {
-                    const timeDisplay = getTimeAgo(post.timestamp);
                     const card = document.createElement('div');
                     card.className = 'latest-card';
                     card.setAttribute('data-aos', 'fade-up');
                     card.setAttribute('data-aos-delay', index * 100);
                     card.innerHTML = `
-                        <div class="latest-badge">
-                            <i class="fas fa-clock"></i> ${timeDisplay}
-                        </div>
+                        <div class="latest-badge"><i class="fas fa-clock"></i> ${getTimeAgo(post.timestamp)}</div>
                         <h3><i class="fas fa-book-open"></i> ${post.subject}</h3>
                         <div class="latest-details">
                             <div class="latest-detail"><i class="fas fa-graduation-cap"></i> Class: ${post.class}</div>
@@ -475,43 +238,13 @@
             } else {
                 grid.innerHTML = '<div class="empty-tuition"><i class="fas fa-info-circle"></i> No tuition posts yet. Check back soon!</div>';
             }
-        } else {
-            // No posts found - show empty state
-            if (totalPostsSpan) {
-                totalPostsSpan.innerText = '0';
-            }
-            grid.innerHTML = '<div class="empty-tuition"><i class="fas fa-plus-circle"></i> Be the first to add a tuition post! Click the + button in Tuition Posts page.</div>';
-        }
-        
-        // Refresh AOS for new elements
-        if (typeof AOS !== 'undefined') {
-            AOS.refresh();
+            if (typeof AOS !== 'undefined') AOS.refresh();
+        } catch (error) {
+            console.error("Error loading posts:", error);
         }
     }
     
-    // Load tuitions when page loads
-    document.addEventListener('DOMContentLoaded', function() {
-        loadLatestTuitions();
-        
-        // Listen for storage changes (when new post added in tuition page)
-        window.addEventListener('storage', function(e) {
-            if (e.key === 'findmytutor_posts') {
-                loadLatestTuitions();
-            }
-        });
-    });
-    
-    // Also check every 2 seconds for changes (in case same tab)
-    setInterval(function() {
-        const saved = localStorage.getItem('findmytutor_posts');
-        const currentCount = document.querySelectorAll('.latest-card').length;
-        if (saved) {
-            const allPosts = JSON.parse(saved);
-            if (allPosts.length > 0 && currentCount === 0) {
-                loadLatestTuitions();
-            }
-        }
-    }, 2000);
+    document.addEventListener('DOMContentLoaded', loadLatestTuitions);
 </script>
 </body>
 </html>
