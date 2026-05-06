@@ -4,17 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Tuition Posts - FindmyTutor Dhaka</title>
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: #F8F9FC; color: #1E293B; }
-        
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #E2E8F0; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb { background: #F5A623; border-radius: 10px; }
         
         .navbar {
             background: #FFFFFF;
@@ -26,17 +20,17 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
         }
-        .navbar.scrolled { padding: 0.7rem 5%; box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08); }
+        .navbar.scrolled { padding: 0.7rem 5%; }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
         .logo-icon { width: 38px; height: 38px; background: linear-gradient(135deg, #1A2A6C, #F5A623); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: white; }
         .logo-text { font-size: 1.4rem; font-weight: 700; color: #1A2A6C; }
         .logo-text span { color: #F5A623; }
         .nav-links { display: flex; gap: 2rem; align-items: center; }
-        .nav-links a { text-decoration: none; color: #475569; font-weight: 500; transition: color 0.3s; }
+        .nav-links a { text-decoration: none; color: #475569; font-weight: 500; }
         .nav-links a:hover, .nav-links a.active { color: #F5A623; }
-        .mobile-menu { display: none; font-size: 1.5rem; cursor: pointer; color: #1A2A6C; }
+        .mobile-menu { display: none; font-size: 1.5rem; cursor: pointer; }
         
         .admin-fab {
             position: fixed;
@@ -52,11 +46,11 @@
             justify-content: center;
             cursor: pointer;
             z-index: 999;
-            box-shadow: 0 4px 20px rgba(26, 42, 108, 0.4);
+            box-shadow: 0 4px 20px rgba(26,42,108,0.4);
             transition: all 0.3s;
-            border: 2px solid rgba(255,255,255,0.2);
+            text-decoration: none;
         }
-        .admin-fab:hover { transform: scale(1.1) rotate(90deg); background: linear-gradient(135deg, #F5A623, #D48A1C); }
+        .admin-fab:hover { transform: scale(1.1); background: #F5A623; }
         .admin-fab i { font-size: 1.5rem; }
         
         .page-header { padding: 8rem 5% 3rem; text-align: center; background: linear-gradient(135deg, #F8F9FC, #FFFFFF); }
@@ -72,100 +66,45 @@
         
         .tuition-card {
             background: white;
-            border-radius: 24px;
+            border-radius: 20px;
             overflow: hidden;
-            transition: all 0.4s;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            border: 1px solid #E2E8F0;
-            position: relative;
-        }
-        .tuition-card:hover { transform: translateY(-8px); box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.15); border-color: #F5A623; }
-        
-        .share-badge {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            z-index: 10;
-        }
-        .share-icon-btn {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(8px);
-            border: 1px solid #E2E8F0;
-            border-radius: 40px;
-            padding: 6px 14px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            cursor: pointer;
             transition: all 0.3s;
-            font-weight: 500;
-            font-size: 0.75rem;
-            color: #1A2A6C;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #E2E8F0;
         }
-        .share-icon-btn i { font-size: 0.8rem; color: #F5A623; }
-        .share-icon-btn:hover { background: linear-gradient(135deg, #1A2A6C, #243594); color: white; }
-        .share-icon-btn:hover i { color: white; }
+        .tuition-card:hover { transform: translateY(-5px); box-shadow: 0 20px 35px -10px rgba(0,0,0,0.1); border-color: #F5A623; }
         
-        .card-header { padding: 1rem 1.5rem; background: #F8F9FC; border-bottom: 1px solid #E2E8F0; display: flex; justify-content: space-between; align-items: center; padding-right: 80px; }
-        .tuition-subject { font-size: 1.2rem; font-weight: 700; color: #F5A623; display: flex; align-items: center; gap: 8px; }
-        .time-badge { font-size: 0.7rem; background: #E2E8F0; padding: 4px 12px; border-radius: 50px; color: #64748B; font-weight: 500; white-space: nowrap; }
-        .time-badge.urgent { background: rgba(245, 166, 35, 0.15); color: #F5A623; }
+        .card-header { padding: 1rem 1.5rem; background: #F8F9FC; border-bottom: 1px solid #E2E8F0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .salary-badge { background: linear-gradient(135deg, #1A2A6C, #243594); color: white; padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; }
+        .time-badge { background: #E2E8F0; padding: 4px 12px; border-radius: 50px; font-size: 0.7rem; color: #64748B; }
+        .time-badge.urgent { background: rgba(245,166,35,0.15); color: #F5A623; }
         
         .card-body { padding: 1.5rem; }
-        .tuition-info { display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 1.5rem; }
-        .info-row { display: flex; align-items: center; gap: 12px; font-size: 0.9rem; color: #475569; }
+        .class-info { font-size: 1rem; font-weight: 600; color: #1A2A6C; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px; }
+        .class-info i { color: #F5A623; }
+        .subject-tag { display: inline-block; background: rgba(245,166,35,0.1); color: #F5A623; padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; margin: 0 4px 8px 0; }
+        .info-row { display: flex; align-items: center; gap: 12px; padding: 8px 0; font-size: 0.9rem; color: #475569; }
         .info-row i { width: 20px; color: #F5A623; }
         
-        .card-footer { padding: 1rem 1.5rem 1.5rem; display: flex; gap: 1rem; }
-        .interested-btn { flex: 2; background: linear-gradient(135deg, #1A2A6C, #243594); border: none; padding: 14px; border-radius: 60px; color: white; font-weight: 600; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; }
-        .interested-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(26, 42, 108, 0.3); }
-        .share-footer-btn { flex: 1; background: #F1F5F9; border: 1px solid #E2E8F0; padding: 14px; border-radius: 60px; color: #1A2A6C; font-weight: 600; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; }
-        .share-footer-btn:hover { background: #F5A623; color: white; }
-        
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(5px); z-index: 2000; justify-content: center; align-items: center; }
-        .modal-content { background: white; padding: 2rem; border-radius: 28px; max-width: 500px; width: 90%; max-height: 85vh; overflow-y: auto; }
-        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
-        .modal-header h2 { color: #1A2A6C; }
-        .close-modal { font-size: 1.8rem; cursor: pointer; color: #94A3B8; transition: color 0.3s; }
-        .close-modal:hover { color: #F5A623; }
-        
-        .form-group { margin-bottom: 1.2rem; }
-        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #334155; }
-        .form-group input, .form-group select { width: 100%; padding: 12px 16px; border: 1px solid #E2E8F0; border-radius: 14px; font-family: 'Inter', sans-serif; }
-        .form-group input:focus, .form-group select:focus { outline: none; border-color: #F5A623; }
-        
-        .share-link-box { background: #F1F5F9; padding: 1rem; border-radius: 16px; margin: 1rem 0; display: flex; align-items: center; justify-content: space-between; gap: 10px; word-break: break-all; }
-        .copy-btn { background: #F5A623; color: white; border: none; padding: 10px 20px; border-radius: 50px; cursor: pointer; }
-        .social-share-buttons { display: flex; gap: 1rem; margin-top: 1rem; }
-        .social-share-btn { flex: 1; padding: 12px; border-radius: 50px; text-decoration: none; text-align: center; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px; }
-        .social-share-btn.facebook { background: #1877F2; color: white; }
-        .social-share-btn.whatsapp { background: #25D366; color: white; }
-        
-        .plan-buttons { display: flex; gap: 1rem; margin: 1.5rem 0; }
-        .plan-btn { flex: 1; padding: 14px; border-radius: 60px; font-weight: 600; cursor: pointer; }
-        .plan-basic { background: #F1F5F9; border: 1px solid #E2E8F0; color: #1A2A6C; }
-        .plan-pro { background: linear-gradient(135deg, #1A2A6C, #243594); color: white; border: none; }
-        
-        .condition-box { background: #FEF9E6; padding: 1rem; border-radius: 16px; margin: 1rem 0; border-left: 4px solid #F5A623; }
-        .payment-info { background: #F1F5F9; padding: 1rem; border-radius: 16px; text-align: center; }
-        .bkash-number { font-size: 1.3rem; font-weight: 700; color: #F5A623; margin: 10px 0; }
-        .btn-primary { background: linear-gradient(135deg, #1A2A6C, #243594); color: white; border: none; padding: 14px; border-radius: 60px; font-weight: 600; cursor: pointer; width: 100%; }
+        .card-footer { padding: 1rem 1.5rem 1.5rem; }
+        .interested-btn { width: 100%; background: linear-gradient(135deg, #1A2A6C, #243594); border: none; padding: 12px; border-radius: 50px; color: white; font-weight: 600; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .interested-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(26,42,108,0.3); }
         
         .footer { background: #1A2A6C; color: #CBD5E1; padding: 3rem 5% 1.5rem; margin-top: 3rem; }
-        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
         .footer-section h3 { color: #F5A623; margin-bottom: 1rem; }
         .footer-section a { color: #CBD5E1; text-decoration: none; }
-        .footer-section a:hover { color: #F5A623; }
         .social-links { display: flex; gap: 1rem; margin-top: 1rem; }
         .social-links a { width: 36px; height: 36px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-        .social-links a:hover { background: #F5A623; }
         .footer-bottom { text-align: center; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; }
+        
+        .loading { text-align: center; padding: 3rem; }
+        .error { text-align: center; padding: 3rem; color: #ef4444; }
         
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .mobile-menu { display: block; }
             .tuition-grid { grid-template-columns: 1fr; }
-            .card-footer { flex-direction: column; }
             .admin-fab { width: 50px; height: 50px; bottom: 20px; right: 20px; }
         }
     </style>
@@ -180,98 +119,61 @@
     <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="tuition.html" class="active">Tuition Posts</a>
-        <a href="blog.html">Blog</a>
-        <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
     </div>
     <div class="mobile-menu" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></div>
 </nav>
 
-<div class="admin-fab" onclick="openAdminPasswordModal()">
+<!-- Admin Button - Opens Google Form -->
+<a href="https://forms.gle/BcV4YnNLwDRqfFys8" target="_blank" class="admin-fab">
     <i class="fas fa-plus"></i>
-</div>
+</a>
 
 <div class="page-header">
-    <h1>📚 Tuition Posts</h1>
+    <h1>Tuition Posts</h1>
     <p>Find the latest tuition opportunities in Dhaka</p>
 </div>
 
 <div class="filter-bar">
     <div class="filter-container">
         <button class="filter-btn active" onclick="filterPosts('all')">All Posts</button>
-        <button class="filter-btn" onclick="filterPosts('today')">Today</button>
-        <button class="filter-btn" onclick="filterPosts('urgent')">Urgent</button>
+        <button class="filter-btn" onclick="filterPosts('primary')">Class 5-8</button>
+        <button class="filter-btn" onclick="filterPosts('secondary')">Class 9-10</button>
+        <button class="filter-btn" onclick="filterPosts('hscience')">HSC Science</button>
+        <button class="filter-btn" onclick="filterPosts('hcommerce')">HSC Commerce</button>
+        <button class="filter-btn" onclick="filterPosts('harts')">HSC Arts</button>
     </div>
 </div>
 
 <div class="tuition-grid" id="tuitionGrid">
-    <div style="text-align: center; padding: 3rem;">
-        <i class="fas fa-spinner fa-spin"></i> Loading posts...
-    </div>
+    <div class="loading"><i class="fas fa-spinner fa-spin"></i> Loading posts...</div>
 </div>
 
 <footer class="footer">
     <div class="footer-content">
-        <div class="footer-section"><h3>FindmyTutor Dhaka</h3><p>Dhaka's leading tuition media platform.</p><div class="social-links"><a href="https://facebook.com/findmytutordhaka"><i class="fab fa-facebook-f"></i></a><a href="https://wa.me/8801991309741"><i class="fab fa-whatsapp"></i></a><a href="mailto:dhakafindmytutor@gmail.com"><i class="fas fa-envelope"></i></a></div></div>
-        <div class="footer-section"><h3>Quick Links</h3><p><a href="index.html">Home</a></p><p><a href="tuition.html">Tuition Posts</a></p><p><a href="blog.html">Blog</a></p><p><a href="about.html">About</a></p><p><a href="contact.html">Contact</a></p></div>
+        <div class="footer-section">
+            <div class="logo" style="margin-bottom: 1rem;"><div class="logo-icon">F</div><span class="logo-text" style="color: white;">FindmyTutor <span>Dhaka</span></span></div>
+            <p>Dhaka's leading tuition media platform connecting students and verified tutors.</p>
+            <div class="social-links">
+                <a href="https://facebook.com/findmytutordhaka"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/8801991309741"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:dhakafindmytutor@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+        <div class="footer-section"><h3>Quick Links</h3><p><a href="index.html">Home</a></p><p><a href="tuition.html">Tuition Posts</a></p></div>
         <div class="footer-section"><h3>Contact</h3><p><i class="fab fa-whatsapp"></i> +8801991309741</p><p><i class="fas fa-envelope"></i> dhakafindmytutor@gmail.com</p></div>
         <div class="footer-section"><h3>Coverage</h3><p>All 30+ areas of Dhaka city</p></div>
     </div>
-    <div class="footer-bottom"><p>&copy; 2024 FindmyTutor Dhaka | Trusted Tuition Media</p></div>
+    <div class="footer-bottom"><p>&copy; 2024 FindmyTutor Dhaka | Trusted Tuition Media in Bangladesh</p></div>
 </footer>
 
-<!-- Modals -->
-<div id="adminPasswordModal" class="modal">
-    <div class="modal-content">
-        <div class="modal-header"><h2><i class="fas fa-lock"></i> Admin Access</h2><span class="close-modal" onclick="closeModal('adminPasswordModal')">&times;</span></div>
-        <div class="form-group"><label>Enter Admin Password</label><input type="password" id="adminPassword" placeholder="Enter password"><div id="passwordError" style="color:red; font-size:0.8rem; display:none;">Incorrect password!</div></div>
-        <button class="btn-primary" onclick="verifyAdminPassword()">Verify Access</button>
-    </div>
-</div>
-
-<div id="adminModal" class="modal">
-    <div class="modal-content">
-        <div class="modal-header"><h2><i class="fas fa-plus-circle"></i> Add New Tuition Post</h2><span class="close-modal" onclick="closeModal('adminModal')">&times;</span></div>
-        <form id="addPostForm">
-            <div class="form-group"><label>Subject</label><select id="newSubject" required><option value="">Select Subject</option><option>Mathematics</option><option>Physics</option><option>Chemistry</option><option>Biology</option><option>English</option><option>Bengali</option><option>ICT</option><option>Accounting</option><option>Economics</option></select></div>
-            <div class="form-group"><label>Class</label><select id="newClass" required><option value="">Select Class</option><option>Class 5</option><option>Class 6</option><option>Class 7</option><option>Class 8</option><option>Class 9</option><option>Class 10</option><option>HSC 1st Year</option><option>HSC 2nd Year</option></select></div>
-            <div class="form-group"><label>Area</label><select id="newArea" required><option value="">Select Area</option><option>Motijheel</option><option>Dilkusha</option><option>Paltan</option><option>Shahbagh</option><option>Ramna</option><option>Kakrail</option><option>Gulshan 1</option><option>Gulshan 2</option><option>Banani</option><option>Baridhara</option><option>Bashundhara R/A</option><option>Dhanmondi</option><option>Uttara</option><option>Lalbagh</option><option>Armanitola</option><option>Bangla Bazar</option><option>Chowk Bazar</option><option>Sadarghat</option><option>Hazaribagh</option><option>Wari</option><option>Banasree</option><option>Aftab Nagar</option><option>Mohammadpur</option><option>Mirpur</option><option>Agargaon</option><option>Malibagh</option><option>Moghbazar</option><option>Basabo</option><option>Kalabagan</option><option>Kamrangirchar</option><option>Kamalapur</option></select></div>
-            <div class="form-group"><label>Duration</label><select id="newDuration" required><option>1 hour</option><option>1.5 hours</option><option>2 hours</option><option>2.5 hours</option><option>3 hours</option></select></div>
-            <div class="form-group"><label>Gender Preference</label><select id="newGender" required><option>Male</option><option>Female</option><option>Any</option></select></div>
-            <button type="submit" class="btn-primary">Add Post</button>
-        </form>
-    </div>
-</div>
-
-<div id="shareModal" class="modal"><div class="modal-content"><div class="modal-header"><h2><i class="fas fa-share-alt"></i> Share this Tuition</h2><span class="close-modal" onclick="closeModal('shareModal')">&times;</span></div>
-<div class="share-link-box"><span id="shareLinkText"></span><button class="copy-btn" onclick="copyShareLink()"><i class="fas fa-copy"></i> Copy</button></div>
-<div class="social-share-buttons"><a id="facebookShare" target="_blank" class="social-share-btn facebook"><i class="fab fa-facebook-f"></i> Facebook</a><a id="whatsappShare" target="_blank" class="social-share-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a></div></div></div>
-
-<div id="infoModal" class="modal"><div class="modal-content"><div class="modal-header"><h2>Apply for this Tuition</h2><span class="close-modal" onclick="closeModal('infoModal')">&times;</span></div>
-<form id="infoForm"><div class="form-group"><label>Your Full Name</label><input type="text" id="applicantName" required></div><div class="form-group"><label>WhatsApp Number</label><input type="tel" id="applicantPhone" required></div><button type="submit" class="btn-primary">Continue</button></form></div></div>
-
-<div id="planModal" class="modal"><div class="modal-content"><div class="modal-header"><h2>Choose Your Plan</h2><span class="close-modal" onclick="closeModal('planModal')">&times;</span></div>
-<div class="plan-buttons"><button class="plan-btn plan-basic" onclick="selectPlan('basic')">Basic (Free)</button><button class="plan-btn plan-pro" onclick="selectPlan('pro')">Pro (50 TK)</button></div>
-<div class="condition-box"><i class="fas fa-info-circle"></i> <strong>Note:</strong> For Pro plan, you pay 50 TK upfront. If you get this tuition, 35% of first month's salary goes to FindmyTutor Dhaka.</div></div></div>
-
-<div id="basicConditionModal" class="modal"><div class="modal-content"><div class="modal-header"><h2>Basic Plan Terms</h2><span class="close-modal" onclick="closeModal('basicConditionModal')">&times;</span></div>
-<div class="condition-box"><p><strong>By registering as Basic:</strong></p><ul style="margin-left: 20px;"><li>Your CV will be sent with 50-100 other tutors</li><li>Guardian will choose at their discretion</li><li>No guarantee of selection</li></ul></div><button class="btn-primary" onclick="confirmBasic()">I Agree & Submit</button></div></div>
-
-<div id="proConditionModal" class="modal"><div class="modal-content"><div class="modal-header"><h2>Pro Plan Terms</h2><span class="close-modal" onclick="closeModal('proConditionModal')">&times;</span></div>
-<div class="condition-box"><p><strong>By registering as Pro:</strong></p><ul style="margin-left: 20px;"><li>Your CV is sent FIRST to guardian</li><li>Higher chance of getting the tuition</li><li><strong>50 TK upfront fee</strong> via bKash/Nagad</li><li><strong>35% of first month's salary</strong> goes to FindmyTutor Dhaka</li></ul></div><button class="btn-primary" onclick="confirmPro()">I Agree & Proceed</button></div></div>
-
-<div id="paymentModal" class="modal"><div class="modal-content"><div class="modal-header"><h2>Complete Payment</h2><span class="close-modal" onclick="closeModal('paymentModal')">&times;</span></div>
-<div class="payment-info"><p>Send <strong>50 TK</strong> to:</p><div class="bkash-number">📱 bKash: 01991309741</div><div class="bkash-number">💵 Nagad: 01991309741</div><p>Reference: Your Phone Number</p></div>
-<div class="form-group"><label>Transaction ID</label><input type="text" id="transactionId" placeholder="e.g., 8PK7X9N5V3"></div>
-<button class="btn-primary" onclick="submitPayment()">Submit Payment</button></div></div>
-
 <script>
-    // YOUR NEW GOOGLE SHEETS URL
-    const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbyri1T4WFNC1usK6xNdA4fuBYPMn-rEwUK9A1s6h7F1NHnpsRFvPpuI3BhrrHt5fOQhKQ/exec";
+    // ============================================
+    // REPLACE THIS WITH YOUR WEB APP URL
+    // ============================================
+    const API_URL = "https://script.google.com/macros/s/AKfycbx12CQKaoCj2EdcWj_OnckaNiaZ7zngo-GghYOLFSK_HYT0o1DFUX7Zbz5kiw9IdN3SHA/exec";
     
     let allPosts = [];
-    let currentPost = null;
-    let currentApplicant = { name: "", phone: "" };
     
     function getTimeAgo(timestamp) {
         const now = new Date();
@@ -288,132 +190,56 @@
         return postDate.toLocaleDateString('en-BD');
     }
     
-    async function loadPostsFromCloud() {
-        try {
-            const response = await fetch(`${GOOGLE_SHEETS_URL}?action=getPosts`);
-            const posts = await response.json();
-            allPosts = posts;
-            renderPosts(allPosts);
-            return true;
-        } catch (error) {
-            console.error("Error loading posts:", error);
-            document.getElementById('tuitionGrid').innerHTML = '<div style="text-align:center;padding:3rem;">⚠️ Error loading posts. Please refresh.</div>';
-            return false;
+    function getFilterCategory(post) {
+        if (post.classLevel === 'Primary (Class 5-8)') return 'primary';
+        if (post.classLevel === 'Secondary (Class 9-10)') return 'secondary';
+        if (post.classLevel === 'Higher Secondary (Class 11-12)') {
+            if (post.group === 'Science') return 'hscience';
+            if (post.group === 'Commerce') return 'hcommerce';
+            if (post.group === 'Arts') return 'harts';
         }
-    }
-    
-    async function addPostToCloud(postData) {
-        try {
-            const response = await fetch(GOOGLE_SHEETS_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    type: 'new_tuition_post',
-                    subject: postData.subject,
-                    className: postData.class,
-                    area: postData.area,
-                    duration: postData.duration,
-                    gender: postData.gender
-                })
-            });
-            return true;
-        } catch (error) {
-            console.error("Error adding post:", error);
-            return false;
-        }
+        return 'all';
     }
     
     function renderPosts(posts) {
         const grid = document.getElementById('tuitionGrid');
-        if (!grid) return;
-        
         if (!posts || posts.length === 0) {
-            grid.innerHTML = '<div style="text-align:center;padding:3rem;">No tuition posts available. Check back soon!</div>';
+            grid.innerHTML = '<div class="loading">📭 No tuition posts available. Check back soon!</div>';
             return;
         }
         
         grid.innerHTML = '';
         
         posts.forEach(post => {
-            const timeDisplay = getTimeAgo(post.timestamp);
+            const subjectsList = post.subjects ? post.subjects.split(',').map(s => s.trim()) : [];
             const hoursAgo = Math.floor((new Date() - new Date(post.timestamp)) / 3600000);
             
             const card = document.createElement('div');
             card.className = 'tuition-card';
             card.innerHTML = `
-                <div class="share-badge">
-                    <button class="share-icon-btn" onclick="event.stopPropagation(); openShareModal(${post.id})">
-                        <i class="fas fa-share-alt"></i> Share
-                    </button>
-                </div>
                 <div class="card-header">
-                    <span class="tuition-subject"><i class="fas fa-book-open"></i> ${post.subject}</span>
-                    <span class="time-badge ${hoursAgo < 12 ? 'urgent' : ''}"><i class="fas fa-clock"></i> ${timeDisplay}</span>
+                    <div class="salary-badge"><i class="fas fa-taka-sign"></i> ${post.salaryRange || 'Negotiable'}/month</div>
+                    <div class="time-badge ${hoursAgo < 12 ? 'urgent' : ''}"><i class="fas fa-clock"></i> ${getTimeAgo(post.timestamp)}</div>
                 </div>
                 <div class="card-body">
-                    <div class="tuition-info">
-                        <div class="info-row"><i class="fas fa-graduation-cap"></i> Class: ${post.class}</div>
-                        <div class="info-row"><i class="fas fa-map-marker-alt"></i> Area: ${post.area}</div>
-                        <div class="info-row"><i class="fas fa-hourglass-half"></i> Duration: ${post.duration}</div>
-                        <div class="info-row"><i class="fas fa-venus-mars"></i> Preference: ${post.gender} Tutor</div>
+                    <div class="class-info">
+                        <i class="fas fa-graduation-cap"></i> ${post.className || post.classLevel}
+                        ${post.group && post.group !== 'Not Applicable' ? ` (${post.group})` : ''}
                     </div>
+                    <div style="margin: 12px 0 8px 0;">
+                        ${subjectsList.map(s => `<span class="subject-tag">${s}</span>`).join('')}
+                    </div>
+                    <div class="info-row"><i class="fas fa-map-marker-alt"></i> Area: ${post.area}</div>
+                    <div class="info-row"><i class="fas fa-hourglass-half"></i> Duration: ${post.duration}</div>
+                    <div class="info-row"><i class="fas fa-venus-mars"></i> Preference: ${post.gender} Tutor</div>
                 </div>
                 <div class="card-footer">
-                    <button class="interested-btn" onclick="openInfoModal(${post.id})"><i class="fas fa-hand-point-right"></i> Interested - Apply Now</button>
-                    <button class="share-footer-btn" onclick="openShareModal(${post.id})"><i class="fas fa-share-alt"></i> Share</button>
+                    <button class="interested-btn" onclick="openApplyModal(${post.id})"><i class="fas fa-hand-point-right"></i> Interested - Apply Now</button>
                 </div>
             `;
             grid.appendChild(card);
         });
     }
-    
-    function openAdminPasswordModal() {
-        document.getElementById('adminPasswordModal').style.display = 'flex';
-    }
-    
-    function verifyAdminPassword() {
-        const password = document.getElementById('adminPassword').value;
-        if (password === 'findmytutor2024') {
-            closeModal('adminPasswordModal');
-            document.getElementById('adminModal').style.display = 'flex';
-            document.getElementById('passwordError').style.display = 'none';
-            document.getElementById('adminPassword').value = '';
-        } else {
-            document.getElementById('passwordError').style.display = 'block';
-        }
-    }
-    
-    document.getElementById('addPostForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const subject = document.getElementById('newSubject').value;
-        const className = document.getElementById('newClass').value;
-        const area = document.getElementById('newArea').value;
-        const duration = document.getElementById('newDuration').value;
-        const gender = document.getElementById('newGender').value;
-        
-        if (!subject || !className || !area) {
-            alert('Please fill all fields');
-            return;
-        }
-        
-        const submitBtn = this.querySelector('button');
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Adding...';
-        
-        const success = await addPostToCloud({ subject, class: className, area, duration, gender });
-        
-        if (success) {
-            alert('✅ New tuition post added successfully!');
-            closeModal('adminModal');
-            this.reset();
-            await loadPostsFromCloud();
-        } else {
-            alert('❌ Error adding post. Please try again.');
-        }
-        
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Add Post';
-    });
     
     function filterPosts(filter) {
         const btns = document.querySelectorAll('.filter-btn');
@@ -421,114 +247,31 @@
         event.target.classList.add('active');
         
         let filtered = [...allPosts];
-        const now = new Date();
-        if (filter === 'today') {
-            filtered = allPosts.filter(p => (now - new Date(p.timestamp)) < 86400000);
-        } else if (filter === 'urgent') {
-            filtered = allPosts.filter(p => (now - new Date(p.timestamp)) < 43200000);
+        if (filter !== 'all') {
+            filtered = allPosts.filter(post => getFilterCategory(post) === filter);
         }
         renderPosts(filtered);
     }
     
-    function openShareModal(postId) {
+    function openApplyModal(postId) {
         const post = allPosts.find(p => p.id == postId);
-        const postUrl = `${window.location.href.split('?')[0]}?post=${postId}`;
-        const encodedUrl = encodeURIComponent(postUrl);
-        const text = encodeURIComponent(`📚 Tuition Available!\nSubject: ${post.subject}\nClass: ${post.class}\nArea: ${post.area}\nDuration: ${post.duration}\n\nApply here:`);
+        const message = `Hi! I'm interested in the tuition post:\n\n📚 Subject: ${post.subject}\n📖 Class: ${post.className}\n📍 Area: ${post.area}\n💰 Salary: ${post.salaryRange}\n\nPlease share more details.`;
+        window.open(`https://wa.me/8801991309741?text=${encodeURIComponent(message)}`, '_blank');
+    }
+    
+    async function loadPosts() {
+        const grid = document.getElementById('tuitionGrid');
+        grid.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Loading posts...</div>';
         
-        document.getElementById('shareLinkText').innerHTML = postUrl;
-        document.getElementById('facebookShare').href = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
-        document.getElementById('whatsappShare').href = `https://wa.me/?text=${text} ${encodedUrl}`;
-        
-        document.getElementById('shareModal').style.display = 'flex';
-    }
-    
-    function copyShareLink() {
-        const link = document.getElementById('shareLinkText').innerText;
-        navigator.clipboard.writeText(link);
-        alert('✅ Link copied!');
-    }
-    
-    function openInfoModal(postId) {
-        currentPost = allPosts.find(p => p.id == postId);
-        document.getElementById('infoModal').style.display = 'flex';
-    }
-    
-    document.getElementById('infoForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        currentApplicant.name = document.getElementById('applicantName').value;
-        currentApplicant.phone = document.getElementById('applicantPhone').value;
-        closeModal('infoModal');
-        document.getElementById('planModal').style.display = 'flex';
-        this.reset();
-    });
-    
-    function selectPlan(plan) {
-        closeModal('planModal');
-        if (plan === 'basic') {
-            document.getElementById('basicConditionModal').style.display = 'flex';
-        } else {
-            document.getElementById('proConditionModal').style.display = 'flex';
+        try {
+            const response = await fetch(API_URL);
+            if (!response.ok) throw new Error('Network error');
+            allPosts = await response.json();
+            renderPosts(allPosts);
+        } catch (error) {
+            console.error("Error loading posts:", error);
+            grid.innerHTML = '<div class="error"><i class="fas fa-exclamation-triangle"></i> Error loading posts. Please refresh.</div>';
         }
-    }
-    
-    function confirmBasic() {
-        closeModal('basicConditionModal');
-        const data = {
-            type: 'basic_applicant',
-            postId: currentPost?.id,
-            postDetails: currentPost ? `${currentPost.subject} - ${currentPost.class} - ${currentPost.area}` : '',
-            name: currentApplicant.name,
-            phone: currentApplicant.phone,
-            plan: 'Basic (Free)',
-            timestamp: new Date().toLocaleString('en-BD')
-        };
-        fetch(GOOGLE_SHEETS_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) });
-        alert('✅ Registration successful! Your CV has been submitted.');
-        resetFlow();
-    }
-    
-    function confirmPro() {
-        closeModal('proConditionModal');
-        document.getElementById('paymentModal').style.display = 'flex';
-    }
-    
-    function submitPayment() {
-        const transactionId = document.getElementById('transactionId').value;
-        if (!transactionId) {
-            alert('Please enter your transaction ID');
-            return;
-        }
-        const data = {
-            type: 'pro_applicant',
-            postId: currentPost?.id,
-            postDetails: currentPost ? `${currentPost.subject} - ${currentPost.class} - ${currentPost.area}` : '',
-            name: currentApplicant.name,
-            phone: currentApplicant.phone,
-            plan: 'Pro (50 TK)',
-            transactionId: transactionId,
-            paymentStatus: 'Pending Verification',
-            salaryCutAgreement: '35% of first month salary',
-            timestamp: new Date().toLocaleString('en-BD')
-        };
-        fetch(GOOGLE_SHEETS_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) });
-        closeModal('paymentModal');
-        alert('✅ Payment submitted! We will verify and send your CV as priority.');
-        resetFlow();
-    }
-    
-    function resetFlow() {
-        currentPost = null;
-        currentApplicant = { name: "", phone: "" };
-        document.getElementById('transactionId').value = '';
-    }
-    
-    function closeModal(modalId) {
-        document.getElementById(modalId).style.display = 'none';
-    }
-    
-    window.onclick = function(e) {
-        if (e.target.classList.contains('modal')) e.target.style.display = 'none';
     }
     
     function toggleMobileMenu() {
@@ -545,6 +288,7 @@
                 navLinks.style.width = '100%';
                 navLinks.style.background = 'white';
                 navLinks.style.padding = '1rem';
+                navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
             }
         }
     }
@@ -561,19 +305,11 @@
     });
     
     window.filterPosts = filterPosts;
-    window.openInfoModal = openInfoModal;
-    window.selectPlan = selectPlan;
-    window.confirmBasic = confirmBasic;
-    window.confirmPro = confirmPro;
-    window.submitPayment = submitPayment;
-    window.closeModal = closeModal;
+    window.openApplyModal = openApplyModal;
     window.toggleMobileMenu = toggleMobileMenu;
-    window.openShareModal = openShareModal;
-    window.copyShareLink = copyShareLink;
-    window.verifyAdminPassword = verifyAdminPassword;
-    window.openAdminPasswordModal = openAdminPasswordModal;
     
-    loadPostsFromCloud();
+    loadPosts();
+    setInterval(loadPosts, 60000);
 </script>
 </body>
 </html>
