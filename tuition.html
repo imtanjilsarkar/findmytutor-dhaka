@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>FindmyTutor Dhaka - Professional Tuition Media</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Swiper JS (only needed for pages with carousel) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+    <a href="index.html" class="logo">
+        <div class="logo-icon">F</div>
+        <span class="logo-text">FindmyTutor <span>Dhaka</span></span>
+    </a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="tuition.html" class="active">Tuition Posts</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <div class="mobile-menu" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></div>
+</nav>
+
+<div class="page-header">
+    <h1 data-aos="fade-up">📚 Tuition Posts</h1>
+    <p data-aos="fade-up">Find the latest tuition opportunities in Dhaka</p>
+</div>
+
+<div class="filter-bar">
+    <div class="filter-container">
+        <button class="filter-btn active" onclick="filterPosts('all')">All Posts</button>
+        <button class="filter-btn" onclick="filterPosts('today')">Today</button>
+        <button class="filter-btn" onclick="filterPosts('urgent')">Urgent</button>
+    </div>
+</div>
+
+<div class="tuition-grid" id="tuitionGrid"></div>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section"><h3>FindmyTutor Dhaka</h3><p>Dhaka's leading tuition media platform connecting students and verified tutors.</p><div class="social-links"><a href="https://facebook.com/findmytutordhaka"><i class="fab fa-facebook-f"></i></a><a href="https://wa.me/8801991309741"><i class="fab fa-whatsapp"></i></a><a href="mailto:dhakafindmytutor@gmail.com"><i class="fas fa-envelope"></i></a></div></div>
+        <div class="footer-section"><h3>Quick Links</h3><p><a href="index.html">Home</a></p><p><a href="tuition.html">Tuition Posts</a></p><p><a href="blog.html">Blog</a></p><p><a href="about.html">About</a></p><p><a href="contact.html">Contact</a></p></div>
+        <div class="footer-section"><h3>Contact</h3><p><i class="fab fa-whatsapp"></i> +8801991309741</p><p><i class="fas fa-envelope"></i> dhakafindmytutor@gmail.com</p></div>
+        <div class="footer-section"><h3>Coverage</h3><p>All 30+ areas of Dhaka city</p></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2024 FindmyTutor Dhaka | Trusted Tuition Media in Bangladesh</p></div>
+</footer>
+
+<!-- Modals -->
+<div id="infoModal" class="modal"><div class="modal-content"><div class="modal-header"><h2>Apply for this Tuition</h2><span class="close-modal" onclick="closeModal('infoModal')">&times;</span></div>
+<form id="infoForm"><div class="form-group"><label>Your Full Name</label><input type="text" id="applicantName" required></div><div class="form-group"><label>WhatsApp Number</label><input type="tel" id="applicantPhone" required></div><button type="submit" class="btn-primary">Continue</button></form></div></div>
+
+<div id="planModal" class="modal"><div class="modal-content"><div class="modal-header"><h2>Choose Your Plan</h2><span class="close-modal" onclick="closeModal('planModal')">&times;</span></div>
+<div class="plan-buttons"><button class="plan-btn plan-basic" onclick="selectPlan('basic')">Basic (Free)</button><button class="plan-btn plan-pro" onclick="selectPlan('pro')">Pro (50 TK)</button></div>
+<div class="condition-box"><i class="fas fa-info-circle"></i> <strong>Note:</strong> For Pro plan, you pay 50 TK upfront. If you get this tuition, 35% of first month's salary goes to FindmyTutor Dhaka.</div></div></div>
+
+<div id="basicConditionModal" class="modal"><div class="modal-content"><div class="modal-header"><h2>Basic Plan Terms</h2><span class="close-modal" onclick="closeModal('basicConditionModal')">&times;</span></div>
+<div class="condition-box"><p><strong>By registering as Basic:</strong></p><ul style="margin-left: 20px;"><li>Your CV will be sent with 50-100 other tutors</li><li>Guardian will choose at their discretion</li><li>No guarantee of selection</li></ul></div><button class="btn-primary" onclick="confirmBasic()">I Agree & Submit</button></div></div>
+
+<div id="proConditionModal" class="modal"><div class="modal-content"><div class="modal-header"><h2>Pro Plan Terms</h2><span class="close-modal" onclick="closeModal('proConditionModal')">&times;</span></div>
+<div class="condition-box"><p><strong>By registering as Pro:</strong></p><ul style="margin-left: 20px;"><li>Your CV is sent FIRST to guardian</li><li>Higher chance of getting the tuition</li><li><strong>50 TK upfront fee</strong> via bKash/Nagad</li><li><strong>35% of first month's salary</strong> goes to FindmyTutor Dhaka</li></ul></div><button class="btn-primary" onclick="confirmPro()">I Agree & Proceed</button></div></div>
+
+<div id="paymentModal" class="modal"><div class="modal-content"><div class="modal-header"><h2>Complete Payment</h2><span class="close-modal" onclick="closeModal('paymentModal')">&times;</span></div>
+<div class="payment-info"><p>Send <strong>50 TK</strong> to:</p><div class="bkash-number">📱 bKash: 01991309741</div><div class="bkash-number">💵 Nagad: 01991309741</div><p style="margin-top: 10px;">Reference: Your Phone Number</p></div>
+<div class="form-group"><label>Transaction ID</label><input type="text" id="transactionId" placeholder="e.g., 8PK7X9N5V3"></div>
+<button class="btn-primary" onclick="submitPayment()">Submit Payment</button></div></div>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

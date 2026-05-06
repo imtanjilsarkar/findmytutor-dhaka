@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>FindmyTutor Dhaka - Professional Tuition Media</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Swiper JS (only needed for pages with carousel) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+    <a href="index.html" class="logo">
+        <div class="logo-icon">F</div>
+        <span class="logo-text">FindmyTutor <span>Dhaka</span></span>
+    </a>
+    <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="tuition.html">Tuition Posts</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <div class="mobile-menu" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content" data-aos="fade-up">
+        <div class="hero-badge">
+            <i class="fas fa-star"></i> Bangladesh's Trusted Tuition Media
+        </div>
+        <h1>Find Your Perfect <span class="highlight">Tutor</span> or <span class="highlight">Tuition</span> in Dhaka</h1>
+        <p>Connecting students and tutors across all areas of Dhaka city with our intelligent matching system.</p>
+        <div class="hero-buttons">
+            <button class="btn-primary" onclick="openModal('tutor')">
+                <i class="fas fa-chalkboard-user"></i> Register as Tutor
+            </button>
+            <button class="btn-outline" onclick="openModal('student')">
+                <i class="fas fa-graduation-cap"></i> Find a Tutor
+            </button>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <div class="stat-number">1000+</div>
+                <div class="stat-label">Verified Tutors</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Active Tuitions</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">2000+</div>
+                <div class="stat-label">Happy Families</div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-image" data-aos="fade-left">
+        <img src="https://placehold.co/500x450/1A2A6C/FFFFFF?text=FindmyTutor+Dhaka" alt="FindmyTutor Dhaka">
+        <div class="floating-card floating-card-1">
+            <i class="fas fa-check-circle" style="color: #F5A623;"></i>
+            <span>100% Verified Tutors</span>
+        </div>
+        <div class="floating-card floating-card-2">
+            <i class="fas fa-clock" style="color: #F5A623;"></i>
+            <span>Quick Matching</span>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section>
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-subtitle">WHY CHOOSE US</div>
+            <h2 class="section-title">Why <span>FindmyTutor Dhaka</span>?</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card" data-aos="zoom-in">
+                <div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div>
+                <h3>Full Dhaka Coverage</h3>
+                <p>All 30+ areas including Motijheel, Gulshan, Banani, Dhanmondi, Uttara & more</p>
+            </div>
+            <div class="feature-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="feature-icon"><i class="fas fa-user-check"></i></div>
+                <h3>Verified Tutors</h3>
+                <p>Background checked professional tutors for your peace of mind</p>
+            </div>
+            <div class="feature-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                <h3>Fast Response</h3>
+                <p>Get matched with the perfect tutor within 24 hours</p>
+            </div>
+            <div class="feature-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="feature-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                <h3>Best Rates</h3>
+                <p>Affordable tuition rates with no hidden charges</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Registration Section -->
+<section class="register-section">
+    <div class="section-header" data-aos="fade-up">
+        <div class="section-subtitle">JOIN OUR COMMUNITY</div>
+        <h2 class="section-title">Start Your Journey Today</h2>
+    </div>
+    <div class="register-grid">
+        <div class="register-card" data-aos="flip-left">
+            <div class="register-icon"><i class="fas fa-chalkboard-user"></i></div>
+            <h3>Are You a Tutor?</h3>
+            <p>Get unlimited tuition leads in your area. Build your teaching career with us.</p>
+            <button class="btn-secondary" onclick="openModal('tutor')">Register as Tutor</button>
+        </div>
+        <div class="register-card" data-aos="flip-right">
+            <div class="register-icon"><i class="fas fa-user-graduate"></i></div>
+            <h3>Looking for a Tutor?</h3>
+            <p>Find the best home tutor for your child from our verified network.</p>
+            <button class="btn-secondary" onclick="openModal('student')">Post Tuition Demand</button>
+        </div>
+    </div>
+</section>
+
+<!-- Service Areas Section -->
+<section class="areas-section">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-subtitle">WE COVER ALL DHAKA</div>
+            <h2 class="section-title">Our Service Areas</h2>
+        </div>
+        <div class="areas-grid" data-aos="fade-up">
+            <div class="area-tag">Motijheel</div><div class="area-tag">Dilkusha</div><div class="area-tag">Paltan</div>
+            <div class="area-tag">Shahbagh</div><div class="area-tag">Ramna</div><div class="area-tag">Kakrail</div>
+            <div class="area-tag">Gulshan 1</div><div class="area-tag">Gulshan 2</div><div class="area-tag">Banani</div>
+            <div class="area-tag">Baridhara</div><div class="area-tag">Bashundhara R/A</div><div class="area-tag">Dhanmondi</div>
+            <div class="area-tag">Uttara</div><div class="area-tag">Lalbagh</div><div class="area-tag">Armanitola</div>
+            <div class="area-tag">Bangla Bazar</div><div class="area-tag">Chowk Bazar</div><div class="area-tag">Sadarghat</div>
+            <div class="area-tag">Hazaribagh</div><div class="area-tag">Wari</div><div class="area-tag">Banasree</div>
+            <div class="area-tag">Aftab Nagar</div><div class="area-tag">Mohammadpur</div><div class="area-tag">Mirpur</div>
+            <div class="area-tag">Agargaon</div><div class="area-tag">Malibagh</div><div class="area-tag">Moghbazar</div>
+            <div class="area-tag">Basabo</div><div class="area-tag">Kalabagan</div><div class="area-tag">Kamrangirchar</div>
+            <div class="area-tag">Kamalapur</div>
+        </div>
+    </div>
+</section>
+
+<!-- Reviews Section -->
+<section class="reviews-section">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-subtitle">TESTIMONIALS</div>
+            <h2 class="section-title">What Our <span>Community Says</span></h2>
+        </div>
+        <div class="swiper mySwiper" data-aos="fade-up">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><div class="review-card"><div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"Found an excellent Math tutor for my son in Motijheel within days. Highly professional!"</p><div class="review-author">Md. Kamal Hossain</div><div class="review-location">Motijheel</div></div></div>
+                <div class="swiper-slide"><div class="review-card"><div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"As a tutor, I received 5 tuition requests in Gulshan. The Pro plan is worth every taka!"</p><div class="review-author">Sumaiya Akter</div><div class="review-location">Gulshan 2</div></div></div>
+                <div class="swiper-slide"><div class="review-card"><div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"Best tuition media in Dhaka. Found an English tutor for my daughter in Dhanmondi."</p><div class="review-author">Farhana Begum</div><div class="review-location">Dhanmondi</div></div></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<div class="cta-section" data-aos="zoom-in">
+    <h2>Ready to Find Your Perfect Match?</h2>
+    <p>Join thousands of successful tutors and students in Dhaka</p>
+    <button class="btn-primary" onclick="openModal('tutor')">Get Started Now</button>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <div class="logo" style="margin-bottom: 1rem;">
+                <div class="logo-icon">F</div>
+                <span class="logo-text" style="color: white;">FindmyTutor <span>Dhaka</span></span>
+            </div>
+            <p>Dhaka's leading tuition media platform connecting students and verified tutors.</p>
+            <div class="social-links">
+                <a href="https://facebook.com/findmytutordhaka" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/8801991309741" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:dhakafindmytutor@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+        <div class="footer-section"><h3>Quick Links</h3><p><a href="index.html">Home</a></p><p><a href="tuition.html">Tuition Posts</a></p><p><a href="blog.html">Blog</a></p><p><a href="about.html">About Us</a></p><p><a href="contact.html">Contact</a></p></div>
+        <div class="footer-section"><h3>Contact Info</h3><p><i class="fab fa-whatsapp"></i> +8801991309741</p><p><i class="fas fa-envelope"></i> dhakafindmytutor@gmail.com</p><p><i class="fab fa-facebook"></i> fb.com/findmytutordhaka</p></div>
+        <div class="footer-section"><h3>Service Areas</h3><p>All 30+ areas of Dhaka city including Motijheel, Gulshan, Banani, Dhanmondi, Uttara, Mirpur & more</p></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2024 FindmyTutor Dhaka | Trusted Tuition Media in Bangladesh</p></div>
+</footer>
+
+<!-- Tutor Modal -->
+<div id="tutorModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header"><h2><i class="fas fa-chalkboard-user" style="color:#F5A623;"></i> Tutor Registration</h2><span class="close-modal" onclick="closeModal('tutorModal')">&times;</span></div>
+        <form id="tutorForm">
+            <div class="form-group"><label>Full Name</label><input type="text" id="tutorName" placeholder="e.g., Md. Rahim Uddin" required></div>
+            <div class="form-group"><label>WhatsApp Number</label><input type="tel" id="tutorPhone" placeholder="01XXXXXXXXX" required></div>
+            <div class="form-group"><label>High School</label><input type="text" id="tutorHighSchool" placeholder="School Name" required></div>
+            <div class="form-group"><label>College</label><input type="text" id="tutorCollege" placeholder="College Name" required></div>
+            <div class="form-group"><label>University (with ID)</label><input type="text" id="tutorUniversity" placeholder="University Name & ID" required></div>
+            <div class="form-group"><label>Your Area</label><select id="tutorArea" required><option value="">Select Area</option><option>Motijheel</option><option>Dilkusha</option><option>Paltan</option><option>Shahbagh</option><option>Ramna</option><option>Kakrail</option><option>Gulshan 1</option><option>Gulshan 2</option><option>Banani</option><option>Baridhara</option><option>Bashundhara R/A</option><option>Dhanmondi</option><option>Uttara</option><option>Lalbagh</option><option>Armanitola</option><option>Bangla Bazar</option><option>Chowk Bazar</option><option>Sadarghat</option><option>Hazaribagh</option><option>Wari</option><option>Banasree</option><option>Aftab Nagar</option><option>Mohammadpur</option><option>Mirpur</option><option>Agargaon</option><option>Malibagh</option><option>Moghbazar</option><option>Basabo</option><option>Kalabagan</option><option>Kamrangirchar</option><option>Kamalapur</option></select></div>
+            <button type="submit" class="btn-primary" style="width:100%;">Register Now</button>
+        </form>
+    </div>
+</div>
+
+<!-- Student Modal -->
+<div id="studentModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header"><h2><i class="fas fa-graduation-cap" style="color:#F5A623;"></i> Student Registration</h2><span class="close-modal" onclick="closeModal('studentModal')">&times;</span></div>
+        <form id="studentForm">
+            <div class="form-group"><label>Full Name</label><input type="text" id="studentName" placeholder="e.g., Md. Karim" required></div>
+            <div class="form-group"><label>WhatsApp Number</label><input type="tel" id="studentPhone" placeholder="01XXXXXXXXX" required></div>
+            <div class="form-group"><label>Your Area</label><select id="studentArea" required><option value="">Select Area</option><option>Motijheel</option><option>Dilkusha</option><option>Paltan</option><option>Shahbagh</option><option>Ramna</option><option>Kakrail</option><option>Gulshan</option><option>Banani</option><option>Baridhara</option><option>Bashundhara</option><option>Dhanmondi</option><option>Uttara</option><option>Lalbagh</option><option>Armanitola</option><option>Bangla Bazar</option><option>Chowk Bazar</option><option>Sadarghat</option><option>Hazaribagh</option><option>Wari</option><option>Banasree</option><option>Aftab Nagar</option><option>Mohammadpur</option><option>Mirpur</option><option>Agargaon</option><option>Malibagh</option><option>Moghbazar</option><option>Basabo</option><option>Kalabagan</option><option>Kamrangirchar</option><option>Kamalapur</option></select></div>
+            <div class="form-group"><label>Class</label><input type="text" id="studentClass" placeholder="e.g., Class 8, HSC 1st Year" required></div>
+            <div class="form-group"><label>Subject Needed</label><input type="text" id="studentSubject" placeholder="e.g., Mathematics, Physics, English" required></div>
+            <button type="submit" class="btn-primary" style="width:100%;">Submit Demand</button>
+        </form>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

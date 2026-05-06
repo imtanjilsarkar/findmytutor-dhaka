@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>FindmyTutor Dhaka - Professional Tuition Media</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Swiper JS (only needed for pages with carousel) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+    <a href="index.html" class="logo"><div class="logo-icon">F</div><span class="logo-text">FindmyTutor <span>Dhaka</span></span></a>
+    <div class="nav-links"><a href="index.html">Home</a><a href="tuition.html">Tuition Posts</a><a href="blog.html">Blog</a><a href="about.html">About</a><a href="contact.html" class="active">Contact</a></div>
+    <div class="mobile-menu" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></div>
+</nav>
+
+<div class="page-header"><h1 data-aos="fade-up">📞 Contact Us</h1></div>
+
+<div class="contact-container">
+    <div class="contact-info" data-aos="fade-right">
+        <h2><i class="fas fa-address-card"></i> Get in Touch</h2>
+        <div class="info-item"><i class="fab fa-whatsapp"></i><div><h4>WhatsApp</h4><p>+8801991309741</p></div></div>
+        <div class="info-item"><i class="fas fa-phone-alt"></i><div><h4>Phone</h4><p>+8801991309741</p></div></div>
+        <div class="info-item"><i class="fas fa-envelope"></i><div><h4>Email</h4><p>dhakafindmytutor@gmail.com</p></div></div>
+        <div class="info-item"><i class="fab fa-facebook"></i><div><h4>Facebook</h4><p>facebook.com/findmytutordhaka</p></div></div>
+        <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><h4>Office</h4><p>Dhaka, Bangladesh</p></div></div>
+    </div>
+    
+    <div class="contact-form" data-aos="fade-left">
+        <h2><i class="fas fa-paper-plane"></i> Send us a Message</h2>
+        <form id="contactForm">
+            <input type="text" id="contactName" placeholder="Your Name" required>
+            <input type="email" id="contactEmail" placeholder="Your Email" required>
+            <input type="tel" id="contactPhone" placeholder="WhatsApp Number">
+            <textarea id="contactMessage" rows="4" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</div>
+
+<div class="map-section" data-aos="fade-up">
+    <div class="map-placeholder"><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Google Map - Dhaka, Bangladesh</div>
+</div>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section"><h3>FindmyTutor Dhaka</h3><p>Dhaka's leading tuition media platform.</p><div class="social-links"><a href="https://facebook.com/findmytutordhaka"><i class="fab fa-facebook-f"></i></a><a href="https://wa.me/8801991309741"><i class="fab fa-whatsapp"></i></a><a href="mailto:dhakafindmytutor@gmail.com"><i class="fas fa-envelope"></i></a></div></div>
+        <div class="footer-section"><h3>Quick Links</h3><p><a href="index.html">Home</a></p><p><a href="tuition.html">Tuition Posts</a></p><p><a href="blog.html">Blog</a></p><p><a href="about.html">About</a></p><p><a href="contact.html">Contact</a></p></div>
+        <div class="footer-section"><h3>Contact</h3><p><i class="fab fa-whatsapp"></i> +8801991309741</p><p><i class="fas fa-envelope"></i> dhakafindmytutor@gmail.com</p></div>
+        <div class="footer-section"><h3>Coverage</h3><p>All 30+ areas of Dhaka city</p></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2024 FindmyTutor Dhaka | Trusted Tuition Media</p></div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
