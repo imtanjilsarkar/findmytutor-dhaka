@@ -1,7 +1,15 @@
 /* ============================================
    FINDMYTUTOR DHAKA - MAIN JAVASCRIPT
    All interactions, forms, and Google Sheets integration
+   Google Script URL: AKfycbyzRoZNbYy4DDC7dhWtOEGnbPHiLjsakLMaVyPDEIbFZhEkgArTQ86EuujHkHuQlm42SA
    ============================================ */
+
+// ============================================
+// GOOGLE SHEETS CONFIGURATION
+// REPLACED WITH YOUR ACTUAL URL
+// ============================================
+
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyzRoZNbYy4DDC7dhWtOEGnbPHiLjsakLMaVyPDEIbFZhEkgArTQ86EuujHkHuQlm42SA/exec";
 
 // ============================================
 // INITIALIZATION
@@ -86,12 +94,6 @@ window.onclick = function(event) {
         event.target.style.display = 'none';
     }
 }
-
-// ============================================
-// GOOGLE SHEETS CONFIGURATION
-// ============================================
-// IMPORTANT: Replace this URL with your Google Apps Script Web App URL
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/YOUR_APPS_SCRIPT_ID/exec";
 
 // ============================================
 // TUTOR REGISTRATION FORM
@@ -379,3 +381,6 @@ function setupBackToTop() {
 
 // Call setup on load
 document.addEventListener('DOMContentLoaded', setupBackToTop);
+
+console.log('✅ FindmyTutor Dhaka JS loaded successfully!');
+console.log('📊 Google Script URL configured:', GOOGLE_SCRIPT_URL);
