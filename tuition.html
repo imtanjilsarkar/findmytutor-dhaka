@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tuition Posts - FindmyTutor Dhaka</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -22,15 +22,13 @@
             z-index: 1000;
             box-shadow: 0 2px 20px rgba(0,0,0,0.05);
         }
-        .navbar.scrolled { padding: 0.7rem 5%; }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
         .logo-icon { width: 38px; height: 38px; background: linear-gradient(135deg, #1A2A6C, #F5A623); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: white; }
         .logo-text { font-size: 1.4rem; font-weight: 700; color: #1A2A6C; }
         .logo-text span { color: #F5A623; }
-        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links { display: flex; gap: 2rem; }
         .nav-links a { text-decoration: none; color: #475569; font-weight: 500; }
         .nav-links a:hover, .nav-links a.active { color: #F5A623; }
-        .mobile-menu { display: none; font-size: 1.5rem; cursor: pointer; }
         
         .admin-fab {
             position: fixed;
@@ -46,72 +44,93 @@
             justify-content: center;
             cursor: pointer;
             z-index: 999;
-            box-shadow: 0 4px 20px rgba(26,42,108,0.4);
-            transition: all 0.3s;
             text-decoration: none;
         }
         .admin-fab:hover { transform: scale(1.1); background: #F5A623; }
-        .admin-fab i { font-size: 1.5rem; }
         
-        .page-header { padding: 8rem 5% 3rem; text-align: center; background: linear-gradient(135deg, #F8F9FC, #FFFFFF); }
-        .page-header h1 { font-size: 2.5rem; color: #1A2A6C; margin-bottom: 0.5rem; }
-        .page-header p { color: #64748B; }
+        .page-header { padding: 8rem 5% 3rem; text-align: center; }
+        .page-header h1 { font-size: 2.5rem; color: #1A2A6C; }
         
-        .filter-bar { padding: 1rem 5%; background: white; border-bottom: 1px solid #E2E8F0; position: sticky; top: 70px; z-index: 99; }
-        .filter-container { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
-        .filter-btn { background: #F1F5F9; border: none; padding: 8px 20px; border-radius: 50px; color: #475569; cursor: pointer; transition: all 0.3s; font-weight: 500; }
-        .filter-btn:hover, .filter-btn.active { background: #F5A623; color: white; }
-        
-        .tuition-grid { padding: 3rem 5%; display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 2rem; }
+        .tuition-grid { padding: 2rem 5%; display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem; }
         
         .tuition-card {
             background: white;
             border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.3s;
+            padding: 1.5rem;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             border: 1px solid #E2E8F0;
+            transition: all 0.3s;
         }
-        .tuition-card:hover { transform: translateY(-5px); box-shadow: 0 20px 35px -10px rgba(0,0,0,0.1); border-color: #F5A623; }
+        .tuition-card:hover { transform: translateY(-5px); border-color: #F5A623; }
         
-        .card-header { padding: 1rem 1.5rem; background: #F8F9FC; border-bottom: 1px solid #E2E8F0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
-        .salary-badge { background: linear-gradient(135deg, #1A2A6C, #243594); color: white; padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; }
-        .time-badge { background: #E2E8F0; padding: 4px 12px; border-radius: 50px; font-size: 0.7rem; color: #64748B; }
-        .time-badge.urgent { background: rgba(245,166,35,0.15); color: #F5A623; }
+        .salary-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #1A2A6C, #243594);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            margin-bottom: 1rem;
+        }
         
-        .card-body { padding: 1.5rem; }
-        .class-info { font-size: 1rem; font-weight: 600; color: #1A2A6C; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px; }
-        .class-info i { color: #F5A623; }
-        .subject-tag { display: inline-block; background: rgba(245,166,35,0.1); color: #F5A623; padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; margin: 0 4px 8px 0; }
-        .info-row { display: flex; align-items: center; gap: 12px; padding: 8px 0; font-size: 0.9rem; color: #475569; }
-        .info-row i { width: 20px; color: #F5A623; }
+        .class-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #F5A623;
+            margin-bottom: 0.5rem;
+        }
         
-        .card-footer { padding: 1rem 1.5rem 1.5rem; }
-        .interested-btn { width: 100%; background: linear-gradient(135deg, #1A2A6C, #243594); border: none; padding: 12px; border-radius: 50px; color: white; font-weight: 600; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; }
-        .interested-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(26,42,108,0.3); }
+        .subject-tag {
+            display: inline-block;
+            background: rgba(245,166,35,0.1);
+            color: #F5A623;
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            margin: 0 4px 4px 0;
+        }
         
-        .footer { background: #1A2A6C; color: #CBD5E1; padding: 3rem 5% 1.5rem; margin-top: 3rem; }
-        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
-        .footer-section h3 { color: #F5A623; margin-bottom: 1rem; }
-        .footer-section a { color: #CBD5E1; text-decoration: none; }
-        .social-links { display: flex; gap: 1rem; margin-top: 1rem; }
-        .social-links a { width: 36px; height: 36px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-        .footer-bottom { text-align: center; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; }
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 0;
+            font-size: 0.85rem;
+            color: #475569;
+        }
+        .info-row i { width: 18px; color: #F5A623; }
         
-        .loading { text-align: center; padding: 3rem; }
-        .error { text-align: center; padding: 3rem; color: #ef4444; }
+        .interested-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #1A2A6C, #243594);
+            border: none;
+            padding: 12px;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        
+        .footer {
+            background: #1A2A6C;
+            color: #CBD5E1;
+            padding: 3rem 5% 1.5rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        .loading, .error { text-align: center; padding: 3rem; }
+        .error { color: #ef4444; }
         
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .mobile-menu { display: block; }
             .tuition-grid { grid-template-columns: 1fr; }
-            .admin-fab { width: 50px; height: 50px; bottom: 20px; right: 20px; }
         }
     </style>
 </head>
 <body>
 
-<nav class="navbar" id="navbar">
+<nav class="navbar">
     <a href="index.html" class="logo">
         <div class="logo-icon">F</div>
         <span class="logo-text">FindmyTutor <span>Dhaka</span></span>
@@ -121,11 +140,9 @@
         <a href="tuition.html" class="active">Tuition Posts</a>
         <a href="contact.html">Contact</a>
     </div>
-    <div class="mobile-menu" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></div>
 </nav>
 
-<!-- Admin Button - Opens Google Form -->
-<a href="https://forms.gle/R6SThXKAyXLJei5A6" target="_blank" class="admin-fab">
+<a href="https://forms.gle/4NifvjzPgk47z1877" target="_blank" class="admin-fab">
     <i class="fas fa-plus"></i>
 </a>
 
@@ -134,187 +151,80 @@
     <p>Find the latest tuition opportunities in Dhaka</p>
 </div>
 
-<div class="filter-bar">
-    <div class="filter-container">
-        <button class="filter-btn active" onclick="filterPosts('all')">All Posts</button>
-        <button class="filter-btn" onclick="filterPosts('primary')">Class 5-8</button>
-        <button class="filter-btn" onclick="filterPosts('secondary')">Class 9-10</button>
-        <button class="filter-btn" onclick="filterPosts('hscience')">HSC Science</button>
-        <button class="filter-btn" onclick="filterPosts('hcommerce')">HSC Commerce</button>
-        <button class="filter-btn" onclick="filterPosts('harts')">HSC Arts</button>
-    </div>
-</div>
-
 <div class="tuition-grid" id="tuitionGrid">
     <div class="loading"><i class="fas fa-spinner fa-spin"></i> Loading posts...</div>
 </div>
 
 <footer class="footer">
-    <div class="footer-content">
-        <div class="footer-section">
-            <div class="logo" style="margin-bottom: 1rem;"><div class="logo-icon">F</div><span class="logo-text" style="color: white;">FindmyTutor <span>Dhaka</span></span></div>
-            <p>Dhaka's leading tuition media platform connecting students and verified tutors.</p>
-            <div class="social-links">
-                <a href="https://facebook.com/findmytutordhaka"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://wa.me/8801991309741"><i class="fab fa-whatsapp"></i></a>
-                <a href="mailto:dhakafindmytutor@gmail.com"><i class="fas fa-envelope"></i></a>
-            </div>
-        </div>
-        <div class="footer-section"><h3>Quick Links</h3><p><a href="index.html">Home</a></p><p><a href="tuition.html">Tuition Posts</a></p></div>
-        <div class="footer-section"><h3>Contact</h3><p><i class="fab fa-whatsapp"></i> +8801991309741</p><p><i class="fas fa-envelope"></i> dhakafindmytutor@gmail.com</p></div>
-        <div class="footer-section"><h3>Coverage</h3><p>All 30+ areas of Dhaka city</p></div>
-    </div>
-    <div class="footer-bottom"><p>&copy; 2024 FindmyTutor Dhaka | Trusted Tuition Media in Bangladesh</p></div>
+    <p>&copy; 2024 FindmyTutor Dhaka | Trusted Tuition Media in Bangladesh</p>
 </footer>
 
 <script>
-    // ============================================
-    // REPLACE THIS WITH YOUR WEB APP URL
-    // Get it from: Deploy → New Deployment → Copy URL
-    // ============================================
-    const API_URL = "https://script.google.com/macros/s/AKfycbzW9_P8AAwJdj0fj27KO0vSX2HwylyVDKpX1OUzJbKLCKVKQyOnPt1m8PClH6RHBg/exec";
-    
-    let allPosts = [];
-    
-    function getTimeAgo(timestamp) {
-        if (!timestamp) return "Recently";
-        const now = new Date();
-        const postDate = new Date(timestamp);
-        const diffMs = now - postDate;
-        const diffMins = Math.floor(diffMs / 60000);
-        const diffHours = Math.floor(diffMs / 3600000);
-        const diffDays = Math.floor(diffMs / 86400000);
-        
-        if (diffMins < 1) return "Just now";
-        if (diffMins < 60) return `${diffMins} min ago`;
-        if (diffHours < 24) return `${diffHours} hour${diffHours > 1 ? 's' : ''} ago`;
-        if (diffDays < 7) return `${diffDays} day${diffDays > 1 ? 's' : ''} ago`;
-        return postDate.toLocaleDateString('en-BD');
-    }
-    
-    function getFilterCategory(post) {
-        const level = post.classLevel || '';
-        if (level.includes('Primary') || level.includes('Class 5-8')) return 'primary';
-        if (level.includes('Secondary') || level.includes('Class 9-10')) return 'secondary';
-        if (level.includes('Higher Secondary') || level.includes('Class 11-12')) {
-            const group = post.group || '';
-            if (group.includes('Science')) return 'hscience';
-            if (group.includes('Commerce')) return 'hcommerce';
-            if (group.includes('Arts')) return 'harts';
-        }
-        return 'all';
-    }
-    
-    function renderPosts(posts) {
-        const grid = document.getElementById('tuitionGrid');
-        if (!posts || posts.length === 0) {
-            grid.innerHTML = '<div class="loading">📭 No tuition posts available. Check back soon!</div>';
-            return;
-        }
-        
-        grid.innerHTML = '';
-        
-        posts.forEach(post => {
-            const subjectsList = post.subjects ? post.subjects.split(',').map(s => s.trim()) : [];
-            const hoursAgo = post.timestamp ? Math.floor((new Date() - new Date(post.timestamp)) / 3600000) : 0;
-            
-            const card = document.createElement('div');
-            card.className = 'tuition-card';
-            card.innerHTML = `
-                <div class="card-header">
-                    <div class="salary-badge"><i class="fas fa-taka-sign"></i> ${post.salaryRange || 'Negotiable'}</div>
-                    <div class="time-badge ${hoursAgo < 12 ? 'urgent' : ''}"><i class="fas fa-clock"></i> ${getTimeAgo(post.timestamp)}</div>
-                </div>
-                <div class="card-body">
-                    <div class="class-info">
-                        <i class="fas fa-graduation-cap"></i> ${post.className || post.classLevel || 'Class not specified'}
-                        ${post.group && post.group !== 'Not Applicable' ? ` (${post.group})` : ''}
-                    </div>
-                    <div style="margin: 12px 0 8px 0;">
-                        ${subjectsList.length > 0 ? subjectsList.map(s => `<span class="subject-tag">${s}</span>`).join('') : '<span class="subject-tag">Subjects not specified</span>'}
-                    </div>
-                    <div class="info-row"><i class="fas fa-map-marker-alt"></i> Area: ${post.area || 'Not specified'}</div>
-                    <div class="info-row"><i class="fas fa-hourglass-half"></i> Duration: ${post.duration || 'Not specified'}</div>
-                    <div class="info-row"><i class="fas fa-venus-mars"></i> Preference: ${post.gender || 'Any'} Tutor</div>
-                </div>
-                <div class="card-footer">
-                    <button class="interested-btn" onclick="openApplyModal(${post.id})"><i class="fas fa-hand-point-right"></i> Interested - Apply Now</button>
-                </div>
-            `;
-            grid.appendChild(card);
-        });
-    }
-    
-    function filterPosts(filter) {
-        const btns = document.querySelectorAll('.filter-btn');
-        btns.forEach(btn => btn.classList.remove('active'));
-        event.target.classList.add('active');
-        
-        let filtered = [...allPosts];
-        if (filter !== 'all') {
-            filtered = allPosts.filter(post => getFilterCategory(post) === filter);
-        }
-        renderPosts(filtered);
-    }
-    
-    function openApplyModal(postId) {
-        const post = allPosts.find(p => p.id == postId);
-        const message = `Hi! I'm interested in the tuition post:\n\n📚 Subjects: ${post.subjects}\n📖 Class: ${post.className || post.classLevel}\n📍 Area: ${post.area}\n💰 Salary: ${post.salaryRange}\n\nPlease share more details.`;
-        window.open(`https://wa.me/8801991309741?text=${encodeURIComponent(message)}`, '_blank');
-    }
+    // REPLACE WITH YOUR ACTUAL API URL AFTER DEPLOYMENT
+    const API_URL = "https://script.google.com/macros/s/AKfycbzyOFfwCLEd49PIIu730h52pXDwXzYrR43AeU6ulvQF9zyBRusDbNRv70DSX7n8_MUzKw/exec";
     
     async function loadPosts() {
         const grid = document.getElementById('tuitionGrid');
-        grid.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Loading posts...</div>';
         
         try {
             console.log("Fetching from:", API_URL);
             const response = await fetch(API_URL);
-            if (!response.ok) throw new Error('Network error');
-            allPosts = await response.json();
-            console.log("Received posts:", allPosts.length);
-            renderPosts(allPosts);
-        } catch (error) {
-            console.error("Error loading posts:", error);
+            const posts = await response.json();
+            
+            console.log("Received:", posts);
+            
+            if (!posts || posts.length === 0) {
+                grid.innerHTML = '<div class="loading">📭 No tuition posts available. Check back soon!</div>';
+                return;
+            }
+            
+            grid.innerHTML = '';
+            
+            posts.forEach(post => {
+                // Calculate time ago
+                let timeAgo = "Recently";
+                if (post.timestamp) {
+                    const postDate = new Date(post.timestamp);
+                    const now = new Date();
+                    const hours = Math.floor((now - postDate) / 3600000);
+                    if (hours < 1) timeAgo = "Just now";
+                    else if (hours < 24) timeAgo = hours + " hours ago";
+                    else timeAgo = Math.floor(hours / 24) + " days ago";
+                }
+                
+                // Split subjects
+                const subjectsList = post.subjects ? post.subjects.split(',').map(s => s.trim()) : [];
+                
+                const card = document.createElement('div');
+                card.className = 'tuition-card';
+                card.innerHTML = `
+                    <div class="salary-badge"><i class="fas fa-taka-sign"></i> ${post.salaryRange || 'Negotiable'}</div>
+                    <div class="class-name"><i class="fas fa-graduation-cap"></i> ${post.className || post.classLevel || 'Class not specified'}</div>
+                    <div style="margin: 10px 0;">
+                        ${subjectsList.map(s => `<span class="subject-tag">${s}</span>`).join('')}
+                    </div>
+                    <div class="info-row"><i class="fas fa-map-marker-alt"></i> Area: ${post.area || 'Not specified'}</div>
+                    <div class="info-row"><i class="fas fa-hourglass-half"></i> Duration: ${post.duration || 'Not specified'}</div>
+                    <div class="info-row"><i class="fas fa-venus-mars"></i> Preference: ${post.gender || 'Any'} Tutor</div>
+                    <div class="info-row"><i class="fas fa-clock"></i> Posted: ${timeAgo}</div>
+                    <button class="interested-btn" onclick="applyNow('${post.className || post.classLevel}', '${post.subjects}', '${post.area}')">
+                        <i class="fas fa-hand-point-right"></i> Interested - Apply Now
+                    </button>
+                `;
+                grid.appendChild(card);
+            });
+            
+        } catch(error) {
+            console.error("Error:", error);
             grid.innerHTML = '<div class="error"><i class="fas fa-exclamation-triangle"></i> Error loading posts. Please refresh.</div>';
         }
     }
     
-    function toggleMobileMenu() {
-        const navLinks = document.querySelector('.nav-links');
-        if (navLinks) {
-            if (navLinks.style.display === 'flex') {
-                navLinks.style.display = 'none';
-            } else {
-                navLinks.style.display = 'flex';
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '70px';
-                navLinks.style.left = '0';
-                navLinks.style.width = '100%';
-                navLinks.style.background = 'white';
-                navLinks.style.padding = '1rem';
-                navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
-            }
-        }
+    function applyNow(className, subjects, area) {
+        const message = `Hi! I am interested in the tuition post for ${className} - ${subjects} in ${area}. Please share more details.`;
+        window.open(`https://wa.me/8801991309741?text=${encodeURIComponent(message)}`, '_blank');
     }
     
-    window.addEventListener('scroll', function() {
-        const navbar = document.getElementById('navbar');
-        if (navbar) {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        }
-    });
-    
-    window.filterPosts = filterPosts;
-    window.openApplyModal = openApplyModal;
-    window.toggleMobileMenu = toggleMobileMenu;
-    
-    // Load posts when page loads
     loadPosts();
 </script>
 </body>
