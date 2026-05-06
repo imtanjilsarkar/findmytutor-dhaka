@@ -125,12 +125,12 @@
 </nav>
 
 <!-- Admin Button - Opens Google Form -->
-<a href="https://forms.gle/BcV4YnNLwDRqfFys8" target="_blank" class="admin-fab">
+<a href="https://forms.gle/R6SThXKAyXLJei5A6" target="_blank" class="admin-fab">
     <i class="fas fa-plus"></i>
 </a>
 
 <div class="page-header">
-    <h1>Tuition Posts</h1>
+    <h1>📚 Tuition Posts</h1>
     <p>Find the latest tuition opportunities in Dhaka</p>
 </div>
 
@@ -170,12 +170,14 @@
 <script>
     // ============================================
     // REPLACE THIS WITH YOUR WEB APP URL
+    // Get it from: Deploy → New Deployment → Copy URL
     // ============================================
     const API_URL = "https://script.google.com/macros/s/AKfycbz_RL_Z8i1UZnyyMtcnw86aBg9zH66043nHFnzE63SoHe7jPIQLx55pOftQ4VnStmgoLw/exec";
     
     let allPosts = [];
     
     function getTimeAgo(timestamp) {
+        if (!timestamp) return "Recently";
         const now = new Date();
         const postDate = new Date(timestamp);
         const diffMs = now - postDate;
@@ -191,12 +193,14 @@
     }
     
     function getFilterCategory(post) {
-        if (post.classLevel === 'Primary (Class 5-8)') return 'primary';
-        if (post.classLevel === 'Secondary (Class 9-10)') return 'secondary';
-        if (post.classLevel === 'Higher Secondary (Class 11-12)') {
-            if (post.group === 'Science') return 'hscience';
-            if (post.group === 'Commerce') return 'hcommerce';
-            if (post.group === 'Arts') return 'harts';
+        const level = post.classLevel || '';
+        if (level.includes('Primary') || level.includes('Class 5-8')) return 'primary';
+        if (level.includes('Secondary') || level.includes('Class 9-10')) return 'secondary';
+        if (level.includes('Higher Secondary') || level.includes('Class 11-12')) {
+            const group = post.group || '';
+            if (group.includes('Science')) return 'hscience';
+            if (group.includes('Commerce')) return 'hcommerce';
+            if (group.includes('Arts')) return 'harts';
         }
         return 'all';
     }
@@ -212,26 +216,26 @@
         
         posts.forEach(post => {
             const subjectsList = post.subjects ? post.subjects.split(',').map(s => s.trim()) : [];
-            const hoursAgo = Math.floor((new Date() - new Date(post.timestamp)) / 3600000);
+            const hoursAgo = post.timestamp ? Math.floor((new Date() - new Date(post.timestamp)) / 3600000) : 0;
             
             const card = document.createElement('div');
             card.className = 'tuition-card';
             card.innerHTML = `
                 <div class="card-header">
-                    <div class="salary-badge"><i class="fas fa-taka-sign"></i> ${post.salaryRange || 'Negotiable'}/month</div>
+                    <div class="salary-badge"><i class="fas fa-taka-sign"></i> ${post.salaryRange || 'Negotiable'}</div>
                     <div class="time-badge ${hoursAgo < 12 ? 'urgent' : ''}"><i class="fas fa-clock"></i> ${getTimeAgo(post.timestamp)}</div>
                 </div>
                 <div class="card-body">
                     <div class="class-info">
-                        <i class="fas fa-graduation-cap"></i> ${post.className || post.classLevel}
+                        <i class="fas fa-graduation-cap"></i> ${post.className || post.classLevel || 'Class not specified'}
                         ${post.group && post.group !== 'Not Applicable' ? ` (${post.group})` : ''}
                     </div>
                     <div style="margin: 12px 0 8px 0;">
-                        ${subjectsList.map(s => `<span class="subject-tag">${s}</span>`).join('')}
+                        ${subjectsList.length > 0 ? subjectsList.map(s => `<span class="subject-tag">${s}</span>`).join('') : '<span class="subject-tag">Subjects not specified</span>'}
                     </div>
-                    <div class="info-row"><i class="fas fa-map-marker-alt"></i> Area: ${post.area}</div>
-                    <div class="info-row"><i class="fas fa-hourglass-half"></i> Duration: ${post.duration}</div>
-                    <div class="info-row"><i class="fas fa-venus-mars"></i> Preference: ${post.gender} Tutor</div>
+                    <div class="info-row"><i class="fas fa-map-marker-alt"></i> Area: ${post.area || 'Not specified'}</div>
+                    <div class="info-row"><i class="fas fa-hourglass-half"></i> Duration: ${post.duration || 'Not specified'}</div>
+                    <div class="info-row"><i class="fas fa-venus-mars"></i> Preference: ${post.gender || 'Any'} Tutor</div>
                 </div>
                 <div class="card-footer">
                     <button class="interested-btn" onclick="openApplyModal(${post.id})"><i class="fas fa-hand-point-right"></i> Interested - Apply Now</button>
@@ -255,7 +259,7 @@
     
     function openApplyModal(postId) {
         const post = allPosts.find(p => p.id == postId);
-        const message = `Hi! I'm interested in the tuition post:\n\n📚 Subject: ${post.subject}\n📖 Class: ${post.className}\n📍 Area: ${post.area}\n💰 Salary: ${post.salaryRange}\n\nPlease share more details.`;
+        const message = `Hi! I'm interested in the tuition post:\n\n📚 Subjects: ${post.subjects}\n📖 Class: ${post.className || post.classLevel}\n📍 Area: ${post.area}\n💰 Salary: ${post.salaryRange}\n\nPlease share more details.`;
         window.open(`https://wa.me/8801991309741?text=${encodeURIComponent(message)}`, '_blank');
     }
     
@@ -264,9 +268,11 @@
         grid.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Loading posts...</div>';
         
         try {
+            console.log("Fetching from:", API_URL);
             const response = await fetch(API_URL);
             if (!response.ok) throw new Error('Network error');
             allPosts = await response.json();
+            console.log("Received posts:", allPosts.length);
             renderPosts(allPosts);
         } catch (error) {
             console.error("Error loading posts:", error);
@@ -308,8 +314,8 @@
     window.openApplyModal = openApplyModal;
     window.toggleMobileMenu = toggleMobileMenu;
     
+    // Load posts when page loads
     loadPosts();
-    setInterval(loadPosts, 60000);
 </script>
 </body>
 </html>
