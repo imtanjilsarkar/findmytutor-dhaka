@@ -180,7 +180,7 @@
         }
         .last-updated { font-size: 0.78rem; color: var(--muted); }
 
-        /* ── FILTER BAR ── */
+        /* ── FILTER BAR (HIDDEN IN SINGLE POST VIEW) ── */
         .filter-section {
             background: white;
             border-bottom: 1px solid var(--border);
@@ -190,6 +190,7 @@
             z-index: 90;
             box-shadow: 0 4px 15px rgba(0,0,0,0.04);
         }
+        .filter-section.hide { display: none; }
         .filter-inner {
             max-width: 1300px;
             margin: 0 auto;
@@ -266,6 +267,11 @@
             gap: 2rem;
             align-items: start;
         }
+        .main-content.single-post {
+            grid-template-columns: 1fr;
+            max-width: 700px;
+        }
+        .main-content.single-post .sidebar { display: none; }
 
         /* ── TUITION CARDS ── */
         .tuition-grid { display: flex; flex-direction: column; gap: 1rem; }
@@ -431,6 +437,30 @@
             transform: translateY(-1px);
             box-shadow: 0 4px 15px rgba(245,166,35,0.4);
         }
+
+        /* Back button for single post view */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            border: 1.5px solid var(--border);
+            padding: 10px 20px;
+            border-radius: 50px;
+            color: var(--navy);
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            margin-bottom: 1.5rem;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+        .back-btn:hover {
+            background: var(--navy);
+            border-color: var(--navy);
+            color: white;
+        }
+        .back-btn:hover i { color: white; }
 
         /* ── SIDEBAR ── */
         .sidebar { display: flex; flex-direction: column; gap: 1.2rem; }
@@ -836,7 +866,7 @@
 </div>
 
 <!-- FILTER BAR -->
-<div class="filter-section">
+<div class="filter-section" id="filterSection">
     <div class="filter-inner">
         <div class="search-box"><i class="fas fa-search"></i><input type="text" id="searchInput" placeholder="Search by subject, area, class..." oninput="applyFilters()"></div>
         <select class="filter-select" id="areaFilter" onchange="applyFilters()"><option value="">All Areas</option><option>Dhanmondi</option><option>Gulshan</option><option>Banani</option><option>Uttara</option><option>Mirpur</option><option>Mohammadpur</option><option>Bashundhara</option><option>Motijheel</option><option>Malibagh</option><option>Moghbazar</option></select>
@@ -849,9 +879,12 @@
 </div>
 
 <!-- MAIN CONTENT -->
-<div class="main-content">
-    <div><div class="tuition-grid" id="tuitionGrid"><div style="text-align:center;padding:3rem"><i class="fas fa-spinner fa-spin"></i> Loading posts...</div></div></div>
-    <div class="sidebar">
+<div class="main-content" id="mainContent">
+    <div>
+        <div id="backButtonContainer"></div>
+        <div class="tuition-grid" id="tuitionGrid"><div style="text-align:center;padding:3rem"><i class="fas fa-spinner fa-spin"></i> Loading posts...</div></div>
+    </div>
+    <div class="sidebar" id="sidebar">
         <div class="sidebar-card"><div class="sidebar-title"><i class="fas fa-chart-bar"></i> Platform Stats</div><div class="stat-grid"><div class="stat-box"><div class="num" id="sidebarPosts">—</div><div class="lbl">Active Posts</div></div><div class="stat-box"><div class="num">1000+</div><div class="lbl">Tutors</div></div><div class="stat-box"><div class="num">2K+</div><div class="lbl">Matched</div></div><div class="stat-box"><div class="num">30+</div><div class="lbl">Areas</div></div></div></div>
         <div class="sidebar-card"><div class="sidebar-title"><i class="fas fa-map-marker-alt"></i> Hot Areas</div><div class="area-list" id="hotAreas"><div class="area-row"><span class="area-name">Loading...</span><span class="area-count">—</span></div></div></div>
         <div class="sidebar-card"><div class="sidebar-title"><i class="fas fa-bolt"></i> Recent Activity</div><div class="activity-list"><div class="activity-item"><div class="activity-dot"></div><div class="activity-text"><strong>Tutor confirmed</strong> for Class 9 Math in Gulshan <span style="font-size:0.72rem">2 min ago</span></div></div><div class="activity-item"><div class="activity-dot gold"></div><div class="activity-text"><strong>New post added</strong> — HSC Chemistry in Dhanmondi <span style="font-size:0.72rem">14 min ago</span></div></div><div class="activity-item"><div class="activity-dot"></div><div class="activity-text"><strong>3 tutors applied</strong> for O Level Physics in Banani <span style="font-size:0.72rem">31 min ago</span></div></div></div></div>
@@ -880,7 +913,7 @@
     </div>
 </div>
 
-<!-- APPLY MODAL (YOUR ORIGINAL WITH BASIC/PRO) -->
+<!-- APPLY MODAL -->
 <div class="modal-overlay" id="applyModal">
     <div class="modal-box">
         <div class="modal-header"><div class="modal-title">Apply for Tuition</div><button class="modal-close" onclick="closeApplyModal()"><i class="fas fa-times"></i></button></div>
@@ -941,6 +974,7 @@ let filteredPosts = [];
 let currentFilter = 'all';
 let selectedPlan = 'basic';
 let currentPostData = null;
+let isSinglePostMode = false;
 
 // ============================================
 // TIME FUNCTIONS
@@ -963,7 +997,7 @@ function isNew(ts) { return ts && (Date.now() - new Date(ts)) < 24*3600000; }
 // SHARE FUNCTIONS
 // ============================================
 function openShareModal(post) {
-    const postUrl = `${window.location.href.split('?')[0]}?id=${post.id}`;
+    const postUrl = `${window.location.origin}${window.location.pathname}?id=${post.id}`;
     const encodedUrl = encodeURIComponent(postUrl);
     const shareText = encodeURIComponent(`📚 Tuition Available!\nSubject: ${post.subjects}\nClass: ${post.className || post.classLevel}\nArea: ${post.area}\nSalary: ${post.salaryRange}\n\nApply here:`);
     document.getElementById('shareLinkText').innerHTML = postUrl;
@@ -973,7 +1007,7 @@ function openShareModal(post) {
 }
 
 function closeShareModal() { document.getElementById('shareModal').classList.remove('open'); }
-function copyShareLink() { navigator.clipboard.writeText(document.getElementById('shareLinkText').innerText); alert('✅ Link copied!'); }
+function copyShareLink() { navigator.clipboard.writeText(document.getElementById('shareLinkText').innerText); alert('✅ Link copied! Share it anywhere.'); }
 
 // ============================================
 // PASSWORD FUNCTIONS
@@ -987,6 +1021,85 @@ function verifyPassword() {
     } else {
         document.getElementById('passwordError').style.display = 'block';
     }
+}
+
+// ============================================
+// RENDER SINGLE POST (for shared links)
+// ============================================
+function renderSinglePost(post) {
+    const subjects = post.subjects ? post.subjects.split(',').map(s=>s.trim()) : ['N/A'];
+    const isUrgent = post.urgent || false;
+    const newPost = isNew(post.timestamp);
+    const isDummy = String(post.id).startsWith('D');
+    
+    const backButton = `<button class="back-btn" onclick="exitSinglePostMode()"><i class="fas fa-arrow-left"></i> Back to all posts</button>`;
+    document.getElementById('backButtonContainer').innerHTML = backButton;
+    
+    const cardHtml = `<div class="tuition-card ${isUrgent?'urgent-card':''}">
+        <div class="card-top">
+            <div class="card-left">
+                <div class="badge-row">
+                    ${newPost ? '<span class="badge badge-new"><i class="fas fa-circle"></i> NEW</span>' : ''}
+                    ${isUrgent ? '<span class="badge badge-urgent"><i class="fas fa-fire"></i> URGENT</span>' : ''}
+                    <span class="badge badge-class"><i class="fas fa-graduation-cap"></i> ${post.className||post.classLevel||'N/A'}</span>
+                    ${post.group ? `<span class="badge badge-group">${post.group}</span>` : ''}
+                </div>
+                <div class="card-title">${subjects.join(' • ')}</div>
+                <div class="card-area"><i class="fas fa-map-marker-alt"></i> ${post.area||'Dhaka'}</div>
+            </div>
+            <div class="salary-box"><div class="salary-amount">${post.salaryRange ? post.salaryRange.replace(' TK/month','') : 'N/A'}</div><div class="salary-label">TK / month</div></div>
+        </div>
+        <div class="card-details">
+            <div class="detail-item"><i class="fas fa-calendar-week"></i><span><strong>${post.duration||'N/A'}</strong></span></div>
+            <div class="detail-item"><i class="fas fa-venus-mars"></i><span><strong>${post.gender||'Any'}</strong> Tutor</span></div>
+            <div class="detail-item"><i class="fas fa-users"></i><span>1 Student</span></div>
+            <div class="detail-item"><i class="fas fa-home"></i><span>Home Tuition</span></div>
+        </div>
+        <div class="card-footer">
+            <div><div class="time-info"><i class="fas fa-clock"></i> Posted: ${timeAgo(post.timestamp)}</div><div class="post-id">Post #${isDummy ? 'FMT'+post.id.replace('D','0') : post.id}</div></div>
+            <div class="button-group">
+                <button class="share-btn" onclick="openShareModal(${JSON.stringify(post).replace(/"/g,'&quot;')})"><i class="fas fa-share-alt"></i> Share</button>
+                <button class="apply-btn" onclick="openApplyModal(${JSON.stringify(post).replace(/"/g,'&quot;')})"><i class="fas fa-hand-point-right"></i> I'm Interested</button>
+            </div>
+        </div>
+    </div>`;
+    
+    document.getElementById('tuitionGrid').innerHTML = cardHtml;
+}
+
+function exitSinglePostMode() {
+    isSinglePostMode = false;
+    document.getElementById('backButtonContainer').innerHTML = '';
+    document.getElementById('filterSection').classList.remove('hide');
+    document.getElementById('mainContent').classList.remove('single-post');
+    document.getElementById('sidebar').style.display = 'grid';
+    renderPosts(filteredPosts);
+    
+    // Update URL without reloading
+    const url = new URL(window.location);
+    url.searchParams.delete('id');
+    window.history.pushState({}, '', url);
+}
+
+// ============================================
+// CHECK FOR SINGLE POST IN URL
+// ============================================
+function checkForSinglePost() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const postId = urlParams.get('id');
+    
+    if (postId && allPosts.length > 0) {
+        const post = allPosts.find(p => p.id == postId || p.id === postId);
+        if (post) {
+            isSinglePostMode = true;
+            document.getElementById('filterSection').classList.add('hide');
+            document.getElementById('mainContent').classList.add('single-post');
+            document.getElementById('sidebar').style.display = 'none';
+            renderSinglePost(post);
+            return true;
+        }
+    }
+    return false;
 }
 
 // ============================================
@@ -1080,6 +1193,7 @@ async function loadPosts() {
     renderPosts(filteredPosts);
     buildHotAreas(allPosts);
     updateStats(allPosts.length);
+    
     try {
         const res = await fetch(API_URL + "?action=getPosts&t=" + Date.now());
         const real = await res.json();
@@ -1089,13 +1203,21 @@ async function loadPosts() {
         buildHotAreas(allPosts);
         updateStats(allPosts.length);
         document.getElementById('lastUpdated').textContent = 'Last updated: ' + new Date().toLocaleTimeString('en-BD', {hour:'2-digit', minute:'2-digit'});
+        
+        // Check for single post after posts are loaded
+        if (!checkForSinglePost() && !isSinglePostMode) {
+            renderPosts(filteredPosts);
+        }
     } catch(e) {
         document.getElementById('lastUpdated').textContent = 'Showing cached posts';
+        if (!checkForSinglePost() && !isSinglePostMode) {
+            renderPosts(filteredPosts);
+        }
     }
 }
 
 // ============================================
-// APPLY MODAL (ORIGINAL WITH BASIC/PRO)
+// APPLY MODAL
 // ============================================
 function openApplyModal(post) {
     currentPostData = post;
@@ -1178,6 +1300,16 @@ window.submitApplication = submitApplication;
 window.verifyPassword = verifyPassword;
 window.closePasswordModal = closePasswordModal;
 window.toggleNav = toggleNav;
+window.exitSinglePostMode = exitSinglePostMode;
+
+// Handle browser back button
+window.addEventListener('popstate', function() {
+    if (window.location.search.includes('id=')) {
+        location.reload();
+    } else if (isSinglePostMode) {
+        exitSinglePostMode();
+    }
+});
 
 loadPosts();
 setInterval(loadPosts, 120000);
