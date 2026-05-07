@@ -225,12 +225,12 @@
                     card.setAttribute('data-aos-delay', index * 100);
                     card.innerHTML = `
                         <div class="latest-badge"><i class="fas fa-clock"></i> ${getTimeAgo(post.timestamp)}</div>
-                        <h3><i class="fas fa-book-open"></i> ${post.subject}</h3>
+                        <h3><i class="fas fa-book-open"></i> ${post.subjects || 'N/A'}</h3>
                         <div class="latest-details">
-                            <div class="latest-detail"><i class="fas fa-graduation-cap"></i> Class: ${post.class}</div>
-                            <div class="latest-detail"><i class="fas fa-map-marker-alt"></i> Area: ${post.area}</div>
-                            <div class="latest-detail"><i class="fas fa-hourglass-half"></i> Duration: ${post.duration}</div>
-                            <div class="latest-detail"><i class="fas fa-venus-mars"></i> Preference: ${post.gender} Tutor</div>
+                            <div class="latest-detail"><i class="fas fa-graduation-cap"></i> Class: ${post.className || post.classLevel || 'N/A'}</div>
+                            <div class="latest-detail"><i class="fas fa-map-marker-alt"></i> Area: ${post.area || 'N/A'}</div>
+                            <div class="latest-detail"><i class="fas fa-hourglass-half"></i> Duration: ${post.duration || 'N/A'}</div>
+                            <div class="latest-detail"><i class="fas fa-venus-mars"></i> Preference: ${post.gender || 'Any'} Tutor</div>
                         </div>
                     `;
                     grid.appendChild(card);
@@ -241,6 +241,7 @@
             if (typeof AOS !== 'undefined') AOS.refresh();
         } catch (error) {
             console.error("Error loading posts:", error);
+            document.getElementById('latestTuitionsGrid').innerHTML = '<div class="empty-tuition"><i class="fas fa-exclamation-circle"></i> Could not load posts. Please refresh.</div>';
         }
     }
     
