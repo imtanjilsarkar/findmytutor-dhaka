@@ -2,250 +2,1718 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>FindmyTutor Dhaka | Professional Tuition Media in Dhaka</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FindmyTutor Dhaka | #1 Tuition Media in Dhaka, Bangladesh</title>
+    <meta name="description" content="Bangladesh's most trusted tuition media. Find verified home tutors in Dhaka for all classes. Register as a tutor or post a tuition demand — free and fast.">
+    <meta property="og:title" content="FindmyTutor Dhaka | #1 Tuition Media in Dhaka">
+    <meta property="og:description" content="Find verified home tutors in Dhaka for all classes. 1000+ tutors, 500+ active posts.">
+    <meta property="og:type" content="website">
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="css/style.css">
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
     <style>
-        .latest-tuition-section { padding: 5rem 5%; background: white; }
-        .section-header { text-align: center; margin-bottom: 3rem; }
-        .section-subtitle { color: #F5A623; font-weight: 600; letter-spacing: 2px; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 0.5rem; }
-        .section-title { font-size: 2.5rem; font-weight: 700; color: #1A2A6C; }
-        .section-title span { color: #F5A623; }
-        .latest-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
+        :root {
+            --navy: #1A2A6C;
+            --navy-mid: #1e3380;
+            --navy-light: #243594;
+            --gold: #F5A623;
+            --gold-dark: #d4891a;
+            --gold-light: #fbb84a;
+            --bg: #F4F6FB;
+            --white: #ffffff;
+            --text: #1E293B;
+            --muted: #64748B;
+            --border: #E2E8F0;
+            --success: #10b981;
+            --radius: 20px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Lexend', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* ─── TICKER ─── */
+        .ticker-wrap {
+            background: var(--navy);
+            padding: 7px 0;
+            overflow: hidden;
+            position: fixed;
+            top: 0; width: 100%;
+            z-index: 1100;
+        }
+        .ticker-track {
+            display: flex;
+            gap: 3.5rem;
+            animation: tick 40s linear infinite;
+            white-space: nowrap;
+        }
+        .ticker-track span { font-size: 0.75rem; color: rgba(255,255,255,0.85); font-weight: 500; }
+        .ticker-track span i { color: var(--gold); margin-right: 5px; }
+        @keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+        /* ─── NAVBAR ─── */
+        .navbar {
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(16px);
+            padding: 0.9rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%; top: 32px;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+        .navbar.scrolled {
+            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+            padding: 0.7rem 5%;
+        }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-icon {
+            width: 38px; height: 38px;
+            background: linear-gradient(135deg, var(--navy), var(--gold));
+            border-radius: 11px;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900; color: white; font-size: 1.1rem;
+        }
+        .logo-text { font-family: 'Outfit', sans-serif; font-size: 1.35rem; font-weight: 800; color: var(--navy); }
+        .logo-text span { color: var(--gold); }
+
+        .nav-links { display: flex; gap: 1.8rem; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--muted); font-weight: 500; font-size: 0.88rem; transition: color 0.2s; position: relative; }
+        .nav-links a::after { content:''; position: absolute; bottom:-3px; left:0; width:0; height:2px; background: var(--gold); transition: width 0.3s; border-radius: 2px; }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .nav-links a:hover, .nav-links a.active { color: var(--navy); }
+
+        .nav-cta {
+            background: var(--gold) !important;
+            color: white !important;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600 !important;
+            font-size: 0.82rem !important;
+            transition: all 0.2s !important;
+        }
+        .nav-cta::after { display: none !important; }
+        .nav-cta:hover { background: var(--gold-dark) !important; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(245,166,35,0.35) !important; }
+
+        .mobile-menu { display: none; font-size: 1.4rem; cursor: pointer; color: var(--navy); }
+
+        /* ─── HERO ─── */
+        .hero {
+            min-height: 100vh;
+            padding: 9rem 5% 4rem;
+            background: linear-gradient(135deg, #0f1a4a 0%, #1A2A6C 40%, #1e3a8a 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        /* animated bg circles */
+        .hero-bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hbc1 {
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(245,166,35,0.12) 0%, transparent 70%);
+            top: -100px; right: -100px;
+            animation: floatCircle 8s ease-in-out infinite;
+        }
+        .hbc2 {
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
+            bottom: 0; left: 10%;
+            animation: floatCircle 10s ease-in-out infinite reverse;
+        }
+        .hbc3 {
+            width: 200px; height: 200px;
+            background: radial-gradient(circle, rgba(245,166,35,0.08) 0%, transparent 70%);
+            top: 30%; left: 40%;
+            animation: floatCircle 6s ease-in-out infinite 2s;
+        }
+        @keyframes floatCircle {
+            0%,100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-30px) scale(1.05); }
+        }
+
+        /* grid pattern overlay */
+        .hero::after {
+            content: '';
+            position: absolute; inset: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(245,166,35,0.15);
+            border: 1px solid rgba(245,166,35,0.3);
+            color: var(--gold-light);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+        .hero-badge i { font-size: 0.65rem; }
+
+        .hero-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3.6rem;
+            font-weight: 900;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 1.3rem;
+            letter-spacing: -1px;
+        }
+        .hero-title .line2 { color: var(--gold); display: block; }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.65);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            max-width: 480px;
+        }
+
+        .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+
+        .btn-hero-primary {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-family: 'Lexend', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.25s;
+            display: flex; align-items: center; gap: 8px;
+            box-shadow: 0 6px 20px rgba(245,166,35,0.35);
+            text-decoration: none;
+        }
+        .btn-hero-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(245,166,35,0.45); }
+
+        .btn-hero-outline {
+            background: rgba(255,255,255,0.08);
+            color: white;
+            border: 1.5px solid rgba(255,255,255,0.25);
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-family: 'Lexend', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.25s;
+            display: flex; align-items: center; gap: 8px;
+            text-decoration: none;
+        }
+        .btn-hero-outline:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.5); transform: translateY(-2px); }
+
+        /* hero stats strip */
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .hstat { text-align: left; }
+        .hstat-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--gold);
+            line-height: 1;
+        }
+        .hstat-label { font-size: 0.78rem; color: rgba(255,255,255,0.5); margin-top: 3px; }
+
+        /* hero right: card stack */
+        .hero-right { position: relative; }
+
+        .hero-card-stack {
+            position: relative;
+            height: 480px;
+        }
+
+        .hero-main-card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.8rem;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            position: absolute;
+            top: 40px; left: 20px; right: 20px;
+            animation: cardFloat 5s ease-in-out infinite;
+        }
+        @keyframes cardFloat {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .hero-card-stack::before {
+            content: '';
+            position: absolute;
+            top: 20px; left: 10px; right: 30px; bottom: -10px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 24px;
+            z-index: -1;
+        }
+
+        .card-header-strip {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 1.2rem;
+        }
+        .card-new-badge {
+            background: rgba(16,185,129,0.1);
+            color: var(--success);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 50px;
+            display: flex; align-items: center; gap: 4px;
+        }
+        .card-new-badge::before {
+            content: '';
+            width: 6px; height: 6px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }
+
+        .card-salary {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--navy);
+        }
+        .card-title-hero {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.3rem;
+        }
+        .card-area-hero { font-size: 0.82rem; color: var(--muted); margin-bottom: 1.2rem; }
+        .card-area-hero i { color: var(--gold); }
+
+        .card-chips { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.2rem; }
+        .chip {
+            background: var(--bg);
+            color: var(--navy);
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .card-apply-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--navy), var(--navy-light));
+            color: white;
+            border: none;
+            padding: 11px;
+            border-radius: 12px;
+            font-family: 'Lexend', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+
+        /* floating badges around card */
+        .float-badge {
+            position: absolute;
+            background: white;
+            border-radius: 14px;
+            padding: 10px 16px;
+            display: flex; align-items: center; gap: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            white-space: nowrap;
+        }
+        .float-badge i { color: var(--gold); font-size: 1rem; }
+        .fb1 { top: 0; right: 0; animation: floatBadge 4s ease-in-out infinite; }
+        .fb2 { bottom: 60px; left: 0; animation: floatBadge 4s ease-in-out infinite 1.5s; }
+        .fb3 { bottom: 0; right: 20px; animation: floatBadge 4s ease-in-out infinite 0.8s; }
+        @keyframes floatBadge { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+
+        /* ─── SECTION SHARED ─── */
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--gold-dark);
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.6rem;
+        }
+        .section-label::before {
+            content: '';
+            width: 20px; height: 2px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1.2;
+            margin-bottom: 0.6rem;
+        }
+        .section-title span { color: var(--gold); }
+        .section-desc { color: var(--muted); font-size: 0.95rem; line-height: 1.7; max-width: 560px; }
+
+        /* ─── HOW IT WORKS ─── */
+        .how-section {
+            padding: 6rem 5%;
+            background: white;
+        }
+        .how-inner { max-width: 1300px; margin: 0 auto; }
+        .how-header { text-align: center; margin-bottom: 4rem; }
+        .how-header .section-desc { margin: 0 auto; }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            position: relative;
+        }
+        .steps-grid::before {
+            content: '';
+            position: absolute;
+            top: 40px; left: 16.66%; right: 16.66%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), var(--navy));
+            z-index: 0;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 0 2rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        .step-num {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin: 0 auto 1.5rem;
+            position: relative;
+        }
+        .step-card:nth-child(1) .step-num { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: white; box-shadow: 0 8px 25px rgba(245,166,35,0.35); }
+        .step-card:nth-child(2) .step-num { background: linear-gradient(135deg, var(--navy), var(--navy-light)); color: white; box-shadow: 0 8px 25px rgba(26,42,108,0.25); }
+        .step-card:nth-child(3) .step-num { background: linear-gradient(135deg, var(--success), #059669); color: white; box-shadow: 0 8px 25px rgba(16,185,129,0.3); }
+        .step-title { font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: 0.6rem; }
+        .step-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+
+        /* ─── LATEST POSTS ─── */
+        .latest-section {
+            padding: 6rem 5%;
+            background: var(--bg);
+        }
+        .latest-inner { max-width: 1300px; margin: 0 auto; }
+        .latest-header {
+            display: flex; justify-content: space-between; align-items: flex-end;
+            margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;
+        }
+        .view-all-link {
+            display: flex; align-items: center; gap: 6px;
+            color: var(--gold-dark);
+            font-weight: 600; font-size: 0.88rem;
+            text-decoration: none;
+            border: 1.5px solid var(--gold);
+            padding: 8px 18px;
+            border-radius: 50px;
+            transition: all 0.2s;
+        }
+        .view-all-link:hover { background: var(--gold); color: white; }
+
+        .latest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
         .latest-card {
             background: white;
-            border-radius: 20px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            border: 1px solid #E2E8F0;
-            transition: all 0.3s;
+            border-radius: 18px;
+            padding: 1.4rem;
+            border: 1.5px solid var(--border);
+            transition: all 0.25s;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .latest-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--navy));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
+        }
+        .latest-card:hover { transform: translateY(-4px); box-shadow: 0 12px 35px rgba(0,0,0,0.08); border-color: transparent; }
+        .latest-card:hover::after { transform: scaleX(1); }
+
+        .lc-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.8rem; }
+        .lc-badge { font-size: 0.7rem; font-weight: 700; padding: 3px 10px; border-radius: 50px; }
+        .lc-badge.new { background: rgba(16,185,129,0.1); color: var(--success); }
+        .lc-badge.urgent { background: rgba(239,68,68,0.1); color: #ef4444; }
+        .lc-time { font-size: 0.72rem; color: var(--muted); }
+
+        .lc-subject {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem; font-weight: 700;
+            color: var(--navy); margin-bottom: 0.2rem;
+        }
+        .lc-class { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.8rem; }
+
+        .lc-details { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+        .lc-row { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--muted); }
+        .lc-row i { color: var(--gold); width: 14px; font-size: 0.78rem; }
+
+        .lc-footer { display: flex; justify-content: space-between; align-items: center; }
+        .lc-salary {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem; font-weight: 800; color: var(--navy);
+        }
+        .lc-apply {
+            background: var(--bg);
+            border: 1.5px solid var(--border);
+            color: var(--navy);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Lexend', sans-serif;
+        }
+        .lc-apply:hover { background: var(--gold); border-color: var(--gold); color: white; }
+
+        /* loading skeleton */
+        .skeleton { background: linear-gradient(90deg, #f0f4f8 25%, #e8edf2 50%, #f0f4f8 75%); background-size: 200%; animation: shimmer 1.5s infinite; border-radius: 8px; }
+        @keyframes shimmer { 0%{background-position:200%} 100%{background-position:-200%} }
+
+        /* ─── STATS BANNER ─── */
+        .stats-banner {
+            background: linear-gradient(135deg, var(--navy) 0%, #1e3a8a 100%);
+            padding: 4rem 5%;
             position: relative;
             overflow: hidden;
         }
-        .latest-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(135deg, #F5A623, #1A2A6C); }
-        .latest-card:hover { transform: translateY(-5px); box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.1); border-color: #F5A623; }
-        .latest-badge { display: inline-block; background: rgba(245, 166, 35, 0.1); color: #F5A623; font-size: 0.7rem; padding: 4px 12px; border-radius: 50px; margin-bottom: 1rem; font-weight: 600; }
-        .latest-card h3 { font-size: 1.3rem; color: #1A2A6C; margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; }
-        .latest-card h3 i { color: #F5A623; }
-        .latest-details { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.5rem; }
-        .latest-detail { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: #64748B; }
-        .latest-detail i { width: 18px; color: #F5A623; }
-        .view-all-btn { text-align: center; margin-top: 1rem; }
-        .btn-view-all { background: transparent; border: 2px solid #F5A623; color: #F5A623; padding: 12px 32px; border-radius: 50px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block; }
-        .btn-view-all:hover { background: #F5A623; color: white; transform: translateY(-2px); }
-        .empty-tuition { text-align: center; padding: 3rem; color: #64748B; background: #F8F9FC; border-radius: 20px; }
-        @media (max-width: 768px) { .section-title { font-size: 1.8rem; } .latest-grid { grid-template-columns: 1fr; } }
+        .stats-banner::before {
+            content: '';
+            position: absolute; inset: 0;
+            background-image: radial-gradient(circle at 20% 50%, rgba(245,166,35,0.1) 0%, transparent 50%),
+                              radial-gradient(circle at 80% 50%, rgba(255,255,255,0.04) 0%, transparent 50%);
+        }
+        .stats-banner-inner {
+            max-width: 1300px; margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            position: relative;
+        }
+        .stat-item { text-align: center; }
+        .stat-number {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3rem; font-weight: 900;
+            color: white; line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+        .stat-number span { color: var(--gold); }
+        .stat-desc { font-size: 0.85rem; color: rgba(255,255,255,0.55); }
+        .stat-divider { width: 1px; background: rgba(255,255,255,0.1); margin: 0 auto; }
+
+        /* ─── WHY US ─── */
+        .why-section { padding: 6rem 5%; background: white; }
+        .why-inner { max-width: 1300px; margin: 0 auto; }
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .why-list { display: flex; flex-direction: column; gap: 1.5rem; }
+        .why-item {
+            display: flex; gap: 1.2rem; align-items: flex-start;
+            padding: 1.2rem;
+            border-radius: 16px;
+            border: 1.5px solid var(--border);
+            transition: all 0.25s;
+            cursor: default;
+        }
+        .why-item:hover { border-color: var(--gold); background: #fffbf3; transform: translateX(6px); }
+        .why-icon {
+            width: 48px; height: 48px;
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        .wi1 { background: rgba(245,166,35,0.1); color: var(--gold); }
+        .wi2 { background: rgba(26,42,108,0.08); color: var(--navy); }
+        .wi3 { background: rgba(16,185,129,0.1); color: var(--success); }
+        .wi4 { background: rgba(239,68,68,0.08); color: #ef4444; }
+        .why-text h4 { font-family: 'Outfit', sans-serif; font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; }
+        .why-text p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+        .why-visual {
+            background: linear-gradient(135deg, var(--navy), #1e3a8a);
+            border-radius: 28px;
+            padding: 2.5rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .why-visual::before {
+            content: '';
+            position: absolute;
+            top: -60px; right: -60px;
+            width: 250px; height: 250px;
+            background: radial-gradient(circle, rgba(245,166,35,0.15), transparent 70%);
+        }
+        .wv-title { font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .wv-sub { font-size: 0.85rem; opacity: 0.6; margin-bottom: 2rem; }
+
+        .wv-steps { display: flex; flex-direction: column; gap: 1rem; }
+        .wv-step {
+            display: flex; align-items: center; gap: 1rem;
+            background: rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 0.9rem 1.1rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .wv-step-num {
+            width: 32px; height: 32px;
+            background: var(--gold);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800; font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+        .wv-step-text { font-size: 0.85rem; opacity: 0.85; line-height: 1.4; }
+        .wv-step-text strong { display: block; opacity: 1; font-weight: 600; margin-bottom: 1px; }
+
+        /* ─── REGISTER SECTION ─── */
+        .register-section { padding: 6rem 5%; background: var(--bg); }
+        .register-inner { max-width: 1300px; margin: 0 auto; }
+        .register-header { text-align: center; margin-bottom: 3rem; }
+        .register-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+        .reg-card {
+            border-radius: 24px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .reg-card:hover { transform: translateY(-6px); }
+        .reg-card.tutor { background: linear-gradient(135deg, var(--navy), #1e3a8a); color: white; }
+        .reg-card.student { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: white; }
+
+        .reg-card::before {
+            content: '';
+            position: absolute;
+            top: -80px; right: -80px;
+            width: 250px; height: 250px;
+            background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%);
+        }
+
+        .reg-icon {
+            width: 64px; height: 64px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 18px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+        }
+        .reg-title { font-family: 'Outfit', sans-serif; font-size: 1.6rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .reg-desc { font-size: 0.88rem; opacity: 0.75; line-height: 1.6; margin-bottom: 1.5rem; }
+        .reg-perks { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.8rem; }
+        .reg-perk { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; opacity: 0.9; }
+        .reg-perk i { font-size: 0.7rem; }
+        .reg-btn {
+            background: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-family: 'Lexend', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex; align-items: center; gap: 7px;
+        }
+        .reg-card.tutor .reg-btn { color: var(--navy); }
+        .reg-card.student .reg-btn { color: var(--gold-dark); }
+        .reg-btn:hover { transform: scale(1.03); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+
+        /* ─── AREAS ─── */
+        .areas-section { padding: 6rem 5%; background: white; }
+        .areas-inner { max-width: 1300px; margin: 0 auto; }
+        .areas-header { text-align: center; margin-bottom: 3rem; }
+        .areas-grid { display: flex; flex-wrap: wrap; gap: 0.7rem; justify-content: center; }
+        .area-pill {
+            background: var(--bg);
+            color: var(--navy);
+            padding: 9px 18px;
+            border-radius: 50px;
+            font-size: 0.83rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1.5px solid transparent;
+            text-decoration: none;
+            display: inline-flex; align-items: center; gap: 5px;
+        }
+        .area-pill:hover { background: var(--navy); color: white; transform: translateY(-2px); }
+        .area-pill .count { font-size: 0.7rem; background: rgba(245,166,35,0.2); color: var(--gold-dark); padding: 1px 6px; border-radius: 50px; }
+
+        /* ─── TESTIMONIALS ─── */
+        .reviews-section { padding: 6rem 5%; background: var(--bg); }
+        .reviews-inner { max-width: 1300px; margin: 0 auto; }
+        .reviews-header { text-align: center; margin-bottom: 3rem; }
+        .swiper { padding-bottom: 3rem !important; }
+        .review-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.8rem;
+            border: 1.5px solid var(--border);
+            height: 100%;
+        }
+        .review-quote { font-size: 2.5rem; color: var(--gold); opacity: 0.3; font-family: Georgia, serif; line-height: 1; margin-bottom: 0.5rem; }
+        .review-text { font-size: 0.88rem; color: var(--text); line-height: 1.7; margin-bottom: 1.2rem; font-style: italic; }
+        .review-author-row { display: flex; align-items: center; gap: 0.8rem; }
+        .review-avatar {
+            width: 42px; height: 42px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800; color: white; font-size: 1rem;
+        }
+        .av1 { background: linear-gradient(135deg, var(--navy), var(--navy-light)); }
+        .av2 { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); }
+        .av3 { background: linear-gradient(135deg, var(--success), #059669); }
+        .av4 { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+        .review-name { font-family: 'Outfit', sans-serif; font-weight: 700; color: var(--navy); font-size: 0.9rem; }
+        .review-role { font-size: 0.75rem; color: var(--muted); }
+        .review-stars { color: var(--gold); font-size: 0.75rem; margin-top: 2px; }
+
+        /* ─── CTA BANNER ─── */
+        .cta-banner {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, var(--gold) 0%, #e8920e 100%);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        .cta-banner::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .cta-inner { max-width: 700px; margin: 0 auto; position: relative; }
+        .cta-title { font-family: 'Outfit', sans-serif; font-size: 2.5rem; font-weight: 900; color: white; margin-bottom: 0.8rem; }
+        .cta-sub { color: rgba(255,255,255,0.8); font-size: 1rem; margin-bottom: 2rem; line-height: 1.6; }
+        .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn-cta-white {
+            background: white;
+            color: var(--gold-dark);
+            border: none;
+            padding: 13px 28px;
+            border-radius: 50px;
+            font-family: 'Lexend', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex; align-items: center; gap: 7px;
+            text-decoration: none;
+        }
+        .btn-cta-white:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+        .btn-cta-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.6);
+            padding: 13px 28px;
+            border-radius: 50px;
+            font-family: 'Lexend', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex; align-items: center; gap: 7px;
+            text-decoration: none;
+        }
+        .btn-cta-outline:hover { background: rgba(255,255,255,0.15); border-color: white; transform: translateY(-2px); }
+
+        /* ─── FOOTER ─── */
+        .footer {
+            background: #0d1a45;
+            color: rgba(255,255,255,0.55);
+            padding: 4rem 5% 2rem;
+        }
+        .footer-inner { max-width: 1300px; margin: 0 auto; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+
+        .footer-brand .logo { margin-bottom: 1rem; }
+        .footer-brand .logo-text { color: white; }
+        .footer-brand p { font-size: 0.85rem; line-height: 1.7; max-width: 260px; margin-bottom: 1.2rem; }
+
+        .social-row { display: flex; gap: 0.7rem; }
+        .social-btn {
+            width: 36px; height: 36px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .social-btn:hover { background: var(--gold); color: white; transform: translateY(-2px); }
+
+        .footer-col h4 { color: white; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.95rem; margin-bottom: 1rem; }
+        .footer-col a { display: block; color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.85rem; margin-bottom: 0.5rem; transition: color 0.2s; }
+        .footer-col a:hover { color: var(--gold); }
+        .footer-col p { font-size: 0.85rem; margin-bottom: 0.5rem; }
+        .footer-col p i { color: var(--gold); margin-right: 6px; }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        /* ─── MODALS ─── */
+        .modal {
+            display: none;
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+        .modal.open { display: flex; }
+        .modal-box {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            max-width: 480px; width: 100%;
+            max-height: 90vh; overflow-y: auto;
+            animation: popIn 0.3s cubic-bezier(0.34,1.56,0.64,1);
+        }
+        @keyframes popIn { from{opacity:0;transform:scale(0.88)} to{opacity:1;transform:scale(1)} }
+        .modal-hdr { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+        .modal-hdr h3 { font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--navy); }
+        .modal-close { width: 32px; height: 32px; border-radius: 50%; border: none; background: var(--bg); cursor: pointer; font-size: 1rem; color: var(--muted); }
+        .modal-close:hover { background: var(--border); }
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { font-size: 0.82rem; font-weight: 600; color: var(--text); display: block; margin-bottom: 0.4rem; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-family: 'Lexend', sans-serif;
+            font-size: 0.85rem; outline: none;
+            transition: border-color 0.2s;
+            background: white;
+        }
+        .form-group input:focus, .form-group select:focus { border-color: var(--gold); }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--navy), var(--navy-light));
+            color: white; border: none;
+            padding: 13px;
+            border-radius: 50px;
+            font-family: 'Lexend', sans-serif;
+            font-weight: 700; font-size: 0.9rem;
+            cursor: pointer; transition: all 0.2s; margin-top: 0.5rem;
+        }
+        .submit-btn:hover { opacity: 0.92; transform: translateY(-1px); }
+        .submit-btn.gold-btn { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 1024px) {
+            .hero-title { font-size: 2.8rem; }
+            .steps-grid::before { display: none; }
+            .why-grid { grid-template-columns: 1fr; }
+            .why-visual { display: none; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .navbar { padding: 0.8rem 4%; }
+            .nav-links { display: none; }
+            .mobile-menu { display: block; }
+            .nav-links.open {
+                display: flex; flex-direction: column;
+                position: absolute; top: 62px; left: 0;
+                width: 100%; background: white;
+                padding: 1rem 4%; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                gap: 1rem;
+            }
+            .hero { padding: 8rem 4% 4rem; }
+            .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+            .hero-title { font-size: 2.2rem; }
+            .hero-right { display: none; }
+            .hero-stats { gap: 1.5rem; }
+            .steps-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .stats-banner-inner { grid-template-columns: 1fr 1fr; }
+            .register-grid { grid-template-columns: 1fr; }
+            .section-title { font-size: 1.9rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .latest-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .cta-title { font-size: 1.9rem; }
+        }
     </style>
 </head>
 <body>
 
+<!-- ═══ TICKER ═══ -->
+<div class="ticker-wrap">
+    <div class="ticker-track">
+        <span><i class="fas fa-circle" style="font-size:.45rem"></i> New tuition posted in Dhanmondi — Class 9 Science</span>
+        <span><i class="fas fa-circle" style="font-size:.45rem"></i> Tutor confirmed in Gulshan 2 — HSC English</span>
+        <span><i class="fas fa-circle" style="font-size:.45rem"></i> 3 tutors registered from BUET & DU today</span>
+        <span><i class="fas fa-circle" style="font-size:.45rem"></i> Urgent tuition in Uttara — Class 8 Math</span>
+        <span><i class="fas fa-circle" style="font-size:.45rem"></i> Post a tuition free — get matched in 24 hours</span>
+        <span><i class="fas fa-circle" style="font-size:.45rem"></i> 12 active posts in Dhanmondi right now</span>
+        <span><i class="fas fa-circle" style="font-size:.45rem"></i> Tutor found in Banani — O Level Physics</span>
+        <span><i class="fas fa-circle" style="font-size:.45rem"></i> New tuition posted in Mirpur — Class 6 All Subjects</span>
+        <!-- duplicated for seamless loop -->
+        <span><i class="fas fa-circle" style="font-size:.45rem"></i> New tuition posted in Dhanmondi — Class 9 Science</span>
+        <span><i class="fas fa-circle" style="font-size:.45rem"></i> Tutor confirmed in Gulshan 2 — HSC English</span>
+        <span><i class="fas fa-circle" style="font-size:.45rem"></i> 3 tutors registered from BUET & DU today</span>
+        <span><i class="fas fa-circle" style="font-size:.45rem"></i> Urgent tuition in Uttara — Class 8 Math</span>
+        <span><i class="fas fa-circle" style="font-size:.45rem"></i> Post a tuition free — get matched in 24 hours</span>
+        <span><i class="fas fa-circle" style="font-size:.45rem"></i> 12 active posts in Dhanmondi right now</span>
+        <span><i class="fas fa-circle" style="font-size:.45rem"></i> Tutor found in Banani — O Level Physics</span>
+        <span><i class="fas fa-circle" style="font-size:.45rem"></i> New tuition posted in Mirpur — Class 6 All Subjects</span>
+    </div>
+</div>
+
+<!-- ═══ NAVBAR ═══ -->
 <nav class="navbar" id="navbar">
     <a href="index.html" class="logo">
         <div class="logo-icon">F</div>
         <span class="logo-text">FindmyTutor <span>Dhaka</span></span>
     </a>
-    <div class="nav-links">
+    <div class="nav-links" id="navLinks">
         <a href="index.html" class="active">Home</a>
         <a href="tuition.html">Tuition Posts</a>
         <a href="blog.html">Blog</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
+        <a href="https://forms.gle/4NifvjzPgk47z1877" target="_blank" class="nav-cta"><i class="fas fa-plus"></i> Post Tuition</a>
     </div>
-    <div class="mobile-menu" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></div>
+    <div class="mobile-menu" onclick="toggleNav()"><i class="fas fa-bars"></i></div>
 </nav>
 
-<section class="hero">
-    <div class="hero-content" data-aos="fade-up">
-        <div class="hero-badge"><i class="fas fa-star"></i> Bangladesh's Trusted Tuition Media</div>
-        <h1>Find Your Perfect <span class="highlight">Tutor</span> or <span class="highlight">Tuition</span> in Dhaka</h1>
-        <p>Connecting students and tutors across all areas of Dhaka city with our intelligent matching system.</p>
-        <div class="hero-buttons">
-            <button class="btn-primary" onclick="openModal('tutor')"><i class="fas fa-chalkboard-user"></i> Register as Tutor</button>
-            <button class="btn-outline" onclick="openModal('student')"><i class="fas fa-graduation-cap"></i> Find a Tutor</button>
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="home">
+    <div class="hero-bg-circle hbc1"></div>
+    <div class="hero-bg-circle hbc2"></div>
+    <div class="hero-bg-circle hbc3"></div>
+
+    <div class="hero-inner">
+        <!-- LEFT -->
+        <div data-aos="fade-right" data-aos-duration="800">
+            <div class="hero-badge">
+                <i class="fas fa-shield-check"></i>
+                #1 Trusted Tuition Media in Dhaka
+            </div>
+            <h1 class="hero-title">
+                Find Your Perfect
+                <span class="line2">Home Tutor<br>in Dhaka</span>
+            </h1>
+            <p class="hero-subtitle">
+                Connecting students with verified, qualified tutors across all 30+ areas of Dhaka city. Fast matching, trusted tutors, zero hassle.
+            </p>
+            <div class="hero-btns">
+                <button class="btn-hero-primary" onclick="openModal('tutor')">
+                    <i class="fas fa-chalkboard-user"></i> Register as Tutor
+                </button>
+                <button class="btn-hero-outline" onclick="openModal('student')">
+                    <i class="fas fa-graduation-cap"></i> Find a Tutor
+                </button>
+            </div>
+            <div class="hero-stats">
+                <div class="hstat">
+                    <div class="hstat-num" id="heroTutors">1000+</div>
+                    <div class="hstat-label">Verified Tutors</div>
+                </div>
+                <div class="hstat">
+                    <div class="hstat-num" id="heroPosts">500+</div>
+                    <div class="hstat-label">Active Posts</div>
+                </div>
+                <div class="hstat">
+                    <div class="hstat-num">2K+</div>
+                    <div class="hstat-label">Happy Families</div>
+                </div>
+                <div class="hstat">
+                    <div class="hstat-num">24h</div>
+                    <div class="hstat-label">Avg Response</div>
+                </div>
+            </div>
         </div>
-        <div class="hero-stats">
-            <div class="stat-item"><div class="stat-number" id="totalTutors">1000+</div><div class="stat-label">Verified Tutors</div></div>
-            <div class="stat-item"><div class="stat-number" id="totalPosts">500+</div><div class="stat-label">Active Tuitions</div></div>
-            <div class="stat-item"><div class="stat-number">2000+</div><div class="stat-label">Happy Families</div></div>
+
+        <!-- RIGHT: Floating card -->
+        <div class="hero-right" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
+            <div class="hero-card-stack">
+                <div class="hero-main-card">
+                    <div class="card-header-strip">
+                        <span class="card-new-badge">NEW POST</span>
+                        <span class="card-salary">৳ 4,500/mo</span>
+                    </div>
+                    <div class="card-title-hero">Higher Math + Physics</div>
+                    <div class="card-area-hero"><i class="fas fa-map-marker-alt"></i> Dhanmondi, Dhaka</div>
+                    <div class="card-chips">
+                        <span class="chip">Class 9</span>
+                        <span class="chip">Science Group</span>
+                        <span class="chip">5 days/week</span>
+                        <span class="chip">Male Tutor</span>
+                    </div>
+                    <button class="card-apply-btn"><i class="fas fa-hand-point-right"></i> Apply for This Tuition</button>
+                </div>
+
+                <div class="float-badge fb1">
+                    <i class="fas fa-user-check"></i>
+                    <span>100% Verified Tutors</span>
+                </div>
+                <div class="float-badge fb2">
+                    <i class="fas fa-bolt"></i>
+                    <span>Matched in 24 hours</span>
+                </div>
+                <div class="float-badge fb3">
+                    <i class="fas fa-shield-halved"></i>
+                    <span>Safe & Trusted</span>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="hero-image" data-aos="fade-left">
-        <img src="https://placehold.co/500x450/1A2A6C/FFFFFF?text=FindmyTutor+Dhaka" alt="FindmyTutor Dhaka">
-        <div class="floating-card floating-card-1"><i class="fas fa-check-circle" style="color: #F5A623;"></i><span>100% Verified Tutors</span></div>
-        <div class="floating-card floating-card-2"><i class="fas fa-clock" style="color: #F5A623;"></i><span>Quick Matching</span></div>
     </div>
 </section>
 
-<section class="latest-tuition-section" id="latestTuitionSection">
-    <div class="container">
-        <div class="section-header" data-aos="fade-up">
-            <div class="section-subtitle">LATEST OPPORTUNITIES</div>
-            <h2 class="section-title">Recent <span>Tuition Posts</span></h2>
+<!-- ═══ HOW IT WORKS ═══ -->
+<section class="how-section" id="how">
+    <div class="how-inner">
+        <div class="how-header" data-aos="fade-up">
+            <div class="section-label">Simple Process</div>
+            <h2 class="section-title">How It <span>Works</span></h2>
+            <p class="section-desc">Get matched with the perfect tutor in 3 simple steps. No complicated process, no hidden fees.</p>
         </div>
-        <div class="latest-grid" id="latestTuitionsGrid">
-            <div class="empty-tuition"><i class="fas fa-spinner fa-spin"></i> Loading latest tuitions...</div>
-        </div>
-        <div class="view-all-btn" data-aos="fade-up">
-            <a href="tuition.html" class="btn-view-all"><i class="fas fa-eye"></i> View All Tuitions</a>
-        </div>
-    </div>
-</section>
-
-<section>
-    <div class="container">
-        <div class="section-header" data-aos="fade-up">
-            <div class="section-subtitle">WHY CHOOSE US</div>
-            <h2 class="section-title">Why <span>FindmyTutor Dhaka</span>?</h2>
-        </div>
-        <div class="features-grid">
-            <div class="feature-card" data-aos="zoom-in"><div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div><h3>Full Dhaka Coverage</h3><p>All 30+ areas including Motijheel, Gulshan, Banani, Dhanmondi, Uttara & more</p></div>
-            <div class="feature-card" data-aos="zoom-in" data-aos-delay="100"><div class="feature-icon"><i class="fas fa-user-check"></i></div><h3>Verified Tutors</h3><p>Background checked professional tutors for your peace of mind</p></div>
-            <div class="feature-card" data-aos="zoom-in" data-aos-delay="200"><div class="feature-icon"><i class="fas fa-bolt"></i></div><h3>Fast Response</h3><p>Get matched with the perfect tutor within 24 hours</p></div>
-            <div class="feature-card" data-aos="zoom-in" data-aos-delay="300"><div class="feature-icon"><i class="fas fa-hand-holding-usd"></i></div><h3>Best Rates</h3><p>Affordable tuition rates with no hidden charges</p></div>
+        <div class="steps-grid">
+            <div class="step-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="step-num">1</div>
+                <div class="step-title">Post Your Tuition</div>
+                <p class="step-desc">Fill out our simple Google Form with your requirements — class, subject, area, and preferred tutor type. Takes less than 2 minutes.</p>
+            </div>
+            <div class="step-card" data-aos="fade-up" data-aos-delay="150">
+                <div class="step-num">2</div>
+                <div class="step-title">We Find Tutors</div>
+                <p class="step-desc">Our team reviews your post and shares it with qualified, verified tutors in your area. Tutors apply directly with their details.</p>
+            </div>
+            <div class="step-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="step-num">3</div>
+                <div class="step-title">Start Learning</div>
+                <p class="step-desc">We connect you with the best matched tutor. Take a demo class and confirm. Most families get matched within 24 hours!</p>
+            </div>
         </div>
     </div>
 </section>
 
-<section class="register-section">
-    <div class="section-header" data-aos="fade-up">
-        <div class="section-subtitle">JOIN OUR COMMUNITY</div>
-        <h2 class="section-title">Start Your Journey Today</h2>
-    </div>
-    <div class="register-grid">
-        <div class="register-card" data-aos="flip-left"><div class="register-icon"><i class="fas fa-chalkboard-user"></i></div><h3>Are You a Tutor?</h3><p>Get unlimited tuition leads in your area. Build your teaching career with us.</p><button class="btn-secondary" onclick="openModal('tutor')">Register as Tutor</button></div>
-        <div class="register-card" data-aos="flip-right"><div class="register-icon"><i class="fas fa-user-graduate"></i></div><h3>Looking for a Tutor?</h3><p>Find the best home tutor for your child from our verified network.</p><button class="btn-secondary" onclick="openModal('student')">Post Tuition Demand</button></div>
+<!-- ═══ LATEST POSTS ═══ -->
+<section class="latest-section" id="latest">
+    <div class="latest-inner">
+        <div class="latest-header" data-aos="fade-up">
+            <div>
+                <div class="section-label">Live Posts</div>
+                <h2 class="section-title">Recent <span>Tuition Posts</span></h2>
+            </div>
+            <a href="tuition.html" class="view-all-link">
+                View All Posts <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        <div class="latest-grid" id="latestGrid">
+            <!-- skeletons -->
+            <div style="background:white;border-radius:18px;padding:1.4rem;border:1.5px solid var(--border)">
+                <div class="skeleton" style="height:14px;width:40%;margin-bottom:10px"></div>
+                <div class="skeleton" style="height:20px;width:70%;margin-bottom:8px"></div>
+                <div class="skeleton" style="height:12px;width:50%;margin-bottom:16px"></div>
+                <div class="skeleton" style="height:70px;width:100%"></div>
+            </div>
+            <div style="background:white;border-radius:18px;padding:1.4rem;border:1.5px solid var(--border)">
+                <div class="skeleton" style="height:14px;width:35%;margin-bottom:10px"></div>
+                <div class="skeleton" style="height:20px;width:65%;margin-bottom:8px"></div>
+                <div class="skeleton" style="height:12px;width:45%;margin-bottom:16px"></div>
+                <div class="skeleton" style="height:70px;width:100%"></div>
+            </div>
+            <div style="background:white;border-radius:18px;padding:1.4rem;border:1.5px solid var(--border)">
+                <div class="skeleton" style="height:14px;width:30%;margin-bottom:10px"></div>
+                <div class="skeleton" style="height:20px;width:75%;margin-bottom:8px"></div>
+                <div class="skeleton" style="height:12px;width:55%;margin-bottom:16px"></div>
+                <div class="skeleton" style="height:70px;width:100%"></div>
+            </div>
+        </div>
     </div>
 </section>
 
+<!-- ═══ STATS BANNER ═══ -->
+<div class="stats-banner">
+    <div class="stats-banner-inner">
+        <div class="stat-item" data-aos="zoom-in" data-aos-delay="0">
+            <div class="stat-number" id="countTutors">0<span>+</span></div>
+            <div class="stat-desc">Verified Tutors Registered</div>
+        </div>
+        <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+            <div class="stat-number" id="countPosts">0<span>+</span></div>
+            <div class="stat-desc">Active Tuition Posts</div>
+        </div>
+        <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+            <div class="stat-number">2<span>K+</span></div>
+            <div class="stat-desc">Families Successfully Matched</div>
+        </div>
+        <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+            <div class="stat-number">30<span>+</span></div>
+            <div class="stat-desc">Areas Covered in Dhaka</div>
+        </div>
+    </div>
+</div>
+
+<!-- ═══ WHY US ═══ -->
+<section class="why-section">
+    <div class="why-inner">
+        <div class="why-grid">
+            <div data-aos="fade-right">
+                <div class="section-label">Why Choose Us</div>
+                <h2 class="section-title" style="margin-bottom:1rem">Why <span>FindmyTutor Dhaka</span>?</h2>
+                <p class="section-desc" style="margin-bottom:2rem">We're not just a listing site — we actively match students with the right tutors and follow up until both sides are satisfied.</p>
+                <div class="why-list">
+                    <div class="why-item">
+                        <div class="why-icon wi1"><i class="fas fa-user-shield"></i></div>
+                        <div class="why-text">
+                            <h4>100% Verified Tutors</h4>
+                            <p>Every tutor is manually verified with their university ID and contact number before being listed on our platform.</p>
+                        </div>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-icon wi2"><i class="fas fa-bolt"></i></div>
+                        <div class="why-text">
+                            <h4>Fast 24-Hour Matching</h4>
+                            <p>Most tuition posts are matched within 24 hours. Our team works every day to find the right tutor for you.</p>
+                        </div>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-icon wi3"><i class="fas fa-hand-holding-heart"></i></div>
+                        <div class="why-text">
+                            <h4>Post for Free, Pay After Success</h4>
+                            <p>Posting a tuition is 100% free. Tutors only pay a small fee after they successfully get the tuition confirmed.</p>
+                        </div>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-icon wi4"><i class="fas fa-map-marked-alt"></i></div>
+                        <div class="why-text">
+                            <h4>All 30+ Areas of Dhaka</h4>
+                            <p>We cover every major area — from Dhanmondi and Gulshan to Mirpur, Uttara, Mohammadpur and beyond.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-aos="fade-left">
+                <div class="why-visual">
+                    <div class="wv-title">How Tutors Get Matched</div>
+                    <div class="wv-sub">Our step-by-step process ensures quality</div>
+                    <div class="wv-steps">
+                        <div class="wv-step">
+                            <div class="wv-step-num">1</div>
+                            <div class="wv-step-text"><strong>Tutor Registers</strong> We verify their university ID and contact info</div>
+                        </div>
+                        <div class="wv-step">
+                            <div class="wv-step-num">2</div>
+                            <div class="wv-step-text"><strong>Post Goes Live</strong> Guardian's post is shared with eligible tutors in the area</div>
+                        </div>
+                        <div class="wv-step">
+                            <div class="wv-step-num">3</div>
+                            <div class="wv-step-text"><strong>Tutor Applies</strong> Interested tutors apply via our platform with their profile</div>
+                        </div>
+                        <div class="wv-step">
+                            <div class="wv-step-num">4</div>
+                            <div class="wv-step-text"><strong>We Connect</strong> We share the best CVs with the guardian and facilitate intro</div>
+                        </div>
+                        <div class="wv-step">
+                            <div class="wv-step-num">5</div>
+                            <div class="wv-step-text"><strong>Demo & Confirm</strong> Guardian takes a demo class and confirms the tutor</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ REGISTER ═══ -->
+<section class="register-section" id="register">
+    <div class="register-inner">
+        <div class="register-header" data-aos="fade-up">
+            <div class="section-label">Join Us Today</div>
+            <h2 class="section-title">Start Your <span>Journey</span></h2>
+            <p class="section-desc" style="margin:0 auto">Whether you're a tutor looking for students or a parent looking for a tutor — we've got you covered.</p>
+        </div>
+        <div class="register-grid">
+            <div class="reg-card tutor" data-aos="flip-left">
+                <div class="reg-icon"><i class="fas fa-chalkboard-user"></i></div>
+                <div class="reg-title">Are You a Tutor?</div>
+                <div class="reg-desc">Join 1000+ tutors already on our platform and start getting tuition leads in your area within 24 hours.</div>
+                <div class="reg-perks">
+                    <div class="reg-perk"><i class="fas fa-check-circle"></i> Free registration, no upfront cost</div>
+                    <div class="reg-perk"><i class="fas fa-check-circle"></i> Get leads in your exact area</div>
+                    <div class="reg-perk"><i class="fas fa-check-circle"></i> Verified badge on your profile</div>
+                    <div class="reg-perk"><i class="fas fa-check-circle"></i> Pay only after tuition is confirmed</div>
+                </div>
+                <button class="reg-btn" onclick="openModal('tutor')">
+                    <i class="fas fa-arrow-right"></i> Register as Tutor
+                </button>
+            </div>
+            <div class="reg-card student" data-aos="flip-right">
+                <div class="reg-icon"><i class="fas fa-user-graduate"></i></div>
+                <div class="reg-title">Need a Tutor?</div>
+                <div class="reg-desc">Post your tuition demand for free and let us find the best verified tutor in your area — fast.</div>
+                <div class="reg-perks">
+                    <div class="reg-perk"><i class="fas fa-check-circle"></i> Post your demand 100% free</div>
+                    <div class="reg-perk"><i class="fas fa-check-circle"></i> Get matched within 24 hours</div>
+                    <div class="reg-perk"><i class="fas fa-check-circle"></i> Only verified tutors apply</div>
+                    <div class="reg-perk"><i class="fas fa-check-circle"></i> Take a free demo class first</div>
+                </div>
+                <button class="reg-btn" onclick="openModal('student')">
+                    <i class="fas fa-arrow-right"></i> Post Tuition Demand
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ AREAS ═══ -->
 <section class="areas-section">
-    <div class="container">
-        <div class="section-header" data-aos="fade-up">
-            <div class="section-subtitle">WE COVER ALL DHAKA</div>
-            <h2 class="section-title">Our Service Areas</h2>
+    <div class="areas-inner">
+        <div class="areas-header" data-aos="fade-up">
+            <div class="section-label">We Cover All Dhaka</div>
+            <h2 class="section-title">Our <span>Service Areas</span></h2>
+            <p class="section-desc" style="margin:0 auto">Active tuition posts and verified tutors in every major area of Dhaka city.</p>
         </div>
-        <div class="areas-grid" data-aos="fade-up">
-            <div class="area-tag">Motijheel</div><div class="area-tag">Dilkusha</div><div class="area-tag">Paltan</div>
-            <div class="area-tag">Shahbagh</div><div class="area-tag">Ramna</div><div class="area-tag">Kakrail</div>
-            <div class="area-tag">Gulshan 1</div><div class="area-tag">Gulshan 2</div><div class="area-tag">Banani</div>
-            <div class="area-tag">Baridhara</div><div class="area-tag">Bashundhara R/A</div><div class="area-tag">Dhanmondi</div>
-            <div class="area-tag">Uttara</div><div class="area-tag">Lalbagh</div><div class="area-tag">Armanitola</div>
-            <div class="area-tag">Bangla Bazar</div><div class="area-tag">Chowk Bazar</div><div class="area-tag">Sadarghat</div>
-            <div class="area-tag">Hazaribagh</div><div class="area-tag">Wari</div><div class="area-tag">Banasree</div>
-            <div class="area-tag">Aftab Nagar</div><div class="area-tag">Mohammadpur</div><div class="area-tag">Mirpur</div>
-            <div class="area-tag">Agargaon</div><div class="area-tag">Malibagh</div><div class="area-tag">Moghbazar</div>
-            <div class="area-tag">Basabo</div><div class="area-tag">Kalabagan</div><div class="area-tag">Kamrangirchar</div>
-            <div class="area-tag">Kamalapur</div>
+        <div class="areas-grid" data-aos="fade-up" data-aos-delay="100">
+            <a href="tuition.html" class="area-pill">Dhanmondi <span class="count">12</span></a>
+            <a href="tuition.html" class="area-pill">Gulshan <span class="count">9</span></a>
+            <a href="tuition.html" class="area-pill">Banani <span class="count">7</span></a>
+            <a href="tuition.html" class="area-pill">Uttara <span class="count">11</span></a>
+            <a href="tuition.html" class="area-pill">Mirpur <span class="count">8</span></a>
+            <a href="tuition.html" class="area-pill">Mohammadpur <span class="count">6</span></a>
+            <a href="tuition.html" class="area-pill">Bashundhara R/A <span class="count">5</span></a>
+            <a href="tuition.html" class="area-pill">Motijheel <span class="count">4</span></a>
+            <a href="tuition.html" class="area-pill">Malibagh <span class="count">5</span></a>
+            <a href="tuition.html" class="area-pill">Moghbazar <span class="count">3</span></a>
+            <a href="tuition.html" class="area-pill">Wari</a>
+            <a href="tuition.html" class="area-pill">Lalbagh</a>
+            <a href="tuition.html" class="area-pill">Agargaon</a>
+            <a href="tuition.html" class="area-pill">Banasree</a>
+            <a href="tuition.html" class="area-pill">Aftab Nagar</a>
+            <a href="tuition.html" class="area-pill">Baridhara</a>
+            <a href="tuition.html" class="area-pill">Basabo</a>
+            <a href="tuition.html" class="area-pill">Kalabagan</a>
+            <a href="tuition.html" class="area-pill">Shahbagh</a>
+            <a href="tuition.html" class="area-pill">Ramna</a>
+            <a href="tuition.html" class="area-pill">Hazaribagh</a>
+            <a href="tuition.html" class="area-pill">Kamrangirchar</a>
+            <a href="tuition.html" class="area-pill">Sadarghat</a>
+            <a href="tuition.html" class="area-pill">Chowk Bazar</a>
+            <a href="tuition.html" class="area-pill">Paltan</a>
+            <a href="tuition.html" class="area-pill">Dilkusha</a>
+            <a href="tuition.html" class="area-pill">Kakrail</a>
+            <a href="tuition.html" class="area-pill">Armanitola</a>
+            <a href="tuition.html" class="area-pill">Kamalapur</a>
+            <a href="tuition.html" class="area-pill">Bangla Bazar</a>
         </div>
     </div>
 </section>
 
+<!-- ═══ REVIEWS ═══ -->
 <section class="reviews-section">
-    <div class="container">
-        <div class="section-header" data-aos="fade-up">
-            <div class="section-subtitle">TESTIMONIALS</div>
+    <div class="reviews-inner">
+        <div class="reviews-header" data-aos="fade-up">
+            <div class="section-label">Testimonials</div>
             <h2 class="section-title">What Our <span>Community Says</span></h2>
         </div>
         <div class="swiper mySwiper" data-aos="fade-up">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><div class="review-card"><div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"Found an excellent Math tutor for my son in Motijheel within days. Highly professional!"</p><div class="review-author">Md. Kamal Hossain</div><div class="review-location">Motijheel</div></div></div>
-                <div class="swiper-slide"><div class="review-card"><div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"As a tutor, I received 5 tuition requests in Gulshan. The Pro plan is worth every taka!"</p><div class="review-author">Sumaiya Akter</div><div class="review-location">Gulshan 2</div></div></div>
-                <div class="swiper-slide"><div class="review-card"><div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="review-text">"Best tuition media in Dhaka. Found an English tutor for my daughter in Dhanmondi."</p><div class="review-author">Farhana Begum</div><div class="review-location">Dhanmondi</div></div></div>
+                <div class="swiper-slide">
+                    <div class="review-card">
+                        <div class="review-quote">"</div>
+                        <p class="review-text">Found an excellent Math and Physics tutor for my son in Motijheel within just 2 days. The tutor is from BUET and explains very well. Highly recommended!</p>
+                        <div class="review-author-row">
+                            <div class="review-avatar av1">K</div>
+                            <div>
+                                <div class="review-name">Md. Kamal Hossain</div>
+                                <div class="review-role">Parent · Motijheel</div>
+                                <div class="review-stars">★★★★★</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="review-card">
+                        <div class="review-quote">"</div>
+                        <p class="review-text">As a tutor, I received 5 tuition requests in just one week after registering. The Pro plan is absolutely worth it — I got the guardian's number directly!</p>
+                        <div class="review-author-row">
+                            <div class="review-avatar av2">S</div>
+                            <div>
+                                <div class="review-name">Sumaiya Akter</div>
+                                <div class="review-role">Tutor · DU Student · Gulshan</div>
+                                <div class="review-stars">★★★★★</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="review-card">
+                        <div class="review-quote">"</div>
+                        <p class="review-text">Best tuition media in Dhaka. Found a female English tutor for my daughter in Dhanmondi in less than 24 hours. The process was so simple and quick!</p>
+                        <div class="review-author-row">
+                            <div class="review-avatar av3">F</div>
+                            <div>
+                                <div class="review-name">Farhana Begum</div>
+                                <div class="review-role">Parent · Dhanmondi</div>
+                                <div class="review-stars">★★★★★</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="review-card">
+                        <div class="review-quote">"</div>
+                        <p class="review-text">I was looking for an O Level tutor in Banani. Got 3 CVs within a day, all from NSU and BRAC students. Demo went great and my daughter confirmed one!</p>
+                        <div class="review-author-row">
+                            <div class="review-avatar av4">R</div>
+                            <div>
+                                <div class="review-name">Rafiqul Islam</div>
+                                <div class="review-role">Parent · Banani</div>
+                                <div class="review-stars">★★★★★</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="swiper-pagination"></div>
         </div>
     </div>
 </section>
 
-<div class="cta-section" data-aos="zoom-in">
-    <h2>Ready to Find Your Perfect Match?</h2>
-    <p>Join thousands of successful tutors and students in Dhaka</p>
-    <button class="btn-primary" onclick="openModal('tutor')">Get Started Now</button>
-</div>
-
-<footer class="footer">
-    <div class="footer-content">
-        <div class="footer-section"><div class="logo" style="margin-bottom: 1rem;"><div class="logo-icon">F</div><span class="logo-text" style="color: white;">FindmyTutor <span>Dhaka</span></span></div><p>Dhaka's leading tuition media platform connecting students and verified tutors.</p><div class="social-links"><a href="https://facebook.com/findmytutordhaka"><i class="fab fa-facebook-f"></i></a><a href="https://wa.me/8801991309741"><i class="fab fa-whatsapp"></i></a><a href="mailto:dhakafindmytutor@gmail.com"><i class="fas fa-envelope"></i></a></div></div>
-        <div class="footer-section"><h3>Quick Links</h3><p><a href="index.html">Home</a></p><p><a href="tuition.html">Tuition Posts</a></p><p><a href="blog.html">Blog</a></p><p><a href="about.html">About</a></p><p><a href="contact.html">Contact</a></p></div>
-        <div class="footer-section"><h3>Contact</h3><p><i class="fab fa-whatsapp"></i> +8801991309741</p><p><i class="fas fa-envelope"></i> dhakafindmytutor@gmail.com</p></div>
-        <div class="footer-section"><h3>Service Areas</h3><p>All 30+ areas of Dhaka city including Motijheel, Gulshan, Banani, Dhanmondi, Uttara, Mirpur & more</p></div>
+<!-- ═══ CTA ═══ -->
+<section class="cta-banner">
+    <div class="cta-inner" data-aos="zoom-in">
+        <h2 class="cta-title">Ready to Get Started?</h2>
+        <p class="cta-sub">Join thousands of tutors and families in Dhaka who trust FindmyTutor Dhaka for their education needs. It's free to post and free to register.</p>
+        <div class="cta-btns">
+            <button class="btn-cta-white" onclick="openModal('tutor')">
+                <i class="fas fa-chalkboard-user"></i> Register as Tutor
+            </button>
+            <button class="btn-cta-outline" onclick="openModal('student')">
+                <i class="fas fa-graduation-cap"></i> Post Tuition Demand
+            </button>
+        </div>
     </div>
-    <div class="footer-bottom"><p>&copy; 2024 FindmyTutor Dhaka | Trusted Tuition Media in Bangladesh</p></div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo" style="margin-bottom:1rem;display:inline-flex">
+                    <div class="logo-icon">F</div>
+                    <span class="logo-text">FindmyTutor <span>Dhaka</span></span>
+                </a>
+                <p>Dhaka's trusted tuition media connecting students with verified home tutors across all areas since 2024.</p>
+                <div class="social-row">
+                    <a href="https://facebook.com/findmytutordhaka" class="social-btn" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://wa.me/8801991309741" class="social-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:dhakafindmytutor@gmail.com" class="social-btn"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="tuition.html">Tuition Posts</a>
+                <a href="blog.html">Blog</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>For Tutors</h4>
+                <a href="#register" onclick="openModal('tutor')">Register Free</a>
+                <a href="tuition.html">Browse Posts</a>
+                <a href="blog.html">Tutor Tips</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <p><i class="fab fa-whatsapp"></i> +880 1991-309741</p>
+                <p><i class="fas fa-envelope"></i> dhakafindmytutor@gmail.com</p>
+                <p><i class="fab fa-facebook-f"></i> fb.com/findmytutordhaka</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2025 FindmyTutor Dhaka · All Rights Reserved</span>
+            <span>Made with <i class="fas fa-heart" style="color:var(--gold)"></i> in Dhaka, Bangladesh</span>
+        </div>
+    </div>
 </footer>
 
-<div id="tutorModal" class="modal"><div class="modal-content"><div class="modal-header"><h2><i class="fas fa-chalkboard-user" style="color:#F5A623;"></i> Tutor Registration</h2><span class="close-modal" onclick="closeModal('tutorModal')">&times;</span></div>
-<form id="tutorForm"><div class="form-group"><label>Full Name</label><input type="text" id="tutorName" required></div><div class="form-group"><label>WhatsApp Number</label><input type="tel" id="tutorPhone" required></div><div class="form-group"><label>High School</label><input type="text" id="tutorHighSchool" required></div><div class="form-group"><label>College</label><input type="text" id="tutorCollege" required></div><div class="form-group"><label>University (with ID)</label><input type="text" id="tutorUniversity" required></div><div class="form-group"><label>Your Area</label><select id="tutorArea" required><option value="">Select Area</option><option>Motijheel</option><option>Dilkusha</option><option>Paltan</option><option>Shahbagh</option><option>Ramna</option><option>Kakrail</option><option>Gulshan 1</option><option>Gulshan 2</option><option>Banani</option><option>Baridhara</option><option>Bashundhara R/A</option><option>Dhanmondi</option><option>Uttara</option><option>Lalbagh</option><option>Armanitola</option><option>Bangla Bazar</option><option>Chowk Bazar</option><option>Sadarghat</option><option>Hazaribagh</option><option>Wari</option><option>Banasree</option><option>Aftab Nagar</option><option>Mohammadpur</option><option>Mirpur</option><option>Agargaon</option><option>Malibagh</option><option>Moghbazar</option><option>Basabo</option><option>Kalabagan</option><option>Kamrangirchar</option><option>Kamalapur</option></select></div><button type="submit" class="btn-primary">Register Now</button></form></div></div>
+<!-- ═══ TUTOR MODAL ═══ -->
+<div class="modal" id="tutorModal">
+    <div class="modal-box">
+        <div class="modal-hdr">
+            <h3><i class="fas fa-chalkboard-user" style="color:var(--gold);margin-right:8px"></i>Tutor Registration</h3>
+            <button class="modal-close" onclick="closeModal('tutorModal')"><i class="fas fa-times"></i></button>
+        </div>
+        <form id="tutorForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" id="tutorName" placeholder="Your full name" required>
+                </div>
+                <div class="form-group">
+                    <label>WhatsApp Number *</label>
+                    <input type="tel" id="tutorPhone" placeholder="01XXXXXXXXX" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>University / Institution (with ID) *</label>
+                <input type="text" id="tutorUniversity" placeholder="e.g. BUET - Student ID: 2001234" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Your Area *</label>
+                    <select id="tutorArea" required>
+                        <option value="">Select Area</option>
+                        <option>Dhanmondi</option><option>Gulshan</option><option>Banani</option>
+                        <option>Uttara</option><option>Mirpur</option><option>Mohammadpur</option>
+                        <option>Bashundhara R/A</option><option>Motijheel</option><option>Malibagh</option>
+                        <option>Moghbazar</option><option>Baridhara</option><option>Wari</option>
+                        <option>Lalbagh</option><option>Agargaon</option><option>Banasree</option>
+                        <option>Aftab Nagar</option><option>Basabo</option><option>Kalabagan</option>
+                        <option>Shahbagh</option><option>Ramna</option><option>Hazaribagh</option>
+                        <option>Kamrangirchar</option><option>Sadarghat</option><option>Chowk Bazar</option>
+                        <option>Paltan</option><option>Dilkusha</option><option>Kakrail</option>
+                        <option>Armanitola</option><option>Kamalapur</option><option>Bangla Bazar</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Subjects You Teach *</label>
+                    <input type="text" id="tutorSubjects" placeholder="e.g. Math, Physics, English" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>High School & College</label>
+                <input type="text" id="tutorSchool" placeholder="e.g. Dhaka College, Notre Dame">
+            </div>
+            <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Register Now — It's Free</button>
+        </form>
+    </div>
+</div>
 
-<div id="studentModal" class="modal"><div class="modal-content"><div class="modal-header"><h2><i class="fas fa-graduation-cap" style="color:#F5A623;"></i> Student Registration</h2><span class="close-modal" onclick="closeModal('studentModal')">&times;</span></div>
-<form id="studentForm"><div class="form-group"><label>Full Name</label><input type="text" id="studentName" required></div><div class="form-group"><label>WhatsApp Number</label><input type="tel" id="studentPhone" required></div><div class="form-group"><label>Your Area</label><select id="studentArea" required><option value="">Select Area</option><option>Motijheel</option><option>Dilkusha</option><option>Paltan</option><option>Shahbagh</option><option>Ramna</option><option>Kakrail</option><option>Gulshan</option><option>Banani</option><option>Baridhara</option><option>Bashundhara</option><option>Dhanmondi</option><option>Uttara</option><option>Lalbagh</option><option>Armanitola</option><option>Bangla Bazar</option><option>Chowk Bazar</option><option>Sadarghat</option><option>Hazaribagh</option><option>Wari</option><option>Banasree</option><option>Aftab Nagar</option><option>Mohammadpur</option><option>Mirpur</option><option>Agargaon</option><option>Malibagh</option><option>Moghbazar</option><option>Basabo</option><option>Kalabagan</option><option>Kamrangirchar</option><option>Kamalapur</option></select></div><div class="form-group"><label>Class</label><input type="text" id="studentClass" required></div><div class="form-group"><label>Subject Needed</label><input type="text" id="studentSubject" required></div><button type="submit" class="btn-primary">Submit Demand</button></form></div></div>
+<!-- ═══ STUDENT MODAL ═══ -->
+<div class="modal" id="studentModal">
+    <div class="modal-box">
+        <div class="modal-hdr">
+            <h3><i class="fas fa-graduation-cap" style="color:var(--gold);margin-right:8px"></i>Post Tuition Demand</h3>
+            <button class="modal-close" onclick="closeModal('studentModal')"><i class="fas fa-times"></i></button>
+        </div>
+        <form id="studentForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Your Name *</label>
+                    <input type="text" id="studentName" placeholder="Guardian / Student name" required>
+                </div>
+                <div class="form-group">
+                    <label>WhatsApp Number *</label>
+                    <input type="tel" id="studentPhone" placeholder="01XXXXXXXXX" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Area *</label>
+                    <select id="studentArea" required>
+                        <option value="">Select Area</option>
+                        <option>Dhanmondi</option><option>Gulshan</option><option>Banani</option>
+                        <option>Uttara</option><option>Mirpur</option><option>Mohammadpur</option>
+                        <option>Bashundhara R/A</option><option>Motijheel</option><option>Malibagh</option>
+                        <option>Moghbazar</option><option>Baridhara</option><option>Wari</option>
+                        <option>Lalbagh</option><option>Agargaon</option><option>Banasree</option>
+                        <option>Aftab Nagar</option><option>Basabo</option><option>Kalabagan</option>
+                        <option>Shahbagh</option><option>Ramna</option><option>Hazaribagh</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Class / Level *</label>
+                    <input type="text" id="studentClass" placeholder="e.g. Class 9, HSC, O Level" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Subjects Needed *</label>
+                <input type="text" id="studentSubject" placeholder="e.g. Math, Physics, English" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Tutor Preference</label>
+                    <select id="studentGender">
+                        <option>Any</option><option>Male</option><option>Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Expected Salary (TK)</label>
+                    <input type="text" id="studentSalary" placeholder="e.g. 3000-4000">
+                </div>
+            </div>
+            <button type="submit" class="submit-btn gold-btn"><i class="fas fa-paper-plane"></i> Submit Demand — Free</button>
+        </form>
+    </div>
+</div>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="js/main.js"></script>
-
 <script>
-    const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbzyOFfwCLEd49PIIu730h52pXDwXzYrR43AeU6ulvQF9zyBRusDbNRv70DSX7n8_MUzKw/exec";
-    
-    function getTimeAgo(timestamp) {
-        const now = new Date();
-        const postDate = new Date(timestamp);
-        const diffMs = now - postDate;
-        const diffMins = Math.floor(diffMs / 60000);
-        const diffHours = Math.floor(diffMs / 3600000);
-        const diffDays = Math.floor(diffMs / 86400000);
-        if (diffMins < 1) return "Just now";
-        if (diffMins < 60) return `${diffMins} min ago`;
-        if (diffHours < 24) return `${diffHours} hour${diffHours > 1 ? 's' : ''} ago`;
-        if (diffDays < 7) return `${diffDays} day${diffDays > 1 ? 's' : ''} ago`;
-        return postDate.toLocaleDateString('en-BD');
+// ── CONFIG ──
+const API_URL = "https://script.google.com/macros/s/AKfycbzyOFfwCLEd49PIIu730h52pXDwXzYrR43AeU6ulvQF9zyBRusDbNRv70DSX7n8_MUzKw/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyzRoZNbYy4DDC7dhWtOEGnbPHiLjsakLMaVyPDEIbFZhEkgArTQ86EuujHkHuQlm42SA/exec";
+
+// ── DUMMY POSTS ──
+const DUMMY_POSTS = [
+    { id:'D1', className:'Class 9', subjects:'Higher Math, Physics', area:'Dhanmondi', duration:'5 days/week', gender:'Male', salaryRange:'4000-5000 TK/month', timestamp: new Date(Date.now()-20*60000).toISOString(), urgent:true },
+    { id:'D2', className:'HSC 1st Year', subjects:'Chemistry, Biology', area:'Gulshan 2', duration:'4 days/week', gender:'Female', salaryRange:'5000-6000 TK/month', timestamp: new Date(Date.now()-2*3600000).toISOString(), urgent:false },
+    { id:'D3', className:'O Level', subjects:'Mathematics, Physics', area:'Banani', duration:'3 days/week', gender:'Male', salaryRange:'8000-10000 TK/month', timestamp: new Date(Date.now()-4*3600000).toISOString(), urgent:true },
+    { id:'D4', className:'Class 7', subjects:'All Subjects', area:'Uttara', duration:'6 days/week', gender:'Any', salaryRange:'3000-3500 TK/month', timestamp: new Date(Date.now()-7*3600000).toISOString(), urgent:false },
+    { id:'D5', className:'Class 10 (SSC)', subjects:'Bangla, English, Math', area:'Mirpur-10', duration:'5 days/week', gender:'Female', salaryRange:'3500-4000 TK/month', timestamp: new Date(Date.now()-10*3600000).toISOString(), urgent:false },
+    { id:'D6', className:'A Level', subjects:'Economics, Accounting', area:'Baridhara', duration:'3 days/week', gender:'Any', salaryRange:'10000-12000 TK/month', timestamp: new Date(Date.now()-14*3600000).toISOString(), urgent:false },
+];
+
+// ── TIME AGO ──
+function timeAgo(ts) {
+    if (!ts) return 'Recently';
+    const diff = Date.now() - new Date(ts);
+    const m = Math.floor(diff/60000), h = Math.floor(diff/3600000), d = Math.floor(diff/86400000);
+    if (m < 1) return '<span style="color:var(--success);font-weight:700">Just now</span>';
+    if (m < 60) return `<span style="color:var(--success);font-weight:700">${m}m ago</span>`;
+    if (h < 24) return `${h}h ago`;
+    return `${d}d ago`;
+}
+
+function isNew(ts) { return ts && (Date.now() - new Date(ts)) < 24*3600000; }
+function isUrgent(p) { return p.urgent || false; }
+
+// ── RENDER LATEST CARDS ──
+function renderLatest(posts) {
+    const grid = document.getElementById('latestGrid');
+    const show = posts.slice(0, 6);
+    grid.innerHTML = show.map(post => {
+        const subjects = (post.subjects||'N/A').split(',').map(s=>s.trim()).slice(0,2).join(' & ');
+        const badge = isUrgent(post) ? '<span class="lc-badge urgent"><i class="fas fa-fire"></i> URGENT</span>'
+                    : isNew(post.timestamp) ? '<span class="lc-badge new"><i class="fas fa-circle" style="font-size:.45rem"></i> NEW</span>'
+                    : '';
+        return `
+        <div class="latest-card" onclick="window.location.href='tuition.html'">
+            <div class="lc-top">
+                <div>${badge}</div>
+                <div class="lc-time">${timeAgo(post.timestamp)}</div>
+            </div>
+            <div class="lc-subject">${subjects}</div>
+            <div class="lc-class"><i class="fas fa-graduation-cap" style="color:var(--gold);margin-right:5px"></i>${post.className||post.classLevel||'N/A'}</div>
+            <div class="lc-details">
+                <div class="lc-row"><i class="fas fa-map-marker-alt"></i> ${post.area||'Dhaka'}</div>
+                <div class="lc-row"><i class="fas fa-calendar-week"></i> ${post.duration||'N/A'}</div>
+                <div class="lc-row"><i class="fas fa-venus-mars"></i> ${post.gender||'Any'} Tutor</div>
+            </div>
+            <div class="lc-footer">
+                <div class="lc-salary">${(post.salaryRange||'Negotiable').replace(' TK/month','').replace('TK/month','')}<span style="font-size:0.7rem;font-weight:400;color:var(--muted)"> TK/mo</span></div>
+                <button class="lc-apply">Apply Now</button>
+            </div>
+        </div>`;
+    }).join('');
+}
+
+// ── COUNTER ANIMATION ──
+function animateCount(el, target, suffix='') {
+    let start = 0;
+    const duration = 2000;
+    const step = target / (duration / 16);
+    const timer = setInterval(() => {
+        start += step;
+        if (start >= target) { start = target; clearInterval(timer); }
+        el.innerHTML = Math.floor(start) + '<span>' + suffix + '</span>';
+    }, 16);
+}
+
+let counted = false;
+function tryCount() {
+    if (counted) return;
+    const el = document.getElementById('countTutors');
+    const rect = el?.getBoundingClientRect();
+    if (rect && rect.top < window.innerHeight) {
+        counted = true;
+        animateCount(document.getElementById('countTutors'), 1000, '+');
+        animateCount(document.getElementById('countPosts'), 500, '+');
     }
-    
-    async function loadLatestTuitions() {
-        try {
-            const response = await fetch(`${GOOGLE_SHEETS_URL}?action=getPosts`);
-            const posts = await response.json();
-            const sortedPosts = [...posts].sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
-            const latestPosts = sortedPosts.slice(0, 4);
-            const grid = document.getElementById('latestTuitionsGrid');
-            const totalPostsSpan = document.getElementById('totalPosts');
-            
-            if (totalPostsSpan) totalPostsSpan.innerText = posts.length + '+';
-            
-            if (latestPosts.length > 0) {
-                grid.innerHTML = '';
-                latestPosts.forEach((post, index) => {
-                    const card = document.createElement('div');
-                    card.className = 'latest-card';
-                    card.setAttribute('data-aos', 'fade-up');
-                    card.setAttribute('data-aos-delay', index * 100);
-                    card.innerHTML = `
-                        <div class="latest-badge"><i class="fas fa-clock"></i> ${getTimeAgo(post.timestamp)}</div>
-                        <h3><i class="fas fa-book-open"></i> ${post.subjects || 'N/A'}</h3>
-                        <div class="latest-details">
-                            <div class="latest-detail"><i class="fas fa-graduation-cap"></i> Class: ${post.className || post.classLevel || 'N/A'}</div>
-                            <div class="latest-detail"><i class="fas fa-map-marker-alt"></i> Area: ${post.area || 'N/A'}</div>
-                            <div class="latest-detail"><i class="fas fa-hourglass-half"></i> Duration: ${post.duration || 'N/A'}</div>
-                            <div class="latest-detail"><i class="fas fa-venus-mars"></i> Preference: ${post.gender || 'Any'} Tutor</div>
-                        </div>
-                    `;
-                    grid.appendChild(card);
-                });
-            } else {
-                grid.innerHTML = '<div class="empty-tuition"><i class="fas fa-info-circle"></i> No tuition posts yet. Check back soon!</div>';
-            }
-            if (typeof AOS !== 'undefined') AOS.refresh();
-        } catch (error) {
-            console.error("Error loading posts:", error);
-            document.getElementById('latestTuitionsGrid').innerHTML = '<div class="empty-tuition"><i class="fas fa-exclamation-circle"></i> Could not load posts. Please refresh.</div>';
+}
+
+// ── LOAD POSTS ──
+async function loadLatest() {
+    let posts = [...DUMMY_POSTS];
+    renderLatest(posts);
+    document.getElementById('heroPosts').textContent = posts.length + '+';
+
+    try {
+        const res = await fetch(API_URL + '?action=getPosts&t=' + Date.now());
+        const real = await res.json();
+        if (real && real.length > 0) {
+            posts = [...real, ...DUMMY_POSTS];
+            renderLatest(posts);
+            document.getElementById('heroPosts').textContent = posts.length + '+';
         }
+    } catch(e) {}
+}
+
+// ── MODALS ──
+function openModal(type) {
+    document.getElementById(type + 'Modal').classList.add('open');
+}
+function closeModal(id) {
+    document.getElementById(id).classList.remove('open');
+}
+document.querySelectorAll('.modal').forEach(m => {
+    m.addEventListener('click', e => { if (e.target === m) m.classList.remove('open'); });
+});
+
+// ── FORM SUBMIT ──
+document.getElementById('tutorForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('button'); btn.textContent = 'Submitting...'; btn.disabled = true;
+    const data = {
+        type: 'tutor',
+        name: document.getElementById('tutorName').value,
+        phone: document.getElementById('tutorPhone').value,
+        university: document.getElementById('tutorUniversity').value,
+        area: document.getElementById('tutorArea').value,
+        subjects: document.getElementById('tutorSubjects').value,
+        highSchool: document.getElementById('tutorSchool').value,
+        timestamp: new Date().toLocaleString('en-BD', {timeZone:'Asia/Dhaka'})
+    };
+    try {
+        await fetch(GOOGLE_SCRIPT_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data) });
+    } catch(err) {}
+    closeModal('tutorModal');
+    this.reset();
+    btn.textContent = 'Register Now — It\'s Free'; btn.disabled = false;
+    alert('✅ Registration successful!\n\nWelcome to FindmyTutor Dhaka! We will contact you on WhatsApp within 24 hours with tuition opportunities in your area.');
+});
+
+document.getElementById('studentForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('button'); btn.textContent = 'Submitting...'; btn.disabled = true;
+    const data = {
+        type: 'student',
+        name: document.getElementById('studentName').value,
+        phone: document.getElementById('studentPhone').value,
+        area: document.getElementById('studentArea').value,
+        className: document.getElementById('studentClass').value,
+        subject: document.getElementById('studentSubject').value,
+        gender: document.getElementById('studentGender').value,
+        salary: document.getElementById('studentSalary').value,
+        timestamp: new Date().toLocaleString('en-BD', {timeZone:'Asia/Dhaka'})
+    };
+    try {
+        await fetch(GOOGLE_SCRIPT_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data) });
+    } catch(err) {}
+    closeModal('studentModal');
+    this.reset();
+    btn.textContent = 'Submit Demand — Free'; btn.disabled = false;
+    alert('✅ Tuition demand submitted!\n\nWe will find the best tutor for you and contact you on WhatsApp within 24 hours. Thank you!');
+});
+
+// ── NAV ──
+function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
+
+window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+    tryCount();
+});
+
+// ── AOS + SWIPER ──
+AOS.init({ duration: 750, once: true, offset: 80 });
+
+new Swiper('.mySwiper', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    pagination: { el: '.swiper-pagination', clickable: true },
+    autoplay: { delay: 4000, disableOnInteraction: false },
+    breakpoints: {
+        640: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 }
     }
-    
-    document.addEventListener('DOMContentLoaded', loadLatestTuitions);
+});
+
+// ── INIT ──
+loadLatest();
 </script>
 </body>
 </html>

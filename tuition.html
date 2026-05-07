@@ -3,239 +3,1184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tuition Posts - FindmyTutor Dhaka</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Tuition Posts - FindmyTutor Dhaka | Latest Home Tuition Jobs in Dhaka</title>
+    <meta name="description" content="Browse 500+ active tuition posts in Dhaka. Find home tuition jobs in Gulshan, Dhanmondi, Uttara, Mirpur and all areas of Dhaka. Apply now!">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lexend:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
+        :root {
+            --navy: #1A2A6C;
+            --navy-dark: #111d4e;
+            --gold: #F5A623;
+            --gold-dark: #d4891a;
+            --bg: #F4F6FB;
+            --white: #ffffff;
+            --text: #1E293B;
+            --muted: #64748B;
+            --border: #E2E8F0;
+            --card-shadow: 0 2px 20px rgba(26,42,108,0.07);
+            --success: #10b981;
+            --urgent: #ef4444;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #F8F9FC; color: #1E293B; }
-        
+
+        body {
+            font-family: 'Lexend', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* ── TICKER ── */
+        .ticker-wrap {
+            background: var(--navy);
+            color: white;
+            padding: 8px 0;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1100;
+        }
+        .ticker-content {
+            display: flex;
+            gap: 4rem;
+            animation: ticker 35s linear infinite;
+            white-space: nowrap;
+        }
+        .ticker-content span { font-size: 0.78rem; font-weight: 500; opacity: 0.9; }
+        .ticker-content span i { color: var(--gold); margin-right: 6px; }
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ── NAVBAR ── */
         .navbar {
-            background: #FFFFFF;
-            padding: 1rem 5%;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(12px);
+            padding: 0.9rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: fixed;
             width: 100%;
-            top: 0;
+            top: 34px;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 1px 0 var(--border), 0 4px 20px rgba(0,0,0,0.04);
         }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        .logo-icon { width: 38px; height: 38px; background: linear-gradient(135deg, #1A2A6C, #F5A623); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: white; }
-        .logo-text { font-size: 1.4rem; font-weight: 700; color: #1A2A6C; }
-        .logo-text span { color: #F5A623; }
-        .nav-links { display: flex; gap: 2rem; }
-        .nav-links a { text-decoration: none; color: #475569; font-weight: 500; }
-        .nav-links a:hover, .nav-links a.active { color: #F5A623; }
-        
-        .admin-fab {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: linear-gradient(135deg, #1A2A6C, #243594);
+        .logo-icon {
+            width: 36px; height: 36px;
+            background: linear-gradient(135deg, var(--navy), var(--gold));
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800; color: white; font-size: 1rem;
+        }
+        .logo-text { font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--navy); }
+        .logo-text span { color: var(--gold); }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--muted); font-weight: 500; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+        .nav-post-btn {
+            background: var(--gold);
+            color: white !important;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-weight: 600 !important;
+            font-size: 0.85rem !important;
+            cursor: pointer;
+        }
+        .nav-post-btn:hover { background: var(--gold-dark) !important; color: white !important; }
+        .mobile-menu { display: none; font-size: 1.4rem; cursor: pointer; color: var(--navy); }
+
+        /* ── PAGE HEADER ── */
+        .page-header {
+            padding: 7rem 5% 2rem;
+            margin-top: 34px;
+            background: linear-gradient(135deg, var(--navy) 0%, #243594 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -50%; right: -10%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(245,166,35,0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .page-header-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        .page-header h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
             color: white;
-            width: 60px;
-            height: 60px;
+            margin-bottom: 0.4rem;
+        }
+        .page-header h1 span { color: var(--gold); }
+        .page-header p { color: rgba(255,255,255,0.7); font-size: 0.95rem; }
+        .header-stats {
+            display: flex;
+            gap: 2rem;
+        }
+        .hstat { text-align: center; }
+        .hstat-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--gold);
+            line-height: 1;
+        }
+        .hstat-label { font-size: 0.75rem; color: rgba(255,255,255,0.6); margin-top: 2px; }
+
+        /* ── LIVE INDICATOR ── */
+        .live-bar {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 0.6rem 5%;
+        }
+        .live-bar-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .live-dot {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            color: var(--success);
+            font-weight: 600;
+        }
+        .live-dot::before {
+            content: '';
+            width: 8px; height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.3); }
+        }
+        .last-updated { font-size: 0.78rem; color: var(--muted); }
+
+        /* ── FILTER BAR ── */
+        .filter-section {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 100px;
+            z-index: 90;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+        }
+        .filter-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            gap: 0.8rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .search-box {
+            flex: 1;
+            min-width: 200px;
+            position: relative;
+        }
+        .search-box i {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 10px 14px 10px 38px;
+            border: 1.5px solid var(--border);
+            border-radius: 50px;
+            font-family: 'Lexend', sans-serif;
+            font-size: 0.85rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .search-box input:focus { border-color: var(--gold); }
+        .filter-select {
+            padding: 10px 16px;
+            border: 1.5px solid var(--border);
+            border-radius: 50px;
+            font-family: 'Lexend', sans-serif;
+            font-size: 0.82rem;
+            outline: none;
+            cursor: pointer;
+            background: white;
+            color: var(--text);
+            min-width: 130px;
+        }
+        .filter-select:focus { border-color: var(--gold); }
+        .filter-chip {
+            padding: 8px 16px;
+            border: 1.5px solid var(--border);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            background: white;
+            color: var(--muted);
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .filter-chip:hover, .filter-chip.active {
+            background: var(--navy);
+            border-color: var(--navy);
+            color: white;
+        }
+        .filter-chip.urgent-chip.active { background: var(--urgent); border-color: var(--urgent); }
+        .result-count { font-size: 0.82rem; color: var(--muted); white-space: nowrap; margin-left: auto; }
+        .result-count strong { color: var(--navy); }
+
+        /* ── MAIN LAYOUT ── */
+        .main-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        /* ── TUITION CARDS ── */
+        .tuition-grid { display: flex; flex-direction: column; gap: 1rem; }
+
+        .tuition-card {
+            background: white;
+            border-radius: 16px;
+            border: 1.5px solid var(--border);
+            padding: 1.4rem 1.5rem;
+            transition: all 0.25s;
+            position: relative;
+            overflow: hidden;
+        }
+        .tuition-card::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--gold), var(--navy));
+            border-radius: 4px 0 0 4px;
+        }
+        .tuition-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 8px 30px rgba(245,166,35,0.12);
+            transform: translateY(-2px);
+        }
+        .tuition-card.urgent-card::before {
+            background: linear-gradient(180deg, var(--urgent), #ff6b6b);
+        }
+        .tuition-card.urgent-card { border-color: rgba(239,68,68,0.2); }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.9rem;
+            gap: 1rem;
+        }
+        .card-left { flex: 1; }
+        .badge-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 10px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .badge-new { background: rgba(16,185,129,0.1); color: var(--success); }
+        .badge-urgent { background: rgba(239,68,68,0.1); color: var(--urgent); }
+        .badge-class { background: rgba(26,42,108,0.08); color: var(--navy); }
+        .badge-group { background: rgba(245,166,35,0.12); color: var(--gold-dark); }
+
+        .card-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.2rem;
+        }
+        .card-area {
+            font-size: 0.82rem;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .card-area i { color: var(--gold); font-size: 0.75rem; }
+
+        .salary-box {
+            background: linear-gradient(135deg, var(--navy), #243594);
+            color: white;
+            padding: 8px 14px;
+            border-radius: 12px;
+            text-align: center;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .salary-amount {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+        .salary-label { font-size: 0.65rem; opacity: 0.7; margin-top: -2px; }
+
+        .card-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            background: var(--bg);
+            border-radius: 10px;
+        }
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 0.82rem;
+            color: var(--muted);
+        }
+        .detail-item i { color: var(--gold); width: 14px; font-size: 0.8rem; }
+        .detail-item strong { color: var(--text); font-weight: 600; }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .time-info {
+            font-size: 0.78rem;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .time-info i { color: var(--gold); }
+        .post-id { font-size: 0.72rem; color: #94a3b8; }
+
+        .button-group {
+            display: flex;
+            gap: 0.6rem;
+        }
+        .share-btn {
+            background: #F1F5F9;
+            border: 1px solid var(--border);
+            padding: 9px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--navy);
+        }
+        .share-btn:hover {
+            background: var(--navy);
+            border-color: var(--navy);
+            color: white;
+        }
+        .share-btn:hover i { color: white; }
+        .apply-btn {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: white;
+            border: none;
+            padding: 9px 22px;
+            border-radius: 50px;
+            font-family: 'Lexend', sans-serif;
+            font-weight: 600;
+            font-size: 0.82rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .apply-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(245,166,35,0.4);
+        }
+
+        /* ── SIDEBAR ── */
+        .sidebar { display: flex; flex-direction: column; gap: 1.2rem; }
+
+        .sidebar-card {
+            background: white;
+            border-radius: 16px;
+            border: 1.5px solid var(--border);
+            padding: 1.3rem;
+        }
+        .sidebar-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .sidebar-title i { color: var(--gold); }
+
+        .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+        .stat-box {
+            background: var(--bg);
+            border-radius: 10px;
+            padding: 0.8rem;
+            text-align: center;
+        }
+        .stat-box .num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--navy);
+        }
+        .stat-box .lbl { font-size: 0.7rem; color: var(--muted); }
+
+        .area-list { display: flex; flex-direction: column; gap: 0.5rem; }
+        .area-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 0;
+            border-bottom: 1px solid var(--bg);
+            font-size: 0.85rem;
+        }
+        .area-name { font-weight: 500; color: var(--text); }
+        .area-count { background: rgba(245,166,35,0.12); color: var(--gold-dark); padding: 2px 10px; border-radius: 50px; font-size: 0.72rem; font-weight: 600; }
+
+        .cta-card { background: linear-gradient(135deg, var(--navy), #243594); border: none; }
+        .cta-card .sidebar-title { color: white; }
+        .cta-card p { font-size: 0.82rem; color: rgba(255,255,255,0.7); margin-bottom: 1rem; line-height: 1.5; }
+        .cta-btn {
+            display: block;
+            width: 100%;
+            background: var(--gold);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 50px;
+            font-family: 'Lexend', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+        }
+        .cta-btn:hover { background: var(--gold-dark); }
+        .cta-btn.outline { background: transparent; border: 1.5px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.8); }
+        .cta-btn.outline:hover { background: rgba(255,255,255,0.1); }
+
+        .activity-list { display: flex; flex-direction: column; gap: 0.6rem; }
+        .activity-item {
+            display: flex;
+            gap: 10px;
+            font-size: 0.8rem;
+            align-items: flex-start;
+        }
+        .activity-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--success);
+            margin-top: 4px;
+            flex-shrink: 0;
+            animation: pulse 2s infinite;
+        }
+        .activity-dot.gold { background: var(--gold); }
+        .activity-text { color: var(--muted); line-height: 1.4; }
+        .activity-text strong { color: var(--text); }
+
+        /* ── FAB (PASSWORD PROTECTED) ── */
+        .fab {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: white;
+            width: 58px; height: 58px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            z-index: 999;
             text-decoration: none;
-            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: 0 6px 20px rgba(245,166,35,0.4);
+            transition: all 0.2s;
+            font-size: 1.3rem;
+            cursor: pointer;
+            border: none;
         }
-        .admin-fab:hover { transform: scale(1.1); background: #F5A623; }
-        
-        .page-header { padding: 8rem 5% 3rem; text-align: center; }
-        .page-header h1 { font-size: 2.5rem; color: #1A2A6C; }
-        .page-header p { color: #64748B; margin-top: 0.5rem; }
-        
-        .tuition-grid { padding: 2rem 5%; display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem; }
-        
-        .tuition-card {
-            background: white;
-            border-radius: 20px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border: 1px solid #E2E8F0;
-            transition: all 0.3s;
-        }
-        .tuition-card:hover { transform: translateY(-5px); border-color: #F5A623; box-shadow: 0 20px 35px -10px rgba(0,0,0,0.1); }
-        
-        .salary-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #1A2A6C, #243594);
+        .fab:hover { transform: scale(1.1) rotate(90deg); }
+        .fab-label {
+            position: absolute;
+            right: 68px;
+            background: var(--navy);
             color: white;
-            padding: 4px 12px;
-            border-radius: 50px;
+            padding: 6px 12px;
+            border-radius: 8px;
             font-size: 0.75rem;
-            margin-bottom: 1rem;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
         }
-        
-        .class-name {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #F5A623;
-            margin-bottom: 0.5rem;
-        }
-        
-        .subject-tag {
-            display: inline-block;
-            background: rgba(245,166,35,0.1);
-            color: #F5A623;
-            padding: 4px 10px;
-            border-radius: 50px;
-            font-size: 0.7rem;
-            margin: 0 4px 4px 0;
-        }
-        
-        .info-row {
+        .fab:hover .fab-label { opacity: 1; }
+
+        /* ── PASSWORD MODAL ── */
+        .password-modal .modal-box { max-width: 400px; }
+        .password-error { color: #ef4444; font-size: 0.75rem; margin-top: 5px; display: none; }
+
+        /* ── SHARE MODAL ── */
+        .share-link-box {
+            background: var(--bg);
+            padding: 1rem;
+            border-radius: 12px;
+            margin: 1rem 0;
+            word-break: break-all;
             display: flex;
             align-items: center;
+            justify-content: space-between;
             gap: 10px;
-            padding: 6px 0;
-            font-size: 0.85rem;
-            color: #475569;
-            border-bottom: 1px solid #F1F5F9;
         }
-        .info-row:last-of-type { border-bottom: none; }
-        .info-row i { width: 18px; color: #F5A623; }
-        
-        .interested-btn {
+        .copy-btn {
+            background: var(--gold);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .social-share-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .social-share-btn {
+            flex: 1;
+            padding: 10px;
+            border-radius: 50px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .social-share-btn.facebook { background: #1877F2; color: white; }
+        .social-share-btn.whatsapp { background: #25D366; color: white; }
+
+        /* ── MODAL COMMON ── */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+        .modal-overlay.open { display: flex; }
+        .modal-box {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 460px;
             width: 100%;
-            background: linear-gradient(135deg, #1A2A6C, #243594);
+            animation: popIn 0.3s cubic-bezier(0.34,1.56,0.64,1);
+        }
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.2rem;
+        }
+        .modal-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+        .modal-close {
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            border: none;
+            background: var(--bg);
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-close:hover { background: var(--border); }
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { font-size: 0.82rem; font-weight: 600; color: var(--text); display: block; margin-bottom: 0.4rem; }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-family: 'Lexend', sans-serif;
+            font-size: 0.85rem;
+            outline: none;
+        }
+        .form-group input:focus, .form-group select:focus { border-color: var(--gold); }
+
+        .post-summary {
+            background: var(--bg);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1.2rem;
+            font-size: 0.85rem;
+        }
+        .post-summary strong { color: var(--navy); display: block; font-size: 1rem; margin-bottom: 0.3rem; }
+        .post-summary span { color: var(--muted); }
+
+        .plan-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: 1rem; }
+        .plan-option {
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+        .plan-option:hover, .plan-option.selected { border-color: var(--gold); background: rgba(245,166,35,0.05); }
+        .plan-option.pro-plan.selected { border-color: var(--navy); background: rgba(26,42,108,0.05); }
+        .plan-name { font-weight: 700; font-size: 0.9rem; color: var(--navy); }
+        .plan-price { font-size: 1.1rem; font-weight: 800; color: var(--gold); font-family: 'Outfit', sans-serif; }
+        .plan-desc { font-size: 0.72rem; color: var(--muted); margin-top: 3px; }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--navy), #243594);
+            color: white;
             border: none;
             padding: 12px;
             border-radius: 50px;
-            color: white;
+            font-family: 'Lexend', sans-serif;
             font-weight: 600;
-            cursor: pointer;
-            margin-top: 1rem;
-            transition: all 0.3s;
             font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
         }
-        .interested-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(26,42,108,0.3); }
-        
-        .footer {
-            background: #1A2A6C;
-            color: #CBD5E1;
-            padding: 3rem 5% 1.5rem;
-            margin-top: 3rem;
+        .submit-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+        /* ── LOADING SKELETON ── */
+        .skeleton-card {
+            background: white;
+            border-radius: 16px;
+            border: 1.5px solid var(--border);
+            padding: 1.4rem 1.5rem;
+        }
+        .skeleton-line {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 6px;
+            margin-bottom: 0.6rem;
+        }
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .empty-state {
             text-align: center;
+            padding: 3rem;
+            color: var(--muted);
         }
-        
-        .loading { text-align: center; padding: 3rem; color: #64748B; font-size: 1.1rem; }
-        .error { text-align: center; padding: 3rem; color: #ef4444; }
-        
+        .empty-state i { font-size: 3rem; color: var(--border); margin-bottom: 1rem; display: block; }
+
+        footer {
+            background: var(--navy);
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.82rem;
+            margin-top: 3rem;
+        }
+        footer a { color: var(--gold); text-decoration: none; }
+
+        @media (max-width: 1024px) {
+            .main-content { grid-template-columns: 1fr; }
+            .sidebar { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        }
         @media (max-width: 768px) {
-            .tuition-grid { grid-template-columns: 1fr; padding: 1rem 4%; }
-            .page-header h1 { font-size: 1.8rem; }
+            .navbar { padding: 0.8rem 4%; }
+            .nav-links { display: none; }
+            .mobile-menu { display: block; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 60px; left: 0;
+                width: 100%;
+                background: white;
+                padding: 1rem 4%;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+                gap: 1rem;
+            }
+            .page-header { padding: 6.5rem 4% 1.5rem; }
+            .page-header h1 { font-size: 1.6rem; }
+            .header-stats { gap: 1rem; }
+            .filter-section { top: 94px; }
+            .main-content { padding: 1rem 4%; }
+            .sidebar { grid-template-columns: 1fr; }
+            .button-group { flex-direction: column; width: 100%; }
+            .share-btn, .apply-btn { justify-content: center; }
         }
     </style>
 </head>
 <body>
 
-<nav class="navbar">
+<!-- TICKER -->
+<div class="ticker-wrap">
+    <div class="ticker-content" id="tickerContent">
+        <span><i class="fas fa-circle" style="font-size:0.5rem"></i> New tuition posted in Dhanmondi — Class 9 Science</span>
+        <span><i class="fas fa-circle" style="font-size:0.5rem"></i> Tutor confirmed in Gulshan 2 — HSC English</span>
+        <span><i class="fas fa-circle" style="font-size:0.5rem"></i> 3 new tutors registered from BUET & DU</span>
+        <span><i class="fas fa-circle" style="font-size:0.5rem"></i> Urgent tuition in Uttara — Class 8 Math</span>
+        <span><i class="fas fa-circle" style="font-size:0.5rem"></i> New tuition posted in Mirpur — Class 6 All Subjects</span>
+        <span><i class="fas fa-circle" style="font-size:0.5rem"></i> Tutor found in Banani — O Level Physics</span>
+        <span><i class="fas fa-circle" style="font-size:0.5rem"></i> 12 active posts in Dhanmondi right now</span>
+        <span><i class="fas fa-circle" style="font-size:0.5rem"></i> New tuition posted in Dhanmondi — Class 9 Science</span>
+        <span><i class="fas fa-circle" style="font-size:0.5rem"></i> Tutor confirmed in Gulshan 2 — HSC English</span>
+        <span><i class="fas fa-circle" style="font-size:0.5rem"></i> 3 new tutors registered from BUET & DU</span>
+        <span><i class="fas fa-circle" style="font-size:0.5rem"></i> Urgent tuition in Uttara — Class 8 Math</span>
+        <span><i class="fas fa-circle" style="font-size:0.5rem"></i> New tuition posted in Mirpur — Class 6 All Subjects</span>
+        <span><i class="fas fa-circle" style="font-size:0.5rem"></i> Tutor found in Banani — O Level Physics</span>
+        <span><i class="fas fa-circle" style="font-size:0.5rem"></i> 12 active posts in Dhanmondi right now</span>
+    </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
     <a href="index.html" class="logo">
         <div class="logo-icon">F</div>
         <span class="logo-text">FindmyTutor <span>Dhaka</span></span>
     </a>
-    <div class="nav-links">
+    <div class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
         <a href="tuition.html" class="active">Tuition Posts</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
+        <a href="#" class="nav-post-btn" id="postTuitionBtn"><i class="fas fa-plus"></i> Post Tuition</a>
     </div>
+    <div class="mobile-menu" onclick="toggleNav()"><i class="fas fa-bars"></i></div>
 </nav>
 
-<a href="https://forms.gle/4NifvjzPgk47z1877" target="_blank" class="admin-fab" title="Post a Tuition">
-    <i class="fas fa-plus"></i>
-</a>
-
+<!-- PAGE HEADER -->
 <div class="page-header">
-    <h1>📚 Tuition Posts</h1>
-    <p>Find the latest tuition opportunities in Dhaka</p>
+    <div class="page-header-inner">
+        <div>
+            <h1>📚 Latest <span>Tuition Posts</span></h1>
+            <p>Browse verified tuition opportunities across all areas of Dhaka</p>
+        </div>
+        <div class="header-stats">
+            <div class="hstat"><div class="hstat-num" id="totalPostsCount">—</div><div class="hstat-label">Active Posts</div></div>
+            <div class="hstat"><div class="hstat-num">30+</div><div class="hstat-label">Areas Covered</div></div>
+            <div class="hstat"><div class="hstat-num">24h</div><div class="hstat-label">Avg Response</div></div>
+        </div>
+    </div>
 </div>
 
-<div class="tuition-grid" id="tuitionGrid">
-    <div class="loading"><i class="fas fa-spinner fa-spin"></i> Loading posts...</div>
+<!-- LIVE BAR -->
+<div class="live-bar">
+    <div class="live-bar-inner">
+        <div class="live-dot">Platform is live — posts updated in real time</div>
+        <div class="last-updated" id="lastUpdated">Checking for new posts...</div>
+    </div>
 </div>
 
-<footer class="footer">
-    <p>&copy; 2024 FindmyTutor Dhaka | Trusted Tuition Media in Bangladesh</p>
-</footer>
+<!-- FILTER BAR -->
+<div class="filter-section">
+    <div class="filter-inner">
+        <div class="search-box"><i class="fas fa-search"></i><input type="text" id="searchInput" placeholder="Search by subject, area, class..." oninput="applyFilters()"></div>
+        <select class="filter-select" id="areaFilter" onchange="applyFilters()"><option value="">All Areas</option><option>Dhanmondi</option><option>Gulshan</option><option>Banani</option><option>Uttara</option><option>Mirpur</option><option>Mohammadpur</option><option>Bashundhara</option><option>Motijheel</option><option>Malibagh</option><option>Moghbazar</option></select>
+        <select class="filter-select" id="classFilter" onchange="applyFilters()"><option value="">All Classes</option><option>Class 1-5</option><option>Class 6-8</option><option>Class 9-10</option><option>HSC</option><option>O/A Level</option></select>
+        <button class="filter-chip active" onclick="setFilter(this,'all')">All</button>
+        <button class="filter-chip urgent-chip" onclick="setFilter(this,'urgent')"><i class="fas fa-fire"></i> Urgent</button>
+        <button class="filter-chip" onclick="setFilter(this,'new')"><i class="fas fa-sparkles"></i> New Today</button>
+        <div class="result-count" id="resultCount"><strong>—</strong> posts found</div>
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+    <div><div class="tuition-grid" id="tuitionGrid"><div style="text-align:center;padding:3rem"><i class="fas fa-spinner fa-spin"></i> Loading posts...</div></div></div>
+    <div class="sidebar">
+        <div class="sidebar-card"><div class="sidebar-title"><i class="fas fa-chart-bar"></i> Platform Stats</div><div class="stat-grid"><div class="stat-box"><div class="num" id="sidebarPosts">—</div><div class="lbl">Active Posts</div></div><div class="stat-box"><div class="num">1000+</div><div class="lbl">Tutors</div></div><div class="stat-box"><div class="num">2K+</div><div class="lbl">Matched</div></div><div class="stat-box"><div class="num">30+</div><div class="lbl">Areas</div></div></div></div>
+        <div class="sidebar-card"><div class="sidebar-title"><i class="fas fa-map-marker-alt"></i> Hot Areas</div><div class="area-list" id="hotAreas"><div class="area-row"><span class="area-name">Loading...</span><span class="area-count">—</span></div></div></div>
+        <div class="sidebar-card"><div class="sidebar-title"><i class="fas fa-bolt"></i> Recent Activity</div><div class="activity-list"><div class="activity-item"><div class="activity-dot"></div><div class="activity-text"><strong>Tutor confirmed</strong> for Class 9 Math in Gulshan <span style="font-size:0.72rem">2 min ago</span></div></div><div class="activity-item"><div class="activity-dot gold"></div><div class="activity-text"><strong>New post added</strong> — HSC Chemistry in Dhanmondi <span style="font-size:0.72rem">14 min ago</span></div></div><div class="activity-item"><div class="activity-dot"></div><div class="activity-text"><strong>3 tutors applied</strong> for O Level Physics in Banani <span style="font-size:0.72rem">31 min ago</span></div></div></div></div>
+        <div class="sidebar-card cta-card"><div class="sidebar-title"><i class="fas fa-chalkboard-user"></i> Are You a Tutor?</div><p>Register now and get matched with tuition posts in your area within 24 hours.</p><a href="index.html#register" class="cta-btn">Register as Tutor</a><a href="#" class="cta-btn outline" id="ctaPostBtn">Post a Tuition</a></div>
+    </div>
+</div>
+
+<!-- FAB (PASSWORD PROTECTED) -->
+<button class="fab" id="fabBtn"><span class="fab-label">Admin: Post Tuition</span><i class="fas fa-plus"></i></button>
+
+<!-- PASSWORD MODAL -->
+<div class="modal-overlay" id="passwordModal">
+    <div class="modal-box password-modal">
+        <div class="modal-header"><div class="modal-title"><i class="fas fa-lock" style="color:var(--gold);margin-right:8px"></i>Admin Access</div><button class="modal-close" onclick="closePasswordModal()"><i class="fas fa-times"></i></button></div>
+        <div class="form-group"><label>Enter Admin Password</label><input type="password" id="adminPassword" placeholder="Enter password"><div id="passwordError" class="password-error">Incorrect password!</div></div>
+        <button class="submit-btn" onclick="verifyPassword()">Verify Access</button>
+    </div>
+</div>
+
+<!-- SHARE MODAL -->
+<div class="modal-overlay" id="shareModal">
+    <div class="modal-box">
+        <div class="modal-header"><div class="modal-title"><i class="fas fa-share-alt" style="color:var(--gold);margin-right:8px"></i>Share this Tuition</div><button class="modal-close" onclick="closeShareModal()"><i class="fas fa-times"></i></button></div>
+        <div class="share-link-box"><span id="shareLinkText"></span><button class="copy-btn" onclick="copyShareLink()"><i class="fas fa-copy"></i> Copy</button></div>
+        <div class="social-share-buttons"><a id="facebookShare" target="_blank" class="social-share-btn facebook"><i class="fab fa-facebook-f"></i> Facebook</a><a id="whatsappShare" target="_blank" class="social-share-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a></div>
+    </div>
+</div>
+
+<!-- APPLY MODAL (YOUR ORIGINAL WITH BASIC/PRO) -->
+<div class="modal-overlay" id="applyModal">
+    <div class="modal-box">
+        <div class="modal-header"><div class="modal-title">Apply for Tuition</div><button class="modal-close" onclick="closeApplyModal()"><i class="fas fa-times"></i></button></div>
+        <div class="post-summary" id="modalPostSummary"><strong id="modalPostTitle">—</strong><span id="modalPostDetails">—</span></div>
+        <div class="modal-form">
+            <div class="form-group"><label>Your Full Name</label><input type="text" id="applicantName" placeholder="e.g. Md. Rahim Uddin"></div>
+            <div class="form-group"><label>WhatsApp Number</label><input type="tel" id="applicantPhone" placeholder="e.g. 01712345678"></div>
+            <div class="form-group"><label>Your University / Institution</label><input type="text" id="applicantUniversity" placeholder="e.g. BUET, DU, NSU..."></div>
+            <div class="form-group"><label>Choose Your Plan</label>
+                <div class="plan-grid">
+                    <div class="plan-option selected" id="planBasic" onclick="selectPlan('basic')"><div class="plan-name">Basic</div><div class="plan-price">Free</div><div class="plan-desc">CV submitted, wait for call</div></div>
+                    <div class="plan-option pro-plan" id="planPro" onclick="selectPlan('pro')"><div class="plan-name">⭐ Pro</div><div class="plan-price">50 TK</div><div class="plan-desc">Priority CV + direct number</div></div>
+                </div>
+            </div>
+            <div id="proPaymentInfo" style="display:none; background:var(--bg); border-radius:10px; padding:0.8rem; margin-bottom:1rem; font-size:0.82rem;">
+                <strong style="color:var(--navy)">bKash Payment:</strong>
+                <div style="font-size:1.2rem; font-weight:800; color:var(--gold); margin:4px 0">01991309741</div>
+                <div style="color:var(--muted)">Send 50 TK then enter transaction ID below</div>
+                <input type="text" id="transactionId" placeholder="Transaction ID (e.g. TRX8A3K...)" style="margin-top:0.6rem; width:100%; padding:8px 12px; border:1.5px solid var(--border); border-radius:8px; font-family:Lexend,sans-serif; font-size:0.82rem; outline:none;">
+            </div>
+            <button class="submit-btn" onclick="submitApplication()"><i class="fas fa-paper-plane"></i> Submit Application</button>
+        </div>
+    </div>
+</div>
+
+<footer><p>&copy; 2025 <a href="index.html">FindmyTutor Dhaka</a> · Trusted Tuition Media in Bangladesh · <a href="contact.html">Contact Us</a></p></footer>
 
 <script>
-    const API_URL = "https://script.google.com/macros/s/AKfycbzyOFfwCLEd49PIIu730h52pXDwXzYrR43AeU6ulvQF9zyBRusDbNRv70DSX7n8_MUzKw/exec";
-    
-    function getTimeAgo(timestamp) {
-        if (!timestamp) return "Recently";
-        const now = new Date();
-        const postDate = new Date(timestamp);
-        const diffMs = now - postDate;
-        const diffMins = Math.floor(diffMs / 60000);
-        const diffHours = Math.floor(diffMs / 3600000);
-        const diffDays = Math.floor(diffMs / 86400000);
-        if (diffMins < 1) return "Just now";
-        if (diffMins < 60) return `${diffMins} min ago`;
-        if (diffHours < 24) return `${diffHours} hour${diffHours > 1 ? 's' : ''} ago`;
-        if (diffDays < 7) return `${diffDays} day${diffDays > 1 ? 's' : ''} ago`;
-        return postDate.toLocaleDateString('en-BD');
+// ============================================
+// CONFIGURATION
+// ============================================
+const API_URL = "https://script.google.com/macros/s/AKfycbzyOFfwCLEd49PIIu730h52pXDwXzYrR43AeU6ulvQF9zyBRusDbNRv70DSX7n8_MUzKw/exec";
+const WA_NUMBER = "8801991309741";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyzRoZNbYy4DDC7dhWtOEGnbPHiLjsakLMaVyPDEIbFZhEkgArTQ86EuujHkHuQlm42SA/exec";
+const ADMIN_PASSWORD = "findmytutor2024"; // CHANGE THIS PASSWORD
+
+// ============================================
+// DUMMY POSTS
+// ============================================
+const DUMMY_POSTS = [
+    { id:'D1', className:'Class 9', classLevel:'SSC', subjects:'Higher Math, Physics', area:'Dhanmondi', duration:'5 days/week', gender:'Male', salaryRange:'4000-5000 TK/month', group:'Science', timestamp: new Date(Date.now()-25*60000).toISOString(), urgent:true },
+    { id:'D2', className:'HSC 1st Year', classLevel:'HSC', subjects:'Chemistry, Biology', area:'Gulshan 2', duration:'4 days/week', gender:'Female', salaryRange:'5000-6000 TK/month', group:'Science', timestamp: new Date(Date.now()-2*3600000).toISOString(), urgent:false },
+    { id:'D3', className:'Class 7', classLevel:'Junior', subjects:'All Subjects', area:'Uttara', duration:'6 days/week', gender:'Any', salaryRange:'3000-3500 TK/month', group:'', timestamp: new Date(Date.now()-4*3600000).toISOString(), urgent:false },
+    { id:'D4', className:'O Level', classLevel:'O Level', subjects:'Mathematics, Physics, Chemistry', area:'Banani', duration:'3 days/week', gender:'Male', salaryRange:'8000-10000 TK/month', group:'', timestamp: new Date(Date.now()-6*3600000).toISOString(), urgent:true },
+    { id:'D5', className:'Class 10 (SSC)', classLevel:'SSC', subjects:'Bangla, English, Math', area:'Mirpur-10', duration:'5 days/week', gender:'Female', salaryRange:'3500-4000 TK/month', group:'', timestamp: new Date(Date.now()-9*3600000).toISOString(), urgent:false },
+    { id:'D6', className:'Class 8', classLevel:'Junior', subjects:'Science, Math', area:'Mohammadpur', duration:'4 days/week', gender:'Male', salaryRange:'2500-3000 TK/month', group:'', timestamp: new Date(Date.now()-12*3600000).toISOString(), urgent:false },
+    { id:'D7', className:'A Level', classLevel:'A Level', subjects:'Economics, Business Studies', area:'Baridhara', duration:'3 days/week', gender:'Any', salaryRange:'10000-12000 TK/month', group:'', timestamp: new Date(Date.now()-18*3600000).toISOString(), urgent:false },
+    { id:'D8', className:'HSC 2nd Year', classLevel:'HSC', subjects:'Higher Math, Physics', area:'Bashundhara R/A', duration:'5 days/week', gender:'Male', salaryRange:'6000-7000 TK/month', group:'Science', timestamp: new Date(Date.now()-22*3600000).toISOString(), urgent:true },
+    { id:'D9', className:'Class 6', classLevel:'Junior', subjects:'All Subjects', area:'Malibagh', duration:'6 days/week', gender:'Female', salaryRange:'2000-2500 TK/month', group:'', timestamp: new Date(Date.now()-28*3600000).toISOString(), urgent:false },
+    { id:'D10', className:'Class 9', classLevel:'SSC', subjects:'English, Bangla Literature', area:'Moghbazar', duration:'4 days/week', gender:'Any', salaryRange:'3000-4000 TK/month', group:'Humanities', timestamp: new Date(Date.now()-35*3600000).toISOString(), urgent:false },
+];
+
+// ============================================
+// STATE
+// ============================================
+let allPosts = [];
+let filteredPosts = [];
+let currentFilter = 'all';
+let selectedPlan = 'basic';
+let currentPostData = null;
+
+// ============================================
+// TIME FUNCTIONS
+// ============================================
+function timeAgo(ts) {
+    if (!ts) return 'Recently';
+    const diff = Date.now() - new Date(ts);
+    const m = Math.floor(diff/60000);
+    const h = Math.floor(diff/3600000);
+    const d = Math.floor(diff/86400000);
+    if (m < 1) return '<span style="color:var(--success);font-weight:600">Just now</span>';
+    if (m < 60) return `<span style="color:var(--success);font-weight:600">${m} min ago</span>`;
+    if (h < 24) return `${h} hr${h>1?'s':''} ago`;
+    return `${d} day${d>1?'s':''} ago`;
+}
+
+function isNew(ts) { return ts && (Date.now() - new Date(ts)) < 24*3600000; }
+
+// ============================================
+// SHARE FUNCTIONS
+// ============================================
+function openShareModal(post) {
+    const postUrl = `${window.location.href.split('?')[0]}?id=${post.id}`;
+    const encodedUrl = encodeURIComponent(postUrl);
+    const shareText = encodeURIComponent(`📚 Tuition Available!\nSubject: ${post.subjects}\nClass: ${post.className || post.classLevel}\nArea: ${post.area}\nSalary: ${post.salaryRange}\n\nApply here:`);
+    document.getElementById('shareLinkText').innerHTML = postUrl;
+    document.getElementById('facebookShare').href = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+    document.getElementById('whatsappShare').href = `https://wa.me/?text=${shareText} ${encodedUrl}`;
+    document.getElementById('shareModal').classList.add('open');
+}
+
+function closeShareModal() { document.getElementById('shareModal').classList.remove('open'); }
+function copyShareLink() { navigator.clipboard.writeText(document.getElementById('shareLinkText').innerText); alert('✅ Link copied!'); }
+
+// ============================================
+// PASSWORD FUNCTIONS
+// ============================================
+function openPasswordModal() { document.getElementById('passwordModal').classList.add('open'); }
+function closePasswordModal() { document.getElementById('passwordModal').classList.remove('open'); document.getElementById('adminPassword').value = ''; document.getElementById('passwordError').style.display = 'none'; }
+function verifyPassword() {
+    if (document.getElementById('adminPassword').value === ADMIN_PASSWORD) {
+        closePasswordModal();
+        window.open('https://forms.gle/4NifvjzPgk47z1877', '_blank');
+    } else {
+        document.getElementById('passwordError').style.display = 'block';
     }
-    
-    async function loadPosts() {
-        const grid = document.getElementById('tuitionGrid');
-        
-        try {
-            // ✅ FIXED: Added ?action=getPosts so the API actually returns posts
-            const response = await fetch(API_URL + "?action=getPosts");
-            const posts = await response.json();
-            
-            if (!posts || posts.length === 0) {
-                grid.innerHTML = '<div class="loading">📭 No tuition posts available. Check back soon!</div>';
-                return;
-            }
-            
-            grid.innerHTML = '';
-            
-            posts.forEach(post => {
-                const subjectsList = post.subjects ? post.subjects.split(',').map(s => s.trim()) : [];
-                // ✅ FIXED: Using className || classLevel instead of undefined field
-                const displayClass = post.className || post.classLevel || 'Not specified';
-                
-                const card = document.createElement('div');
-                card.className = 'tuition-card';
-                card.innerHTML = `
-                    <div class="salary-badge"><i class="fas fa-money-bill-wave"></i> ${post.salaryRange || 'Negotiable'}</div>
-                    <div class="class-name"><i class="fas fa-graduation-cap"></i> ${displayClass}</div>
-                    <div style="margin: 10px 0;">
-                        ${subjectsList.length > 0 ? subjectsList.map(s => `<span class="subject-tag">${s}</span>`).join('') : '<span class="subject-tag">N/A</span>'}
-                    </div>
-                    <div class="info-row"><i class="fas fa-map-marker-alt"></i> Area: ${post.area || 'Not specified'}</div>
-                    <div class="info-row"><i class="fas fa-hourglass-half"></i> Duration: ${post.duration || 'Not specified'}</div>
-                    <div class="info-row"><i class="fas fa-venus-mars"></i> Preference: ${post.gender || 'Any'} Tutor</div>
-                    <div class="info-row"><i class="fas fa-clock"></i> Posted: ${getTimeAgo(post.timestamp)}</div>
-                    <button class="interested-btn" onclick="applyNow('${displayClass}', '${post.subjects || ''}', '${post.area || ''}')">
-                        <i class="fas fa-hand-point-right"></i> Interested - Apply Now
-                    </button>
-                `;
-                grid.appendChild(card);
-            });
-            
-        } catch(error) {
-            console.error("Error:", error);
-            grid.innerHTML = '<div class="error"><i class="fas fa-exclamation-triangle"></i> Error loading posts. Please refresh the page.</div>';
-        }
+}
+
+// ============================================
+// RENDER CARD
+// ============================================
+function renderCard(post) {
+    const subjects = post.subjects ? post.subjects.split(',').map(s=>s.trim()) : ['N/A'];
+    const isUrgent = post.urgent || false;
+    const newPost = isNew(post.timestamp);
+    const isDummy = String(post.id).startsWith('D');
+
+    return `<div class="tuition-card ${isUrgent?'urgent-card':''}">
+        <div class="card-top">
+            <div class="card-left">
+                <div class="badge-row">
+                    ${newPost ? '<span class="badge badge-new"><i class="fas fa-circle"></i> NEW</span>' : ''}
+                    ${isUrgent ? '<span class="badge badge-urgent"><i class="fas fa-fire"></i> URGENT</span>' : ''}
+                    <span class="badge badge-class"><i class="fas fa-graduation-cap"></i> ${post.className||post.classLevel||'N/A'}</span>
+                    ${post.group ? `<span class="badge badge-group">${post.group}</span>` : ''}
+                </div>
+                <div class="card-title">${subjects.join(' • ')}</div>
+                <div class="card-area"><i class="fas fa-map-marker-alt"></i> ${post.area||'Dhaka'}</div>
+            </div>
+            <div class="salary-box"><div class="salary-amount">${post.salaryRange ? post.salaryRange.replace(' TK/month','') : 'N/A'}</div><div class="salary-label">TK / month</div></div>
+        </div>
+        <div class="card-details">
+            <div class="detail-item"><i class="fas fa-calendar-week"></i><span><strong>${post.duration||'N/A'}</strong></span></div>
+            <div class="detail-item"><i class="fas fa-venus-mars"></i><span><strong>${post.gender||'Any'}</strong> Tutor</span></div>
+            <div class="detail-item"><i class="fas fa-users"></i><span>1 Student</span></div>
+            <div class="detail-item"><i class="fas fa-home"></i><span>Home Tuition</span></div>
+        </div>
+        <div class="card-footer">
+            <div><div class="time-info"><i class="fas fa-clock"></i> Posted: ${timeAgo(post.timestamp)}</div><div class="post-id">Post #${isDummy ? 'FMT'+post.id.replace('D','0') : post.id}</div></div>
+            <div class="button-group">
+                <button class="share-btn" onclick="openShareModal(${JSON.stringify(post).replace(/"/g,'&quot;')})"><i class="fas fa-share-alt"></i> Share</button>
+                <button class="apply-btn" onclick="openApplyModal(${JSON.stringify(post).replace(/"/g,'&quot;')})"><i class="fas fa-hand-point-right"></i> I'm Interested</button>
+            </div>
+        </div>
+    </div>`;
+}
+
+function renderPosts(posts) {
+    const grid = document.getElementById('tuitionGrid');
+    if (!posts.length) { grid.innerHTML = '<div class="empty-state"><i class="fas fa-search"></i><p>No posts match your filter.</p></div>'; return; }
+    grid.innerHTML = posts.map(renderCard).join('');
+    document.getElementById('resultCount').innerHTML = `<strong>${posts.length}</strong> posts found`;
+}
+
+// ============================================
+// FILTERS
+// ============================================
+function setFilter(btn, type) {
+    document.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = type;
+    applyFilters();
+}
+
+function applyFilters() {
+    const search = document.getElementById('searchInput').value.toLowerCase();
+    const area = document.getElementById('areaFilter').value.toLowerCase();
+    const cls = document.getElementById('classFilter').value.toLowerCase();
+    filteredPosts = allPosts.filter(p => {
+        const matchSearch = !search || (p.subjects||'').toLowerCase().includes(search) || (p.area||'').toLowerCase().includes(search);
+        const matchArea = !area || (p.area||'').toLowerCase().includes(area);
+        const matchClass = !cls || (p.className||'').toLowerCase().includes(cls);
+        const matchFilter = currentFilter === 'all' || (currentFilter === 'urgent' && p.urgent) || (currentFilter === 'new' && isNew(p.timestamp));
+        return matchSearch && matchArea && matchClass && matchFilter;
+    });
+    renderPosts(filteredPosts);
+}
+
+function buildHotAreas(posts) {
+    const counts = {};
+    posts.forEach(p => { if(p.area) counts[p.area.split(',')[0].trim()] = (counts[p.area.split(',')[0].trim()]||0)+1; });
+    const sorted = Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,7);
+    document.getElementById('hotAreas').innerHTML = sorted.map(([a,c]) => `<div class="area-row"><span class="area-name">${a}</span><span class="area-count">${c} post${c>1?'s':''}</span></div>`).join('') || '<div style="font-size:0.82rem">Loading...</div>';
+}
+
+function updateStats(count) {
+    document.getElementById('totalPostsCount').textContent = count + '+';
+    document.getElementById('sidebarPosts').textContent = count + '+';
+}
+
+// ============================================
+// LOAD POSTS
+// ============================================
+async function loadPosts() {
+    allPosts = [...DUMMY_POSTS];
+    filteredPosts = [...allPosts];
+    renderPosts(filteredPosts);
+    buildHotAreas(allPosts);
+    updateStats(allPosts.length);
+    try {
+        const res = await fetch(API_URL + "?action=getPosts&t=" + Date.now());
+        const real = await res.json();
+        if (real && real.length > 0) allPosts = [...real, ...DUMMY_POSTS];
+        filteredPosts = [...allPosts];
+        applyFilters();
+        buildHotAreas(allPosts);
+        updateStats(allPosts.length);
+        document.getElementById('lastUpdated').textContent = 'Last updated: ' + new Date().toLocaleTimeString('en-BD', {hour:'2-digit', minute:'2-digit'});
+    } catch(e) {
+        document.getElementById('lastUpdated').textContent = 'Showing cached posts';
     }
-    
-    function applyNow(className, subjects, area) {
-        const message = `Hi! I am interested in the tuition post for ${className} - ${subjects} in ${area}. Please share more details.`;
-        window.open(`https://wa.me/8801991309741?text=${encodeURIComponent(message)}`, '_blank');
+}
+
+// ============================================
+// APPLY MODAL (ORIGINAL WITH BASIC/PRO)
+// ============================================
+function openApplyModal(post) {
+    currentPostData = post;
+    document.getElementById('modalPostTitle').textContent = (post.subjects||'N/A') + ' — ' + (post.className||post.classLevel||'');
+    document.getElementById('modalPostDetails').textContent = '📍 ' + (post.area||'Dhaka') + ' · 💰 ' + (post.salaryRange||'Negotiable') + ' · 📅 ' + (post.duration||'N/A');
+    document.getElementById('applyModal').classList.add('open');
+    selectedPlan = 'basic';
+    document.getElementById('planBasic').classList.add('selected');
+    document.getElementById('planPro').classList.remove('selected');
+    document.getElementById('proPaymentInfo').style.display = 'none';
+}
+
+function closeApplyModal() {
+    document.getElementById('applyModal').classList.remove('open');
+    currentPostData = null;
+    document.getElementById('applicantName').value = '';
+    document.getElementById('applicantPhone').value = '';
+    document.getElementById('applicantUniversity').value = '';
+    document.getElementById('transactionId').value = '';
+}
+
+function selectPlan(plan) {
+    selectedPlan = plan;
+    document.getElementById('planBasic').classList.toggle('selected', plan==='basic');
+    document.getElementById('planPro').classList.toggle('selected', plan==='pro');
+    document.getElementById('proPaymentInfo').style.display = plan==='pro' ? 'block' : 'none';
+}
+
+function submitApplication() {
+    const name = document.getElementById('applicantName').value.trim();
+    const phone = document.getElementById('applicantPhone').value.trim();
+    const uni = document.getElementById('applicantUniversity').value.trim();
+    if (!name || !phone) { alert('Please fill your name and phone number.'); return; }
+    if (selectedPlan === 'pro' && !document.getElementById('transactionId').value.trim()) { alert('Please enter your bKash transaction ID.'); return; }
+
+    const data = {
+        type: selectedPlan === 'pro' ? 'pro_applicant' : 'basic_applicant',
+        postId: currentPostData?.id || '',
+        postDetails: `${currentPostData?.subjects||''} - ${currentPostData?.className||currentPostData?.classLevel||''} - ${currentPostData?.area||''}`,
+        name, phone, university: uni,
+        plan: selectedPlan === 'pro' ? 'Pro (50 TK)' : 'Basic (Free)',
+        transactionId: document.getElementById('transactionId').value.trim() || '',
+        timestamp: new Date().toLocaleString('en-BD', {timeZone:'Asia/Dhaka'})
+    };
+    fetch(GOOGLE_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) });
+    closeApplyModal();
+    if (selectedPlan === 'pro') {
+        window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(`Hi! I applied for Pro plan: ${data.postDetails}. Name: ${name}, Phone: ${phone}, TxID: ${data.transactionId}`)}`, '_blank');
+    } else {
+        alert(`✅ Application submitted!\n\nYour CV has been registered for:\n${data.postDetails}\n\nWe will contact you on ${phone} if shortlisted.`);
     }
-    
-    loadPosts();
+}
+
+// ============================================
+// NAVIGATION
+// ============================================
+function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
+window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50));
+
+// Modal close on outside click
+document.getElementById('applyModal').addEventListener('click', e => { if(e.target === e.currentTarget) closeApplyModal(); });
+document.getElementById('shareModal').addEventListener('click', e => { if(e.target === e.currentTarget) closeShareModal(); });
+document.getElementById('passwordModal').addEventListener('click', e => { if(e.target === e.currentTarget) closePasswordModal(); });
+
+// Attach password protection
+document.getElementById('fabBtn').onclick = openPasswordModal;
+document.getElementById('postTuitionBtn').onclick = e => { e.preventDefault(); openPasswordModal(); };
+document.getElementById('ctaPostBtn').onclick = e => { e.preventDefault(); openPasswordModal(); };
+
+// Global functions
+window.setFilter = setFilter;
+window.applyFilters = applyFilters;
+window.openShareModal = openShareModal;
+window.closeShareModal = closeShareModal;
+window.copyShareLink = copyShareLink;
+window.openApplyModal = openApplyModal;
+window.closeApplyModal = closeApplyModal;
+window.selectPlan = selectPlan;
+window.submitApplication = submitApplication;
+window.verifyPassword = verifyPassword;
+window.closePasswordModal = closePasswordModal;
+window.toggleNav = toggleNav;
+
+loadPosts();
+setInterval(loadPosts, 120000);
 </script>
 </body>
 </html>
